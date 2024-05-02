@@ -1,15 +1,16 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
-- name: Dianping
-  link: http://www.dianping.com/
-  date: Jan 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
-  job: Java Developer
+- name: Scattering Amplitudes Group, Yi-jian Du, Wuhan University
+  link: https://inspirehep.net/authors/1065266?ui-citation-summary=true
+  date: Jun 2023 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Undergraduate Research
 
-- name: Madhouse
-  link: http://www.madhouse.cn/
-  date: Mar 2015 - Jan 2017
-  job: Java Developer
+- name: Topological Photonics Group, Meng Xiao, Wuhan University
+  link: https://scholar.google.com/citations?hl=zh-CN&user=zPK2MvsAAAAJ
+  date: Sep 2022 - Jan 2023
+  job: Undergraduate Research
 
-- name: Chexiang
-  link: http://www.chexiang.com/
-  date: Jul 2014 - Mar 2015
+- name: Physics Education Reform Program, Hao Wu, Wuhan University
+  link: https://scholar.google.com/citations?hl=zh-CN&user=0PfrsPQAAAAJ
+  date: May 2022 - Jun 2022
+  job: Undergraduate Innovation Capacity Enhancement Program
