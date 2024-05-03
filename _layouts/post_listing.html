@@ -7,13 +7,14 @@ layout: default
   <header class="post-header">
     <p class="post-meta">
       <span class="post-date">
+        Posted at
         {{ post.date | date: "%-d %b %Y" | upcase }}
       </span>
       {% if page.last_modified_at and page.last_modified_at != page.date %}
       <span>
-          •
-          {{ page.last_modified_at | date: '%Y:%B:%A:%d:%S:%R' }}
-      </span>
+          • Modified at
+          {{ page.last_modified_at | date: '%d %B %Y' }}
+        </span>
       {% endif %}
       {% if post.categories.size > 0 %}
       •
