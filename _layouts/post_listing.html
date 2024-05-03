@@ -10,12 +10,14 @@ layout: default
         Posted at
         {{ post.date | date: "%-d %b %Y" | upcase }}
       </span>
+      <!--注释掉，因为push到云端会有问题，懒得折腾site文件夹
       {% if page.last_modified_at and page.last_modified_at != page.date %}
       <span>
           • Modified at
           {{ page.last_modified_at | date: '%d %B %Y' }}
         </span>
       {% endif %}
+      -->
       {% if post.categories.size > 0 %}
       •
       {% for cat in post.categories %}

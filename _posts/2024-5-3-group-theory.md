@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  知乎抓取文章试运行
-categories: [math]
+categories: [CS]
 tags: [math-yun]
 ---
 
@@ -14,4 +14,8 @@ tags: [math-yun]
 
 <!--more-->
 
-{% artisync https://zhuanlan.zhihu.com/p/692020167 %}
+```
+ artisync https://zhuanlan.zhihu.com/p/692020167 
+```
+
+这个思路基本失败了，因为push到github上会出很大的问题，当然也可以搞，只需要仅仅push` _site`目录就好了，那样做代价太大。
