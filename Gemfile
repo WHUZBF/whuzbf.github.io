@@ -3,6 +3,6 @@ gem 'github-pages', group: :jekyll_plugins
 gem 'jemoji'
 gem 'tzinfo'
 gem 'tzinfo-data'
-
+gem 'jekyll-last-modified-at'
 
 gem "webrick", "~> 1.8"
