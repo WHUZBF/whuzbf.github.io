@@ -1,25 +1,42 @@
 ---
 layout: post
 title:  My First Blog
-categories: [physics]
-tags: [physics]
+categories: [CS]
+tags: [blog]
 ---
 
 # This is my first Blog!
 
 ## 创建个人Blog的辛酸史
 
-行间公式问题还没有彻底解决
+费尽千辛万苦终于初步建立了一个个人Blog，最麻烦的点其实是本地运行环境Jekyll的配置，由于我使用的是http://zjiajun.github.io/ 的模板，而这个博主已经很多年没有更新了，导致一些组件是比较低的版本，而且没有gemlock文件，所以需要降低Jekyll版本来维持基本组件`jekyll-sass-converter (= 1.5.2)`运行（我的版本是3.9.5，目前最新版本是4.x.x）。
+
+<!--more-->
+
+Jekyll的环境配置其实说起来并不是技术上有很大的困难，只要`jekyll server`不成功，把Error复制粘贴后搜索网上竟然都有答案，我是按照网上的方法一步步修改版本，更改gemfile文件然后运行下面的代码：
+
+```cmd
+bundle exc jekyll server
+```
+
+竟然就成功了！
+
+## 测试
 
 下面是公式显示测试：
 
 行内公式显示$E=mc^2$​，这是一个公式
 
-<!--more-->
-
 行间公式显示，这是一大块公式：
 
 $$
+\require{physics}
+\require{cancel}
+\require{unicode}
+\require{newcommand}
+{% raw %}
+\def\oiint{{\bigcirc}\kern-11.5pt{\int}\kern-6.5pt{\int}}
+{% endraw %}
 f(a)=\frac{1}{2\pi i}\oint_\gamma\frac{f(z)}{z-a}dz
 $$
 
@@ -31,11 +48,29 @@ $$
 \begin{aligned}
 G_{\mu}^at^a& \begin{aligned}\to(1+\mathrm{i}\alpha^{a}t^{a})G_{\mu}^{b}t^{b}(1-\mathrm{i}\alpha^{c}t^{c})+\frac{\mathrm{l}}{g_{\mathrm{s}}}(1+\mathrm{i}\alpha^{a}t^{a})\partial_{\mu}(1-\mathrm{i}\alpha^{c}t^{c})\end{aligned}  \\
 &=G_{\mu}^{b}t^{b}+\mathrm{i}\alpha^{a}G_{\mu}^{b}[t^{a},t^{b}]+\frac{1}{g_{\mathrm{s}}}(\partial_{\mu}\alpha^{c})t^{c}+\mathcal{O}(\alpha^{2})=G_{\mu}^{a}t^{a}-f^{abc}\alpha^{a}G_{\mu}^{b}t^{c}+\frac{1}{g_{\mathrm{s}}}(\partial_{\mu}\alpha^{a})t^{a}+\mathcal{O}(\alpha^{2}) \\
-&=\left(G_{\mu}^{a}+f^{abc}G_{\mu}^{b}\alpha^{c}+\frac{1}{g_{\mathrm{s}}}\partial_{\mu}\alpha^{a}\right)t^{a}+\mathcal{O}(\alpha^{2})
+&=\cancelto{\text{测试}}{\left(G_{\mu}^{a}+f^{abc}G_{\mu}^{b}\alpha^{c}+\frac{1}{g_{\mathrm{s}}}\partial_{\mu}\alpha^{a}\right)t^{a}}+\mathcal{O}(\alpha^{2})
 \end{aligned}
 $$
 
-公式太长显示不全还没有搞好
+这是physics宏包的测试
+
+$$
+\boxed{
+\ket{\psi},\bra{\psi},\tr,\Im,\grad,\ket{\cancelto{\text{测试}}{\left(G_{\mu}^{a}+f^{abc}G_{\mu}^{b}\alpha^{c}+\frac{1}{g_{\mathrm{s}}}\partial_{\mu}\alpha^{a}\right)t^{a}}}
+}
+$$
+
+这是oiint的测试
+
+$$
+{\Huge \unicode{8751}}\unicode{8752}\iiiint \oint\oiint
+$$
+
+$$
+\begin{aligned}&\oiint_{\partial\Omega}\mathbf{E}\cdot\mathrm{d}\mathbf{S}=\frac1{\varepsilon_0}\iiint_\Omega\rho\mathrm{d}V\\&\oint_{\partial\Omega}\mathbf{B}\cdot\mathrm{d}\mathbf{S}=0\\&\oint_{\partial\Sigma}\mathbf{E}\cdot\mathrm{d}\boldsymbol{\ell}=-\frac{\mathrm{d}}{\mathrm{d}t}\iint_{\Sigma}\mathbf{B}\cdot\mathrm{d}\mathbf{S}\\&\oint_{\partial\Sigma}\mathbf{B}\cdot\mathrm{d}\boldsymbol{\ell}=\mu_0\left(\iint_\Sigma\mathbf{J}\cdot\mathrm{d}\mathbf{S}+\varepsilon_0\frac{\mathrm{d}}{\mathrm{d}t}\iint_\Sigma\mathbf{E}\cdot\mathrm{d}\mathbf{S}\right)\end{aligned}
+$$
+
+
 
 ## 公式显示的苦与累
 
@@ -92,7 +127,30 @@ $$
 </head>
 ```
 
-但是实测感觉MathJax3更加快。而且无论怎么加都不成功，所以我还是改回了MathJax3。
+但是实测感觉MathJax3更加快。而且无论怎么加都不成功，所以我还是改回了MathJax3。因为mathJax3支持不少宏包，可以实现很多额外命令，最重要的是对physics宏包的支持[The TeX/LaTeX Extension List — MathJax 3.2 documentation](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html)。只需要在文档任意一个公式的地方插入下面的语句就好（最好就第一个行间公式的地方）
+
+```latex
+$$
+\require{physics}
+\require{cancel}
+\require{unicode}
+\require{newcommand}
+{% raw %}
+\def\oiint{{\bigcirc}\kern-11.5pt{\int}\kern-6.5pt{\int}}
+{% endraw %}
+%---the first equation---%
+$$
+```
+
+美中不足的是为了定义`\\oiint`(定义方法参见[关于知乎LaTeX的\oiint的打出方法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/168766717))。需要额外插入 `{% raw %}{% endraw %}` ，这直接导致第一个公式无法正常在typora中渲染，但是在浏览器中是正常的，push到云端之后可以把`{% raw %}{% endraw %}`删掉。
+
+公式正常显示的问题到这里基本就告一段落了，除了屏幕过窄无法在行间自动加入水平浮动体的问题，如果您知道答案请邮件告知。
+
+## 亟待解决的问题
+
+- [ ] 由于twitter变成了X，这使得原先的分享网址没法使用，还需要解决
+- [ ] 还需要添加pdf的下载页面
+- [ ] 一些个人信息还需要完善
 
 
 
