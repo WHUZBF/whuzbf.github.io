@@ -6,7 +6,9 @@ tags: [phys-yun]
 author: Lingyun Wang
 link: https://zhuanlan.zhihu.com/p/663779401
 image:
-    feature:https://pic4.zhimg.com/80/v2-fe8db3a75afbd0acb9fa9a51949e5d70.png
+  feature: lilunlixue2.png
+  credit: expe
+  creditlink: https://www.zhihu.com/people/expe-94
 ---
 
 # 物理の交差点：理力记事本（2）

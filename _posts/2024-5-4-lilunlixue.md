@@ -6,7 +6,9 @@ tags: [phys-yun]
 author: Lingyun Wang
 link: https://zhuanlan.zhihu.com/p/655892408
 image:
-    feature:https://pic4.zhimg.com/80/v2-bde9663492fb0c712b8db2363747f103.png
+  feature: lilunlixue.png
+  credit: expe
+  creditlink: https://www.zhihu.com/people/expe-94
 ---
 
 
