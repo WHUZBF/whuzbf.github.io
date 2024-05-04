@@ -9,7 +9,7 @@ tags: [blog]
 
 ## 创建个人Blog的辛酸史
 
-费尽千辛万苦终于初步建立了一个个人Blog，最麻烦的点其实是本地运行环境Jekyll的配置，由于我使用的是http://zjiajun.github.io/ 的模板，而这个博主已经很多年没有更新了，导致一些组件是比较低的版本，而且没有gemlock文件，所以需要降低Jekyll版本来维持基本组件`jekyll-sass-converter (= 1.5.2)`运行（我的版本是3.9.5，目前最新版本是4.x.x）。
+费尽千辛万苦终于初步建立了一个个人Blog，最麻烦的点其实是本地运行环境Jekyll的配置，由于我使用的是[zhujiajun (zjiajun.github.io)](http://zjiajun.github.io/)的模板，而这个博主已经很多年没有更新了，导致一些组件是比较低的版本，而且没有gemlock文件，所以需要降低Jekyll版本来维持基本组件`jekyll-sass-converter (= 1.5.2)`运行（我的版本是3.9.5，目前最新版本是4.x.x）。
 
 <!--more-->
 
@@ -37,12 +37,20 @@ $$
 {% raw %}
 \def\oiint{{\bigcirc}\kern-11.5pt{\int}\kern-6.5pt{\int}}
 {% endraw %}
+$$
+
+$$
 f(a)=\frac{1}{2\pi i}\oint_\gamma\frac{f(z)}{z-a}dz
 $$
 
 $$
+\begin{equation}
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+\label{ref}
+\end{equation}
 $$
+
+可以引用为\eqref{ref}
 
 $$
 \begin{aligned}
@@ -67,9 +75,19 @@ $$
 $$
 
 $$
-\begin{aligned}&\oiint_{\partial\Omega}\mathbf{E}\cdot\mathrm{d}\mathbf{S}=\frac1{\varepsilon_0}\iiint_\Omega\rho\mathrm{d}V\\&\oint_{\partial\Omega}\mathbf{B}\cdot\mathrm{d}\mathbf{S}=0\\&\oint_{\partial\Sigma}\mathbf{E}\cdot\mathrm{d}\boldsymbol{\ell}=-\frac{\mathrm{d}}{\mathrm{d}t}\iint_{\Sigma}\mathbf{B}\cdot\mathrm{d}\mathbf{S}\\&\oint_{\partial\Sigma}\mathbf{B}\cdot\mathrm{d}\boldsymbol{\ell}=\mu_0\left(\iint_\Sigma\mathbf{J}\cdot\mathrm{d}\mathbf{S}+\varepsilon_0\frac{\mathrm{d}}{\mathrm{d}t}\iint_\Sigma\mathbf{E}\cdot\mathrm{d}\mathbf{S}\right)\end{aligned}
+\begin{equation*}
+\begin{aligned}&\oiint_{\partial\Omega}\mathbf{E}\cdot\mathrm{d}\mathbf{S}=\frac1{\varepsilon_0}\iiint_\Omega\rho\mathrm{d}V\\&\oint_{\partial\Omega}\mathbf{B}\cdot\mathrm{d}\mathbf{S}=0\\&\oint_{\partial\Sigma}\mathbf{E}\cdot\mathrm{d}\boldsymbol{\ell}=-\frac{\mathrm{d}}{\mathrm{d}t}\iint_{\Sigma}\mathbf{B}\cdot\mathrm{d}\mathbf{S}\\&\oint_{\partial\Sigma}\mathbf{B}\cdot\mathrm{d}\boldsymbol{\ell}=\mu_0\left(\iint_\Sigma\mathbf{J}\cdot\mathrm{d}\mathbf{S}+\varepsilon_0\frac{\mathrm{d}}{\mathrm{d}t}\iint_\Sigma\mathbf{E}\cdot\mathrm{d}\mathbf{S}\right)
+\end{aligned}
+\end{equation*}
 $$
 
+只有放在
+```
+\begin{equation}
+----
+\end{equation}
+```
+里面的才会被自动编号
 
 
 ## 公式显示的苦与累
@@ -153,6 +171,9 @@ $$
 - [ ] downloads页面已经添加，就差对layout进行建设，加上一些供下载的内容
 - [ ] 一些个人信息还需要完善
 - [x] 显示最新修改日期
+- [x] 置顶选项
+- [ ] 优化置顶使得置顶文章更有优越感
+- [ ] 琢磨如何改网页字体显示
 
 修改日期的显示在本地可以，但是到了云端就不行了，这可能需要将site push而不是整个项目文件push来达到，因为git-page支持的插件有限
 

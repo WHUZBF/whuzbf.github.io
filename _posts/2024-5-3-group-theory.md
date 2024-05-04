@@ -3,6 +3,8 @@ layout: post
 title:  知乎抓取文章试运行
 categories: [CS]
 tags: [math-yun]
+author: Lingyun Wang
+link: https://zhuanlan.zhihu.com/p/692020167
 ---
 
 # 知乎抓取文章试运行

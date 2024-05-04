@@ -1,6 +1,7 @@
 # updates data
-- date: 2024-5-2
+- date: 2024-5
   description:
+    - desc: Add "pinned" option
     - desc: Add the "downloads" page
     - desc: Trying to sync Zhihu article and add the modification date of my blog, but git-page doesn't support these plugins
     - desc: Modification of the formula description
