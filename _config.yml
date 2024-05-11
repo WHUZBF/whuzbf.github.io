@@ -32,6 +32,7 @@ plugins:
   - jekyll-gist
   - jemoji
   - jekyll-last-modified-at
+  - jekyll-sitemap
 
 #
 ###################################

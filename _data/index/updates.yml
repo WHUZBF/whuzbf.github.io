@@ -1,6 +1,7 @@
 # updates data
 - date: 2024-5
   description:
+    - desc: This site has been included in bing.com
     - desc: Fixed the bug with displaying long formulas
     - desc: Add "pinned" option
     - desc: Add the "downloads" page
