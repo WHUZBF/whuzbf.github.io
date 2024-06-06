@@ -1,4 +1,7 @@
 # updates data
+- date: 2024-6
+  description:
+    - desc: Fixed the bug with displaying long formulas completely
 - date: 2024-5
   description:
     - desc: This site has been included in bing.com
