@@ -1,0 +1,88 @@
+---
+layout: default
+title: Downloads
+permalink: /downloads/
+---
+
+<!DOCTYPE html>
+
+<head>
+    <title>这里主要是一些用LaTeX编译的文档</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>这里主要是一些用LaTeX编译的文档</h1>
+<p><font color="#d8b64e">但是不一定及时更新，这些pdf基本都是半成品，有些章节还没来得及写完</font></p>
+<h2><font color="#995989">expe</font></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="card-container">
+    <div class="card" onclick='location.href=("pages/electrodynamics.html")'>
+        <p>
+            <img src="cover/electrodynamics.jpg" style="float:left; margin: 5px;"  width="50%" heigh="auto"/>
+        </p>
+        <h3>电动力学期末复习笔记</h3>
+        <p>这是expe第一次写复习向LaTeX,颜色调了小波奇的粉粉配色(这学期ta没看动画片,感觉迟早ta要开除二籍了)ta平常乱写markdown写习惯了，所以各个细节完全不会注意，可以逼死强迫症。</p>
+    </div>
+    <div class="card">
+        <!-- 这里放置卡片内容 -->
+    </div>
+    <!-- 添加更多卡片 -->
+</div>
+&nbsp;
+&nbsp;
+&nbsp;
+<h2><font color=" #488de1">Bufan Zheng</font></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="card-container">
+    <div class="card" onclick='location.href=("pages/qm.html")'>
+        <p>
+            <img src="cover/qm.jpg" style="float:left; margin: 5px;"  width="50%" heigh="auto"/>
+        </p>
+        <h3>量子力学笔记</h3>
+        <p>这是我的量子力学学习笔记，大一大二写的，里面还包括附录，有一些群论和矢量分析的内容。后续有时间可能补齐高量内容。</p>
+    </div>
+    <div class="card" onclick='location.href=("pages/celestial.html")'>
+        <p>
+            <img src="cover/celestial.png" style="float:left; margin: 5px;"  width="50%" heigh="auto"/>
+        </p>
+        <h3>天球振幅科研笔记</h3>
+        <p>这是我的天球振幅科研笔记，算是到2021年为止这个方向的重要文献阅读笔记。这个笔记还有独立的一章是关于二维CFT的，相当于Blumenhagen前两章的内容。</p>
+    </div>
+    <!-- 添加更多卡片 -->
+</div>
+</body>
+
+<!-- 卡片悬停效果 -->
+<script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'scale(1.05)';
+            card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+        });
+
+        card.addEventListener('mouseout', () => {
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+        });
+    });
+</script>
