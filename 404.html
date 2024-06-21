@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
 
+<html>
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - 未发现页面</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.net/bootstrap/5.3.1/css/bootstrap.min.css">
   <style>
     * {
       line-height: 1.2;
@@ -34,7 +36,7 @@
 
     p {
       margin: 0 auto;
-      width: 280px;
+      width: 500px;
     }
 
     @media only screen and (max-width: 280px) {
@@ -52,11 +54,38 @@
     }
   </style>
 </head>
+<body class="font-monospace">
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+      <div class="page-content pt-5">
+        <h2>抱歉，你访问的页面走丢拉！</h2>
+        <p class="py-3">不要慌！<strong id="timeRest" class="fs-5 text-danger ps-2">5</strong> 秒后将自动返回网站首页，请稍候...</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var timeRest = 5;
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      // 计算剩余的时间
+      timeRest--;
 
-<body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+      // 在 HTML 标记内显示剩余的时间
+      if (timeRest != 0)
+        document.getElementById("timeRest").innerHTML = timeRest;
+
+      // 当剩余时间为 0 时，删除 setInterval，并跳转到主页
+      if (timeRest==0) {
+        clearInterval(timerInterval);
+        window.location.replace("/");
+      }
+
+    }, 1000);
+  }
+  startTimer();
+</script>
 </body>
-
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->
+
