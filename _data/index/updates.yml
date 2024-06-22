@@ -1,8 +1,9 @@
 # updates data
 - date: 2024-6
   description:
+    - desc: Beautify the color scheme and improve the information
     - desc: diy 404 page
-    - desc: Add "clickable-image"
+    - desc: Add "clickable-image" (ongoing)
     - desc: Embedding pdf in "downloads"
     - desc: Fixed the bug with displaying long formulas completely
 - date: 2024-5
