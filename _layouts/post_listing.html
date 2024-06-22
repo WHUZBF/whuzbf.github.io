@@ -2,100 +2,17 @@
 layout: default
 ---
 
+{% comment %} 置顶文章列表开始 {% endcomment %}
 {% for post in site.posts %}
-<!--实现博客置顶，但是是不分页的情况，而且循环两次，还可以优化应该-->
-{% if post.top == true %}
+{% if post.top %}
+{% if paginator.page == 1 %}
+{% comment %} 文章列表代码开始 {% endcomment %}
 <section class="post">
   <header class="post-header">
     <p class="post-meta">
       <span class="post-date">
         Pinned
       </span>
-      <!--注释掉，因为push到云端会有问题，懒得折腾site文件夹
-      {% if page.last_modified_at and page.last_modified_at != page.date %}
-      <span>
-          • Modified at
-          {{ page.last_modified_at | date: '%d %B %Y' }}
-        </span>
-      {% endif %}
-      -->
-      {% if post.categories.size > 0 %}
-      •
-      {% for cat in post.categories %}
-        <a class="post-cat" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
-        {% unless forloop.last %}
-        <span>/</span>
-        {% endunless %}
-      {% endfor %}
-      {% endif %}
-    </p>
-    <h4>
-      <a href="{{ site.url }}{{ post.url }}" class="post-title" title="{{ post.title }}">{{ post.title }}</a>
-      {% if post.link %}
-      <a class="post-title-link" href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-external-link"></i></a>
-      {% endif %}
-    </h4>
-
-    {% if post.author %}
-      {% assign author = site.data.authors[post.author] %}
-      {% if author.link %}
-     <p><font color="#ffc0cb"><b>By</b></font> <a href="{{ author.link }}">{{ author.name }}</a></p>
-      {% else %}
-          <p><font color="#ffc0cb"><b>By</b></font> {{ author.name }}</p>
-      {% endif %}
-    {% else %}
-      {% assign author = site.owner %}
-       <p><font color="#ffc0cb"><b>By</b></font> <a href="{{ site.url }}">{{ author.name }}</a></p>
-    {% endif %}
-
-    </header>
-
-    {% if post.excerpt %}
-    <div class="post-description">
-      <p>
-        {{ post.excerpt }}
-      </p>
-    </div>
-    {% endif %}
-
-    {% if post.image.feature %}
-    <div class="post-image-feature">
-      <img src=
-      {% if post.image.feature contains 'http' %}
-      "{{ post.image.feature }}"
-      {% else %}
-      "{{ site.url }}/img/{{ post.image.feature }}"
-      {% endif %}
-      alt="{{ post.title }} feature image">
-
-      {% if post.image.credit %}
-      <span class="image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span>
-      {% endif %}
-    </div><!-- /.image-wrap -->
-    {% endif %}
-
-</section>
-{% endif %}
-{% endfor %}
-
-{% for post in site.posts %}
-<!--下面是不置顶博客-->
-{% if post.top != true %}
-<section class="post">
-  <header class="post-header">
-    <p class="post-meta">
-      <span class="post-date">
-        Posted at
-        {{ post.date | date: "%-d %b %Y" | upcase }}
-      </span>
-      <!--注释掉，因为push到云端会有问题，懒得折腾site文件夹
-      {% if page.last_modified_at and page.last_modified_at != page.date %}
-      <span>
-          • Modified at
-          {{ page.last_modified_at | date: '%d %B %Y' }}
-        </span>
-      {% endif %}
-      -->
       {% if post.categories.size > 0 %}
       •
       {% for cat in post.categories %}
@@ -150,7 +67,90 @@ layout: default
     {% endif %}
   </div><!-- /.image-wrap -->
   {% endif %}
-
 </section>
+{% comment %} 文章列表代码结束 {% endcomment %}
+{% endif %}
 {% endif %}
 {% endfor %}
+{% comment %} 置顶文章列表结束 {% endcomment %}
+
+
+{% comment %} 普通文章列表开始 {% endcomment %}
+{% for post in paginator.posts %}
+{% if post.top %}
+{% else %}
+{% comment %} 文章列表代码开始 {% endcomment %}
+  <section class="post">
+    <header class="post-header">
+      <p class="post-meta">
+      <span class="post-date">
+        Posted at
+        {{ post.date | date: "%-d %b %Y" | upcase }}
+      </span>
+        {% if post.categories.size > 0 %}
+        •
+        {% for cat in post.categories %}
+        <a class="post-cat" href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+        {% unless forloop.last %}
+        <span>/</span>
+        {% endunless %}
+        {% endfor %}
+        {% endif %}
+      </p>
+      <h4>
+        <a href="{{ site.url }}{{ post.url }}" class="post-title" title="{{ post.title }}">{{ post.title }}</a>
+        {% if post.link %}
+        <a class="post-title-link" href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-external-link"></i></a>
+        {% endif %}
+      </h4>
+
+      {% if post.author %}
+      {% assign author = site.data.authors[post.author] %}
+      {% if author.link %}
+      <p><font color="#ffc0cb"><b>By</b></font> <a href="{{ author.link }}">{{ author.name }}</a></p>
+      {% else %}
+      <p><font color="#ffc0cb"><b>By</b></font> {{ author.name }}</p>
+      {% endif %}
+      {% else %}
+      {% assign author = site.owner %}
+      <p><font color="#ffc0cb"><b>By</b></font> <a href="{{ site.url }}">{{ author.name }}</a></p>
+      {% endif %}
+
+    </header>
+
+    {% if post.excerpt %}
+    <div class="post-description">
+      <p>
+        {{ post.excerpt }}
+      </p>
+    </div>
+    {% endif %}
+
+    {% if post.image.feature %}
+    <div class="post-image-feature">
+      <img src=
+                   {% if post.image.feature contains 'http' %}
+      "{{ post.image.feature }}"
+      {% else %}
+      "{{ site.url }}/img/{{ post.image.feature }}"
+      {% endif %}
+      alt="{{ post.title }} feature image">
+
+      {% if post.image.credit %}
+      <span class="image-credit">Photo Credit: <a href="{{ post.image.creditlink }}">{{ post.image.credit }}</a></span>
+      {% endif %}
+    </div><!-- /.image-wrap -->
+    {% endif %}
+
+  </section>
+{% comment %} 文章列表代码结束 {% endcomment %}
+{% endif %}
+{% endfor %}
+{% comment %} 普通文章列表结束 {% endcomment %}
+
+
+
+<!--分页器-->
+<footer>
+  {% include pagination.html %}
+</footer>

@@ -1,6 +1,8 @@
 # updates data
 - date: 2024-6
   description:
+    - desc: Use jekyll-paginator
+    - desc: Add Counter
     - desc: Beautify the color scheme and improve the information
     - desc: diy 404 page
     - desc: Add "clickable-image" (ongoing)

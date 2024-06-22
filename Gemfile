@@ -7,5 +7,6 @@ gem "jekyll-last-modified-at", group: :jekyll_plugins
 gem "nokogiri", group: :jekyll_plugins
 gem "jekyll-artisync", group: :jekyll_plugins
 gem 'jekyll-sitemap'
+gem 'jekyll-paginate'
 
 gem "webrick", "~> 1.8"
