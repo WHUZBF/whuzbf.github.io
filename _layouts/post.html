@@ -6,9 +6,6 @@ layout: default
 <head>
 <!--  数学公式-->
 {% include math.html %}
-<!--  复制code-->
-<!--  这个功能正在做-->
-<!--{% include copycode.html%}-->
 </head>
 
 <a class="btn" href= "{{ site.url }}/" >
@@ -41,15 +38,6 @@ layout: default
       <span class="post-date">
         Posted at {{page.date | date: "%-d %b %Y" | upcase }}
       </span>
-      <!-- lastmod date -->
-      <!--注释掉，push到云端有问题
-      {% if page.last_modified_at and page.last_modified_at != page.date %}
-        <span>
-          • Modified at
-          {{ page.last_modified_at | date: '%d %B %Y' }}
-        </span>
-      {% endif %}
-      -->
       •
       {% include read_time.html %}
     </span>
