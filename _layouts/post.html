@@ -2,27 +2,13 @@
 layout: default
 ---
 
-<!--数学公式-->
+
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$']],
-        processEscapes: true,
-        tags: 'ams'
-      }
-    };
-  </script>
-  <!--数学公式超长-->
-  <style>
-    mjx-container
-    {
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-  </style>
+<!--  数学公式-->
+{% include math.html %}
+<!--  复制code-->
+<!--  这个功能正在做-->
+<!--{% include copycode.html%}-->
 </head>
 
 <a class="btn" href= "{{ site.url }}/" >
@@ -104,6 +90,3 @@ layout: default
 
 {% include post_next_previous.html%}
 
-<!--还未成功-->
-<!--图片点击放大-->
-<!--{% include clickable-image.html %}-->
