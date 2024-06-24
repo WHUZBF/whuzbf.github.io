@@ -26,45 +26,131 @@ permalink: /downloads/
             background-color: #f9f9f9;
             cursor: pointer;
         }
+
+        .hiddencard {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            cursor: pointer;
+            visibility: hidden;
+        }
+
+        @media only screen and (max-width: 600px){
+            .hiddencard {
+                display: none;
+            }
+        }
+        
+        img{
+            float:left;
+            margin: 5px;
+            pointer-events: none;
+        }
     </style>
 </head>
 <newbody>
 <h1>这里主要是一些用LaTeX编译的文档</h1>
 <p><font color="#995989">但是不一定及时更新，这些pdf基本都是半成品，有些章节还没来得及写完</font></p>
+
 <h2><font color=#4db0b9>expe</font></h2>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<!--    expe-->
 <div class="card-container">
     <div class="card" onclick='location.href=("pages/electrodynamics.html")'>
         <p>
-            <img src="cover/electrodynamics.png" style="float:left; margin: 5px;"  width="50%" heigh="auto"/>
+            <img src="cover/electrodynamics.png" width="50%" heigh="auto"/>
         </p>
         <h3>电动力学期末复习笔记</h3>
         <p>这是expe第一次写复习向LaTeX,颜色调了小波奇的粉粉配色(这学期ta没看动画片,感觉迟早ta要开除二籍了)ta平常乱写markdown写习惯了，所以各个细节完全不会注意，可以逼死强迫症。</p>
     </div>
-    <div class="card">
+    <div class="hiddencard">
+<!--        这是一个被隐藏的卡片-->
         <!-- 这里放置卡片内容 -->
     </div>
     <!-- 添加更多卡片 -->
 </div>
+
 &nbsp;
 &nbsp;
 &nbsp;
+
 <h2><font color=" #488de1">Bufan Zheng</font></h2>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<!--    bufan zheng-->
 <div class="card-container">
     <div class="card" onclick='location.href=("pages/qm.html")'>
         <p>
-            <img src="cover/qm.jpg" style="float:left; margin: 5px;"  width="50%" heigh="auto"/>
+            <img src="cover/qm.jpg" width="50%" heigh="auto" />
         </p>
         <h3>量子力学笔记</h3>
         <p>这是我的量子力学学习笔记，大一大二写的，里面还包括附录，有一些群论和矢量分析的内容。后续有时间可能补齐高量内容。</p>
     </div>
     <div class="card" onclick='location.href=("pages/celestial.html")'>
         <p>
-            <img src="cover/celestial.png" style="float:left; margin: 5px;"  width="50%" heigh="auto"/>
+            <img src="cover/celestial.png" width="50%" heigh="auto"/>
         </p>
         <h3>天球振幅科研笔记</h3>
         <p>这是我的天球振幅科研笔记，算是到2021年为止这个方向的重要文献阅读笔记。这个笔记还有独立的一章是关于二维CFT的，相当于Blumenhagen前两章的内容。</p>
+    </div>
+    <!-- 添加更多卡片 -->
+</div>
+&nbsp;
+<div class="card-container">
+    <div class="card" onclick='location.href=("pages/particle_physics.html")'>
+        <p>
+            <img src="cover/particle_physics.png" width="50%" heigh="auto" />
+        </p>
+        <h3>粒子物理课程中期论文</h3>
+        <p>这是张振宇老师粒子物理课程的中期论文报告，主要是看了B. Yang的暗物质导论书的前几章写的东西，还附带了一些关广义相对论的基本介绍。他同时也是物理学前沿科技这门水课的结课论文。</p>
+    </div>
+    <div class="card" onclick='location.href=("pages/astro.html")'>
+        <p>
+            <img src="cover/astro.jpg" width="50%" heigh="auto"/>
+        </p>
+        <h3>普通天文学结课论文</h3>
+        <p>这是普通天文学的结课论文，主要是关于黑洞的，写的非常科普，毕竟就是看了点科普方面的书，加上那么一丢丢严谨的论文写成的。</p>
+    </div>
+    <!-- 添加更多卡片 -->
+</div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+<h2><font color=" #77408e">Beamers</font></h2>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<!--    reports-->
+<div class="card-container">
+    <div class="card" onclick='location.href=("pages/oral_defense_1.html")'>
+        <p>
+            <img src="cover/oral_defense_1.png" width="50%" heigh="auto"/>
+        </p>
+        <h3>科研训练一答辩</h3>
+        <p>这是我的大三上科研训练结课答辩时的ppt，主题是天球振幅，可以配合我的天球振幅科研笔记食用。</p>
+    </div>
+    <div class="card" onclick='location.href=("pages/oral_defense_2.html")'>
+        <p>
+            <img src="cover/oral_defense_2.png" width="50%" heigh="auto"/>
+        </p>
+        <h3>科研训练二答辩</h3>
+        <p>这是我的大三下科研训练结课答辩时的ppt，主题是振幅的CHY形式，可以搭配本站的CHY笔记食用。</p>
+    </div>
+    <!-- 添加更多卡片 -->
+</div>
+
+&nbsp;
+
+<div class="card-container">
+    <div class="card" onclick='location.href=("pages/classical_mechanics_report.html")'>
+        <p>
+            <img src="cover/classical_mechanics_report.png" width="50%" heigh="auto"/>
+        </p>
+        <h3>理论力学课程报告</h3>
+        <p>这是我的大二上理论力学结课时的报告ppt，写的比较幽默，主要是看完<font style= "font-style:italic">Physics From Symmetry</font>之后的一些感想。</p>
+    </div>
+    <div class="hiddencard" >
+
     </div>
     <!-- 添加更多卡片 -->
 </div>

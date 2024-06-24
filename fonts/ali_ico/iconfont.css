@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4596591 */
+  src: url('iconfont.eot?t=1719206727990'); /* IE9 */
+  src: url('iconfont.eot?t=1719206727990#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('iconfont.woff2?t=1719206727990') format('woff2'),
+       url('iconfont.woff?t=1719206727990') format('woff'),
+       url('iconfont.ttf?t=1719206727990') format('truetype'),
+       url('iconfont.svg?t=1719206727990#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 15px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhihu:before {
+  content: "\e69a";
+}
+
