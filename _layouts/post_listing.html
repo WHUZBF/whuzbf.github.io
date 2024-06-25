@@ -2,6 +2,13 @@
 layout: default
 ---
 
+<!--实现网页搜索功能-->
+<head>
+<!--  这里搞成文件夹主要是可能后面搜索框还能加很多不同的搜素引擎-->
+<!--  上面那句开玩笑的，真正原因是网上教程这么搞的-->
+  {% include search-providers/custom/search.html%}
+</head>
+
 {% comment %} 置顶文章列表开始 {% endcomment %}
 {% for post in site.posts %}
 {% if post.top %}

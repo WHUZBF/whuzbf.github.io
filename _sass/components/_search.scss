@@ -1,0 +1,64 @@
+.search {
+  color: orange;
+  height: 10px;
+  text-align: right;
+  line-height: 30px;
+  padding-right: 10px;
+}
+
+.search .search-icon {
+  float: right;
+  height: 100%;
+  margin: 0 10px;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search .search-input {
+  float: right;
+  width: 30%;
+  height: 30px;
+  color: #000000;
+  background-color: white;
+  line-height: 30px;
+  margin: 0;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.search .search-results {
+  display: block;
+  z-index: 1000;
+  position: absolute;
+  top: 85px;
+  right: 50px;
+  width: 60%;
+  max-height: 400px;
+  overflow: auto;
+  text-align: left;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 .3rem .5rem #333;
+}
+
+.card {
+  max-width: 60rem;
+}
+
+.search .search-results .result-item {
+  /*    background: aqua;*/
+  margin: 5px;
+  padding: 3px;
+  color: #488de1; //这个color其实没啥用了，在js里面直接设置吧
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+//这样才能让搜索结果不遮挡搜索框
+@media only screen and (max-width: 600px){
+  .search .search-results {
+    top: 55px;
+  }
+}

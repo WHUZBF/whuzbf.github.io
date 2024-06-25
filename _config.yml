@@ -50,7 +50,7 @@ owner:
   job: "Student at WHU"
   bio: "Phyiscs lover and Code fancier. Studying in Wuhan, China."
   email: whuzbf@qq.com
-  disqus-shortname: #username
+  disqus-shortname: whuzbf-github-io
   twitter:  #username
   facebook: #username
   google:
@@ -79,3 +79,8 @@ owner:
   telegram: #username
   rss: true
   zhihu: zheng-bu-fan-78-55
+  
+## => Search
+##############################
+search:
+  provider: custom # "default" (default), false, "google", "custom"

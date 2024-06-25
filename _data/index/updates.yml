@@ -1,6 +1,8 @@
 # updates data
 - date: 2024-6
   description:
+    - desc: add search component
+    - desc: Disqus is available now
     - desc: add RSS subscription
     - desc: next and previous posts
     - desc: Use jekyll-paginator
