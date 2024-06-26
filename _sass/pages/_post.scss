@@ -248,3 +248,17 @@ a.read-more {
     border-color: #5f99cf;
   }
 }
+.qq {
+  background-color: #9485c5;
+  color: $white;
+  border-color: #9485c5;
+  &:visited {
+    color: $white;
+    border-color: #9485c5;
+  }
+  &:hover {
+    background-color: $white;
+    color: #9485c5;
+    border-color: #9485c5;
+  }
+}
