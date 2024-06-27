@@ -5,7 +5,7 @@
     {% for career in site.data.index.careers %}
           <div class="archive-title">
               <div class="archive-year">
-                <strong>{{ career.date }}</strong> {{ career.job }} @ <a href="{{ career.link }}" target="_blank">{{ career.name }}</a>
+                <strong>{{ career.date }}</strong> {{ career.job }} @ <a href="{{ career.link }}" target="_blank">{{ career.name }}</a> , <a href="{{ career.location_link }}" target="_blank" style="color: #488de1">{{ career.location }}</a>
               </div>
           </div>
     {% endfor %}

@@ -1,4 +1,8 @@
 # updates data
+- date: 2024-7
+  description:
+    - desc: complete my resume
+    - desc: add Publications
 - date: 2024-6
   description:
     - desc: add search component

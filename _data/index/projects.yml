@@ -1,4 +1,30 @@
-- name: leonids
-  descr: "Bacon ipsum dolor sit amet doner meatball jowl short ribs, chicken prosciutto salami frankfurter. Pig drumstick turducken short ribs, brisket meatloaf ham hock shankle andouille corned beef strip steak. Venison ham bresaola strip steak. Pork belly ribeye prosciutto t-bone."
-  image: pong.png
-  github: https://github.com/renyuanz/leonids
+- name: My Research Note
+  descr: "You can find the source code of my Celestial Amplitudes note here."
+  github: https://github.com/WHUZBF/Celestial-Amplitudes-Note
+  language: LaTex
+
+- name: My Quantum mechanics note
+  descr: "You can find the source code of my Quantum Mechanics note here."
+  github: https://github.com/WHUZBF/My_notes
+  language: LaTex
+
+- name: My Research note
+  descr: "You can find the source code of my Research note here."
+  github: https://github.com/WHUZBF/Research-Notes
+  language: LaTex
+
+- name: My Reports
+  descr: "You can find the source code of my beamers here."
+  github: https://github.com/WHUZBF/MyReports
+  language: LaTex
+
+- name: Matrix Calculator by python
+  descr: "This is a matrix calculator written entirely in python. It was mainly written in the first semester of freshman year. It can do almost all calculations in elementary linear algebra (matrix operations)."
+  github: https://github.com/WHUZBF/my_python_works
+  language: Python
+
+- name: My Website
+  descr: "If you want to know how my website works, you will find it useful."
+  github: https://github.com/WHUZBF/whuzbf.github.io
+  language: Jekyll
+

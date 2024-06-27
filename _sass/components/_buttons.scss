@@ -61,6 +61,16 @@
 
 // Danger button
 .btn-danger {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 1.0em;
+  font-family: kawaii-en;
+  margin-right: 4px;
+  font-weight: 700;
+  border-width: 2px !important;
+  border-style: solid !important;
+  text-decoration: none !important;
+  border-radius: 5px;
   background-color: $danger;
   color: $white;
   border-color: $danger;
@@ -77,6 +87,16 @@
 
 // Information button
 .btn-info {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 1.0em;
+  font-family: kawaii-en;
+  margin-right: 4px;
+  font-weight: 700;
+  border-width: 2px !important;
+  border-style: solid !important;
+  text-decoration: none !important;
+  border-radius: 5px;
   background-color: $info;
   color: $white;
   border-color: $info;

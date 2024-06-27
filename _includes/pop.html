@@ -1,0 +1,89 @@
+<div id="overlay">
+    <div class="popup" id="popup">
+<!--        用js追加-->
+    </div>
+</div>
+
+<script>
+    function showPopup(title,content,flag){
+        var overlay = document.getElementById("overlay");
+        var div = document.getElementById("popup");
+        div.innerHTML += '<p class="popup_title">' + title + '</p>';
+        if (flag){
+            div.innerHTML += '<p class="popup_content">' + content + '</p>'
+        } else {
+            div.innerHTML += '<pre>' + content + '</pre>';
+        };
+        div.innerHTML += "<div class=\"popup_btn\">\n" +
+            "            <button class=\"confirmBtn\" onclick=\"hidePopup()\" style=\'font-family: kawaii-en\'>close</button>\n" +
+            "        </div>"
+        overlay.style.display = "block";
+    }
+    function hidePopup(){
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "none";
+        // 清除指令
+        var div = document.getElementById("popup");
+        div.innerHTML = ""
+    }
+</script>
+
+<style>
+    /* 遮罩层 */
+    #overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        /* IE9以下不支持rgba模式 */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* 兼容IE8及以下 */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);
+        display: none;
+        z-index: 999;
+    }
+    /* 弹出框主体 */
+    .popup {
+        background-color: #ffffff;
+        width: 50%;
+        max-height: 500px;
+        border-radius: 5px;
+        overflow-x: auto;
+        overflow-y: auto;
+        margin: 200px auto;
+        padding: 10px;
+    }
+    /* 弹出框的标题 */
+    .popup_title {
+        height: 30px;
+        line-height: 30px;
+        border-bottom: solid 1px #cccccc;
+        text-align: center;
+        font-family: kawaii-en;
+    }
+    /* 弹出框的内容 */
+    .popup_content {
+        height: 50px;
+        line-height: 100%;
+        padding: 15px 20px;
+        display: inline;
+    }
+    /* 弹出框的按钮栏 */
+    .popup_btn {
+        padding-top: 20px;
+        text-align: center;
+    }
+    /* 弹出框的按钮 */
+    .popup_btn button {
+        width: 40%;
+        height: 40px;
+        cursor: pointer;
+        border: solid 1px #cccccc;
+        border-radius: 5px;
+        margin: 5px 10px;
+        color: #ffffff;
+        background-color: #337ab7;
+    }
+</style>

@@ -1,16 +1,22 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
-- name: Scattering Amplitudes Group, Yi-jian Du, Wuhan University
+- name: Scattering Amplitudes Group, Yi-jian Du
   link: https://inspirehep.net/authors/1065266?ui-citation-summary=true
   date: Jun 2023 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
   job: Undergraduate Research
+  location: WHU Phys.
+  location_link: https://physics.whu.edu.cn/
 
-- name: Topological Photonics Group, Meng Xiao, Wuhan University
+- name: Topological Photonics Group, Meng Xiao
   link: https://scholar.google.com/citations?hl=zh-CN&user=zPK2MvsAAAAJ
   date: Sep 2022 - Jan 2023
   job: Undergraduate Research
+  location: WHU Phys.
+  location_link: https://physics.whu.edu.cn/
 
-- name: Physics Education Reform Program, Hao Wu, Wuhan University
+- name: Physics Education Reform Program, Hao Wu
   link: https://scholar.google.com/citations?hl=zh-CN&user=0PfrsPQAAAAJ
   date: May 2022 - Jun 2022
   job: Undergraduate Innovation Capacity Enhancement Program
+  location: WHU Phys.
+  location_link: https://physics.whu.edu.cn/

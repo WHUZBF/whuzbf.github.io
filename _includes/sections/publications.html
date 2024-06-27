@@ -1,0 +1,48 @@
+<h1 style="font-family: kawaii-en;color: #984063"><span>publications</span></h1>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<ol>
+    {% for publication in site.data.index.publications %}
+        <li>
+            <h5>{{publication.title}}</h5>
+            <p><span style="font-family: kawaii-en">By: </span>
+            {% for author in publication.authors %}
+            {% if author contains 'email' %}
+                {{author|remove: " email"}}<sup class="fa fa-fw fa-envelope"></sup>
+            {% elsif author contains '郑卜凡' or 'Bufan Zheng' %}
+                <strong style="color: #488de1; ">{{author}}</strong>
+            {% else %}
+                {{author}}
+            {% endif %}
+            {% if author contains '.' %}
+            {% elsif publication.language=='zh' %}
+            ，
+            {% else %}
+            ,
+            {% endif %}
+            {% endfor %}
+            </p>
+            {% if publication.journal %}
+            <p><span style="font-family: kawaii-en">Journal: </span><a href="{{publication.journal_link}}">{{publication.journal}}</a></p>
+            {% endif %}
+            {% if publication.doi %}
+            <p><span style="font-family: kawaii-en">DOI: </span><a href="{{publication.doi}}">{{publication.doi}}</a></p>
+            {% endif %}
+            {% if publication.arxiv %}
+            <p><span style="font-family: kawaii-en">arXiv: </span><a href="https://arxiv.org/abs/{{publication.arxiv}}">{{publication.arxiv}}</a></p>
+            {% endif %}
+            <p style="font-size: small;font-family: kawaii-en">Published: {{publication.date}}</p>
+        <!-- 加入按钮-->
+            <div class="btn-info" style="cursor: pointer" onclick="showPopup('BibTex', '{{publication.bibtex}}')">BibTex</div>
+            <div class="btn-info" style="cursor: pointer" onclick="showPopup('Abstract', '{{publication.abstract}}',true)">abstract</div>
+            {% if publication.pdf %}
+            <div class="btn-danger" style="cursor: pointer" onclick="window.location.href='{{site.url}}/downloads/publications/{{publication.pdf}}.pdf'">pdf</div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ol>
+
+<style>
+    li p{
+        line-height: 50%;
+    }
+</style>

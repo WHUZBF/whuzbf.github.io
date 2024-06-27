@@ -1,0 +1,23 @@
+- title: 严格证明克劳修斯等式的一种可行方法
+  authors:
+    - "吴昊 email"
+    - "郑卜凡."
+  date: Feb, 2023
+  arxiv: false
+  journal: 物理通报,2023,(01):13-15.
+  journal_link: http://wltb.ijournal.cn/ch/reader/view_abstract.aspx?file_no=20221008&flag=1
+  abstract: "论述了一种从数学上严格证明克劳修斯等式的新方法，指出可逆循环热温比积分的数学实质是第二类曲线积分，并通过格林公式和能态方程证明了克劳修斯等式，最后指出了克劳修斯熵的引入数学上等价于寻找到一个合适的积分因子."
+  bibtex: '@article{WLTB202301003,\n\t 
+                    author = {郑卜凡 and 吴昊},\n\t
+                    title = {严格证明克劳修斯等式的一种可行方法},\n\t
+                    journal = {物理通报},\n\t
+                    volume = {},\n\t
+                    number = {01},\n\t
+                    pages = {13-15},\n\t
+                    year = {2023},\n\t
+                    issn = {0509-4038},\n\t
+                    doi ={}\n
+          }'
+#            死马当活马医，单引号不转意，双引号才转
+  pdf: Clausius
+  language: 'zh'
