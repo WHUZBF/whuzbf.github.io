@@ -5,7 +5,11 @@ layout: default
 
 <head>
 <!--  数学公式-->
-{% include math.html %}
+  {% include math.html %}
+<!-- tikz-->
+  {% if page.tikz %}
+  {% include tikz.html %}
+  {% endif %}
 </head>
 
 <a class="btn" href= "{{ site.url }}/" >
