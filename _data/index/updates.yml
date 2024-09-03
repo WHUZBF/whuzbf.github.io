@@ -1,4 +1,7 @@
 # updates data
+- date: 2024-9
+  description:
+    - desc: Add translation feature by "https://translate.zvo.cn/index.html"
 - date: 2024-7
   description:
     - desc: tikzJax add
