@@ -1,7 +1,12 @@
 <script src="https://cdn.staticfile.net/translate.js/3.2.1/translate.js"></script>
 <script>
+    translate.selectLanguageTag.languages = 'english,chinese_simplified,japanese';//支持的语种
     translate.setAutoDiscriminateLocalLanguage();    //设置用户第一次用时，自动识别其所在国家的语种进行切换
+    translate.ignore.tag.push("mjx-container"); //不翻译数学公式
+    translate.ignore.class.push("no-translate"); //不翻译的可以用no-translate
     translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
+    // translate.service.use('client');//这个有次数限制
+    translate.listener.start();//监听动态变化
     translate.execute();//进行翻译
 </script>
 
@@ -9,6 +14,6 @@
 
 <style>
     .translateSelectLanguage{
-
+    width: 100px;
     }
 </style>
