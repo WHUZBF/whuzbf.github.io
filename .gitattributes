@@ -1,2 +1,2 @@
-*.nb linguist-detectable=true
-*.m linguist-detectable=true
+*.nb linguist-detectable=false
+*.m linguist-detectable=false
