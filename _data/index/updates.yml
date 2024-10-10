@@ -1,4 +1,7 @@
 # updates data
+- date: 2024-10
+  description:
+    - desc: Implement displaying the last updated time of an article using the GitHub API
 - date: 2024-9
   description:
     - desc: Math equations will not be translated now, and you can stop the automatic translation by wrapping the div by the "no-translate" class
