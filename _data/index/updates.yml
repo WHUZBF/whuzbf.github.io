@@ -1,4 +1,7 @@
 # updates data
+- date: 2024-11
+  description:
+    - desc: Replaced "center" with "tikzbox", which avoids overflow but causes the diagram to not be centered. Still not sure how to solve this perfectly.
 - date: 2024-10
   description:
     - desc: Implement displaying the last updated time of an article using the GitHub API
