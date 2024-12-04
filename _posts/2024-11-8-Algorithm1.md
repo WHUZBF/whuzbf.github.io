@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  算法学习（一）
-categories: [cs]
+categories: [CS]
 tags: [cs]
 ---
 
