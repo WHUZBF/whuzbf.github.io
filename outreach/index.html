@@ -1,0 +1,107 @@
+---
+layout: default
+title: Outreach
+permalink: /outreach/
+---
+
+<!DOCTYPE html>
+<head>
+    <style>
+        /*注意这里是newbody，如果是body会改变原本父div的body*/
+        newbody {
+            font-family: Arial, sans-serif;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .hiddencard {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            cursor: pointer;
+            visibility: hidden;
+        }
+
+        @media only screen and (max-width: 600px){
+            .hiddencard {
+                display: none;
+            }
+        }
+
+        /*这样就只会对card里面的产生影响，而不改变左侧导航栏的头像*/
+        .card img{
+            float:left;
+            margin: 5px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<newbody>
+<h1>这里记录一些我主办的学术活动</h1>
+<h2><font color=" #488de1">武汉大学理论物理讨论班</font></h2>
+    <p>武汉大学在理论物理方向的氛围十分欠缺，为了让更多武大物理系的同学能够接触到理论物理，自2024年春季起我开始主办理论物理讨论班。青眼白龙、张子锐、沈正、张加楠、aojiu、柳淇瀚和陈俊烨等同学在讨论班建设中也发挥了重要作用。</p>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    <div class="card-container">
+        <div class="card" onclick='location.href=("pages/book_club_1.html")'>
+            <p>
+                <img src="cover/book_club_1.jpg" width="50%" heigh="auto"/>
+            </p>
+            <h3>第一届理论物理讨论班：统计物理</h3>
+            <p>这一届理论物理讨论班我们学习了很多统计物理模型的精确解以及近似解法，后面由我主讲了二维共形场论的相关内容。由于是第一次开展这样的活动，所以经验还不是特别丰富，有很多不足</p>
+        </div>
+        <div class="card" onclick='location.href=("pages/book_club_2.html")'>
+            <p>
+                <img src="cover/book_club_2.jpg" width="50%" heigh="auto"/>
+            </p>
+            <h3>第二届理论物理讨论班：宇宙学</h3>
+            <p>这一届理论物理讨论班我们学习了Baumann的宇宙学，而且还请来一些学长给我们做了黑洞微观态和弦理论相关的colloquium。暗物质、热大爆炸、暴涨宇宙学等等这些重要的宇宙学模型都有介绍。有了上一次的经验加持，讨论班的发起人很多也是做gr-qc的，所以这一届讨论班要比上一届成功不少。</p>
+        </div>
+    </div>
+
+<!--    <div class="card-container">-->
+<!--        <div class="card" onclick='location.href=("pages/book_club_3.html")'>-->
+<!--            <p>-->
+<!--                <img src="cover/book_club_3.jpg" width="50%" heigh="auto"/>-->
+<!--            </p>-->
+<!--            <h3>第三届理论物理讨论班：理论凝聚态</h3>-->
+<!--            <p>这是我在校期间举办的最后一届理论物理讨论班，或许后面没人能帮忙坚持下去，或许武汉大学还是没有理论物理的土壤吧。正是因为可能是最后一届，所以我下决心要尽可能办到最好！</p>-->
+<!--        </div>-->
+<!--        <div class="hiddencard">-->
+<!--            &lt;!&ndash;这是一个被隐藏的卡片&ndash;&gt;-->
+<!--            &lt;!&ndash; 这里放置卡片内容 &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 添加更多卡片 &ndash;&gt;-->
+<!--    </div>-->
+
+</newbody>
+
+<!-- 卡片悬停效果 -->
+<script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'scale(1.05)';
+            card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+        });
+
+        card.addEventListener('mouseout', () => {
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+        });
+    });
+</script>
