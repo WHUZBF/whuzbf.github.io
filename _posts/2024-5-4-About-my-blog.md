@@ -28,3 +28,11 @@ This blog was created using jekyll, thanks to [zhujiajuan's blog](https://zjiaju
 # Acknowledge
 
 A special thanks to expe for contributing the knowledge overload of math and physics notes :+1:, and the beautiful illustrations to the site :+1::+1::+1::+1:.
+
+# Some Bugs
+
+## Translator
+The translator will keep the selected target language for translation even if you view different pages on this site after choosing the target language. This can be quite convenient in some cases. However, some blog pages on this website are in English, and they may not require translation (after all, machine translation can sometimes cause unexpected errors). Therefore, I recommend that when you encounter obvious translation mistakes, first try switching to English to pause the translator and see if that helps.
+
+## Formula Rendering:
+With optimization, the website automatically adds a scrollbar for horizontal overflow when rendering formulas. However, I’m not sure why all formulas are being considered as vertically overflowing (although this doesn’t happen in most cases), so I used the code `overflow-y: hidden`. This works in most cases, but in rare instances, vertical overflow does occur, causing formulas to be wrongly cropped, especially when encountering large summation or product symbols. Based on my tests, this bug is not critical. It will automatically disappear when the webpage is zoomed in, and I recommend that you (if you are using a regular laptop to view this blog) set your browser zoom to 110%-125% for the best reading experience.
