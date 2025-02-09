@@ -306,7 +306,7 @@ $$
 x\otimes \mathbb{1}=\mathbb{1}\otimes x = x
 $$
 
-然后是幺半等价，范畴间的等价就是存在一对互为拟逆的函子，所以我们只需要说明什么是幺半函子：
+然后是幺半等价，范畴间的等价就是存在一对互为拟逆的函子，所以我们需要说明什么是幺半函子：
 
 > 幺半函子包含两个资料：
 > - 一个函子$F:\mathcal{C}\to\mathcal{D}$
@@ -316,7 +316,13 @@ $$
 > ![F2](\img\posts\topological_order\26.png)
 > ![F0](\img\posts\topological_order\27.png)
 
-这个在后面讨论体边对应的时候还会用到。
+这个在后面讨论体边对应的时候还会用到。以及还要说明什么是幺半函子之间的自然变换用来定义拟逆：
+
+> 考虑两个幺半范畴上的两个幺半函子$F,G:\mathcal{C}\to\mathcal{D}$，幺半自然变换$\alpha:F\Rightarrow G$是一个自然变换，且满足下面的交换图表：
+>
+> ![幺半自然变换1](\img\posts\topological_order\34.png)
+>
+> ![幺半自然变换2](\img\posts\topological_order\35.png)
 
 <p>
 一个比较深刻但是并不是太“亲民”的张量范畴的例子来源于公理化拓扑量子场论，可以定义下面的配边范畴。考虑$n-1$维实紧致闭可定向流形，且包括空集，一起作为$n$-$\mathsf{Cob}$中的对象，而对象$X$的定向倒转显然也是对象，记作$X^*$。两个对象$X,Y$之间的态射由配边操作的等价类给出，配边操作时髦点的说法就是$n$维带边定向流形$W$配上同构$\partial W\to X\sqcup Y^*$。比较土的说法就是把两个流形作为边，绘制出以他们为边的流形的不同方式，比如$n=2$，有下面的裤管图（从左往右画）：
@@ -401,7 +407,7 @@ $$
 > 
 > 满足这些特点的我们称之为幺正范畴，等价于$C^*$范畴，而且幺正结构自然诱导半单
 
-类似量子力学，态射的幺正性定义为：$f^\dagger = f^{-1}$。显然任何的拓扑序都允许时间反演的存在，都应该自然带有一个幺正结构，而这一幺正结构应当和幺半结构是相容的，比如我们考虑下面的两幅图：
+类似量子力学，态射的幺正性定义为：$f^\dagger = f^{-1}$[^22]。显然任何的拓扑序都允许时间反演的存在，都应该自然带有一个幺正结构，而这一幺正结构应当和幺半结构是相容的，比如我们考虑下面的两幅图：
 
 ![相容性](\img\posts\topological_order\30.png)
 
@@ -424,8 +430,184 @@ $$
 Hilbert空间范畴$\mathsf{Hilb}$就是个典型的UTC。
 
 ## 刚性
+前面说的$\dagger$，是态射的对偶，而对对象而言是不变的，那么对象的对偶应当是什么？首先想到的肯定是对偶线性空间，$\ket{\psi}\leftrightarrow \bra{\psi}$。前面在讨论toric model时，提到string operator会产生一对点缺陷，这可以看作是产生了一个粒子和一个反粒子，同时也可以用string operator将他们湮灭，用图像表示如下：
+
+![刚性产生湮灭算符](\img\posts\topological_order\32.png)
+
+对于toric model，缺陷是自对偶的，也就是:
+
+$$
+\mathbb{1}^* = \mathbb{1},\quad e^*=e,\quad m^*=m,\quad f^*=f
+$$
+
+考虑下面的世界线同伦：
+
+![zig-zag](\img\posts\topological_order\33.png)
+
+不难读出下面的zig-zag关系：
+
+$$
+\begin{aligned}
+\left(x\xrightarrow{\lambda_{x}^{-1}}\mathbb{1}\otimes x\xrightarrow{b_{x}\otimes\mathrm{id}_{x}}(x\otimes x^{*})\otimes x\xrightarrow{a_{x,x^{*},x}}x\otimes(x^{*}\otimes x)\xrightarrow{\mathrm{id}_{x}\otimes d_{x}}x\otimes\mathbb{1}\xrightarrow{\rho_{x}}x\right)=\mathrm{id}_{x},
+\\
+\left(x^{*}\xrightarrow{\rho_{x^{*}}^{-1}}x^{*}\otimes\mathbb{1}\xrightarrow{\mathrm{id}_{x^{*}}\otimes b_{x}}x^{*}\otimes(x\otimes x^{*})\xrightarrow{a_{x^{*},x,x^{*}}^{-1}}(x^{*}\otimes x)\otimes x^{*}\xrightarrow{d_{x}\otimes\mathrm{id}_{x^{*}}}\mathbb{1}\otimes x^{*}\xrightarrow{\lambda_{x^{*}}}x^{*}\right)=\mathrm{id}_{x^{*}}
+\end{aligned}
+$$
+
+由此可以引入**dual**的概念：
+>任意一个对象$x$的左对偶$x^L\in\mathcal{C}$包含以下资料：
+>-两个态射$b_x:\mathbb{1}\to x\otimes x^L,d_x:x^L\otimes x\to\mathbb{1}$
+>-满足zig-zag关系[^16]
+>
+> $$
+>(\mathrm{id}_{x}\otimes d_{x})\circ(b_{x}\otimes\mathrm{id}_{x})=\mathrm{id}_{x},\quad(d_{x}\otimes\mathrm{id}_{x^{L}})\circ(\mathrm{id}_{x^{L}}\otimes b_{x})=\mathrm{id}_{x^{L}}
+> $$
+>
+> 前面通过toric model引入的对偶就是左对偶，同样也可以引入右对偶$x^R\in\mathcal{C}$：
+> -两个态射$b_{x}^{\prime}:1\to x^{R}\otimes x,d_{x}^{\prime}:x\otimes x^{R}\to1$
+>- 满足zig-zag关系
+>
+> $$
+>(d_x^{\prime}\otimes\mathrm{id}_x)\circ(\mathrm{id}_x\otimes b_x^{\prime})=\mathrm{id}_x,\quad(\mathrm{id}_{x^R}\otimes d_x^{\prime})\circ(b_x^{\prime}\circ\mathrm{id}_{x^R})=\mathrm{id}_{x^R}
+> $$
+>
+> 如果任意一个元素的左右对偶都存在，那么我们就称为**刚性范畴**。而且还和幺半结构有下面的相容性：
+> 
+> $$
+> (x\otimes y)^L\simeq y^L\otimes x^L,(x\otimes y)^R\simeq y^R\otimes x^R
+> $$
+> 
+> 在刚性范畴中也可以定义态射的对偶，比如$f:x\to y$的左对偶$f^L:y^L\to x^L$：
+> 
+> $$
+> f^L:=(d_y\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{y^L}\otimes f\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{x^L}\otimes b_x)
+> $$
+> 
+> 在联合zig-zag方程，左右对偶实际上定义了函子$\delta^L(\delta^R):\mathcal{C}^{\mathrm{op}}\to\mathcal{C}$。根据函子性可以立即发现对偶是保直和的（最多差个典范同构)，也就是说：
+> 
+>$$
+>(x_1\oplus\cdots\oplus x_n)^L\simeq x_1^L\oplus\cdots\oplus x_n^L
+>$$
+>
+> 注意，左右对偶类似零对象一样，都是定义到只差一个典范同构意义的。
+> 作为练习，请读者从数学以及物理上说明下面的等式：
+> 
+> $$
+> (f\otimes\mathrm{id}_{x^L})\circ b_x=(\mathrm{id}_y\otimes f^L)\circ b_y,\quad d_y\circ(\mathrm{id}_{y^L}\otimes f)=d_x\circ(f^L\otimes\mathrm{id}_x)
+> $$
+> 
+> 上面的定义还说明了**$x^L$是$x$的左对偶，则$x$是$x^L$的右对偶**，也就是说：
+> 
+> $$(x^L)^R\simeq x$$
+
+由上面的定义，显然$\mathbb{1}$对于左右对偶都是自对偶的，前面toric model对于左对偶是自对偶的，而讨论toric model时对于生成的粒子哪个是反粒子哪个是正粒子完全是人为约定，所以不难想象$x^L=x^R=x$。自对偶这一点我们并不奢求在任何模型上都有，但是如果左右对偶不一样，问题会很复杂。这将导致一个对象有互不相同的四个对偶子对象$x^L,x^R,(x^L)^L,(x^R)^R$。不难发现，只要我们建立了$x^L$与$(x^L)^L$之间的同构[^17]，这四个对偶都可以同构起来，那么一个对象的对偶可以再差一个典范同构的意义下唯一确定为$x^*$。
+
+我们自然期望体系是存在这种结构，类似结合约束，幺约束，我们要求存在下面的约束（自然同构）：
+
+$$
+a_x:x\to x^{LL},\quad a_x\otimes a_y=a_{x\otimes y}
+$$
+
+后面这个条件其实要求这是个幺半自然同构，这个结构我们叫做pivatal结构。而幺正范畴会**唯一**诱导出一个pivotal结构：
+
+$$
+a_x:=(b_x^\dagger\otimes\mathrm{id}_{x^{LL}})\circ(\mathrm{id}_x\otimes b_{x^L})=(\mathrm{id}_{x^{LL}}\otimes d_x)\circ(d_{x^L}^\dagger\otimes\mathrm{id}_x)
+$$
+
+这个结果直接摆在这里有点难以接受，首先我们记<b>$(x^*,b_x,d_x)$</b>为左对偶，然后考虑<b>$(x^*,d^\dagger_x,b^\dagger_x)$</b>[^18]，不难发现下式成立：
+
+$$
+(b_x^\dagger\otimes\mathrm{id}_x)\circ(\mathrm{id}_x\otimes d_x^\dagger)=[(\mathrm{id}_x\otimes d_x)\circ(b_x\otimes\mathrm{id}_x)]^\dagger=\mathrm{id}_x^\dagger=\mathrm{id}_x\\(\mathrm{id}_{x^*}\otimes b_x^\dagger)\circ(d_x^\dagger\circ\mathrm{id}_{x^*})=[(d_x\circ\mathrm{id}_{x^*})\circ(\mathrm{id}_{x^*}\otimes b_x)]^\dagger=\mathrm{id}_{x^*}^\dagger=\mathrm{id}_{x^*}
+$$
+
+这说明$(x^*,d^\dagger_x,b^\dagger_x)$也是右对偶，所以左右对偶同构。
+
+现在建立一下产生和湮灭算符的直观，产生算符可以看作是$1\to\sum_i\ket{\psi_i}\bra{\psi_i}$，而湮灭算符实际上可以看作是取trace，$\operatorname{Tr}(\ket{\psi}\bra{\psi})\sim 1$。现在我们把产生湮灭算符连起来用，可以得到：
+
+$$
+b_x^\dagger\circ b_x,d_x\circ d_x^\dagger:\mathbb{1}\to\mathbb{1}
+$$
+
+从世界线上看相当于考虑闭合世界线。现在考虑stable体系，$\mathbb{1}$是单的，回忆前面对单对象的要求，有一条是自同态$\mathrm{End}(x)=\mathbb{C}$。所以闭合世界线会得到一个数，这与求迹的直观想象是吻合的，由此可以定义**quantum dimension**：
+
+$$
+\dim(x):=\sqrt{(b_x^\dagger\circ b_x)\cdot(d_x\circ d_x^\dagger)}>0
+$$
+
+这是对于幺正的情形， 对于一般的非幺正刚性范畴，但是上面定义了pivotal结构，可以定义：
+
+$$
+\dim^L(x):=d_{x^L}\circ(a_x\otimes\mathrm{id}_{x^L})\circ b_x,\quad\dim^R(x):=d_x\circ(\mathrm{id}_{x^L}\otimes a_x^{-1})\circ b_{x^L}
+$$
+
+当这两个维数相等的时候我们就称pivotal结构是spherical的，对于幺正情形，其上的pivotal结构一定是spherical的，所以我们只需要谈论$\dim (x)$就够了。另外注意到我们总是可以对产生湮灭算符进行rescaling，从而使得：
+
+$$
+b_x^\dagger\circ b_x=d_x\circ d_x^\dagger=\dim(x)
+$$
+
+在这种正规化选取下，不光对象的左右对偶相等，态射的左右对偶也相等：
+
+$$
+f^*:=(d_y\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{y^*}\otimes f\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{x^*}\otimes b_x)=(\mathrm{id}_{x^*}\otimes b_y^\dagger)\circ(\mathrm{id}_{x^*}\otimes f\otimes\mathrm{id}_{y^*})\circ(d_x^\dagger\otimes\mathrm{id}_{x^*}).
+$$
+
+<p>
+而且$(f^{*})^{\dagger}=(f^{\dagger})^{*}$，这其实意味着在这种情况下$\delta^L=\delta^R\equiv\delta^*$。<b>后面我们假设都做了这种正规化</b>。
+</p>
+
+对于整个范畴，定义其quantum dimension为所有simple obeject的quantum dimension的平方和：[^19]
+
+$$
+\dim(\mathcal{C}):=\sum_{x\in\mathrm{Irr}(\mathcal{C})}\dim(x)^2
+$$
+
+quantum dimension在日常生活中接触到的$\mathsf{Vec},\mathsf{Rep(G)},\mathsf{Vec_{G}}$的语境下就是老百姓口中说的”维数“。[^20]
+
+上面的求维数相当于对对象取迹，如果在闭合时间线内部插个瞬子，就可以看作是对瞬子取迹，有定义：
+
+$$
+\mathrm{tr}(f):=b_x^\dagger\circ(f\otimes\mathrm{id}_{x^*})\circ b_x=d_x\circ(\mathrm{id}_{x^*}\otimes f)\circ d_x^\dagger\in\mathrm{Hom}_\mathbb{C}(1,1)\simeq\mathbb{C}
+$$
 
 ## 融合范畴
+
+把前面的结构全部加在一起，也就是半单刚性幺半范畴，称为**multi-fusion范畴**，如果再加上一个stable，也就是要求张量积幺元$\mathbb{1}$是单的，称之为**fusion范畴**。幺正（与幺半结构相容）是定义的可选DLC。
+
+如果读者比较熟悉共形场论，一定对fusion一次不陌生，共形场论中，OPE代数定义了conformal family之间的融合规则，再融合范畴中，类似的，在simple object等价类的意义下有下面的融合规则：
+
+$$
+x\otimes y\simeq\bigoplus_{z\in\mathrm{Irr}(\mathbb{C})}N_{xy}^z\cdot z,\quad N_{xy}^z\in\mathbb{N}
+$$
+
+也就是说在直和作为加法，张量积作为乘法的意义下，$\mathrm{Irr}(\mathcal{C})$构成了一个环，称为fusion ring或者说Grothendieck ring。
+
+在融合规则的加持下，计算quantum dimension计算有下面的关系：
+
+$$
+\dim(x\oplus y)=\dim(x)+\dim(y),\quad\dim(x\otimes y)=\dim(x)\cdot\dim(y)\\
+
+\dim(x)\cdot\dim(y)=\sum_{z\in\mathrm{Irr}(\mathcal{C})}N_{xy}^z\cdot\dim(z)
+$$
+
+融合范畴下还可以定义一个维数，称为**Frobenius-Perron dimension**：
+
+$$
+\mathrm{FPdim(x)}:= \rho(N_x)
+$$
+
+这里$\rho$代表矩阵的谱半径，也就是矩阵本征值的最大值，$N_x$由<b>$(N_x)_{yz}:=N_{x,y}^z$</b>定义，Frobenius-Perron定理说明了$\mathrm{FPdim(x)}$非负，对于范畴本身也可以定义：
+
+$$
+\mathrm{FPdim}(\mathcal{C}):=\sum_{x\in\mathrm{Irr}(\mathcal{C})}\mathrm{FPdim}(x)^2
+$$
+
+如果范畴满足：$\dim(\mathcal{C})=\mathrm{FPdim}(\mathcal{C})$，就称为是**pseudo-unitary**，幺正范畴一定满足这一点。在物理上，考虑盘面上的拓扑序，在上面加$n$个$x$缺陷，体系基态简并数目可以由下式刻画：
+
+$$
+\mathrm{GSD}\sim\mathrm{constant}\cdot \mathrm{FPdim}(x)^n
+$$
+
 
 ## 辫结构
 前面我们介绍过对于实际的拓扑序，应该容许不同的点位上可以给出不同的tensor product。对于一维情况，可以证明确实就只有一种$\otimes$[^13]。对于二维情况，有两种$\otimes_{1},\otimes_{2}$，而且他们还满足下面的相容性条件：
@@ -442,11 +624,151 @@ $$
 
 所以我们把$\otimes_1$看作是给出幺半结构，而$\otimes_2$则是给出了这个幺半范畴内的某种交换性[^14]。因为对于一般的幺半范畴我们并不要求乘法可交换（在同构的意义下），而本节要讲的辫结构就是在幺半范畴的基础上加了个**交换约束**。从物理上看，辫结构是涌现出来的，是伴随幺半结构出来的！这是个非常有意思的现象，而且这个现象是二维才有的！
 
+这种交换，可以看作是世界线的编织，也就是说存在一个瞬子：
 
+$$
+c_{x,y}{:}x\otimes y\to y\otimes x
+$$
+
+这种编织显然有下面两种情况：
+
+![任意子的编织](\img\posts\topological_order\37.png)
+
+
+我们把左边的叫braiding，由$c(x,y)$生成，右边的叫anti-braiding，不难看到由braiding的逆生成，这种可逆性说明了交换约束是同构。进一步由于瞬子可以在世界线上随便移动，所以下面的图说明了编织的自然性：
+
+![编织的自然性](\img\posts\topological_order\38.png)
+
+$$
+c_{x^\prime,y^\prime}\circ(f\otimes g)=(g\otimes f)\circ c_{x,y}
+$$
+
+所以$c$是$\otimes\Rightarrow \otimes\circ\tau$函子间的同构，这里$\tau:\mathbb{C}\times\mathbb{C}\to\mathbb{C}\times\mathbb{C}, (x,y)\mapsto (y,x)$。在toric model中我们碰见过这种编织，不过那时候我们算的是double braiding，因为这里的braiding是转半圈（可以走上下半圆，对应编织和反编织），很多时候我们喜欢的是转一整圈：
+
+![double braiding](\img\posts\topological_order\39.png)
+
+任意子编织最有意思的地方在于这种转一整圈会带来一个相位因子。比如$c_{m,e}\circ c_{e,m}=-\mathrm{id}_{e\otimes m}$。带来了一个费米子相位，这种辫结构可以看作是在描述拓扑激发之间的**mutual statistical**。而且，就跟前面说幺半结构不是gauge fixing的，辫结构也不是，他也有很多人为选取的任意性，所以一个拓扑序上可以定义很多辫结构，转半圈你用不同的辨结构得到的结果或许不同，但是转一整圈你得到的结果肯定是一样的。比如：
+
+$$
+c_{m,e}\circ c_{e,m}=-\mathrm{id}_{e\otimes m} \Leftarrow\begin{cases}
+c_{e,m}=+1,c_{e,m}=-1\\
+c_{e,m}=-1,c_{e,m}=+1
+\end{cases}
+$$
+
+现在我们给出幺半范畴上辫结构的公理：
+
+> 幺半范畴上的辨结构也就是一个自然同构$c:\otimes\Rightarrow \otimes\circ\tau$，使得下面的图表交换：
+>
+> ![H1](\img\posts\topological_order\41.png)
+>
+> ![H2](\img\posts\topological_order\42.png)
+>
+> 以及下面的两个三角形：[^21]
+>
+> ![T](\img\posts\topological_order\43.png)
+>
+> 如果进一步辫幺半范畴还满足$c_{y,x}\circ c_{x,y}=\mathrm{id}_{x\otimes y}$，则称为对称幺半范畴
+
+如果把unitary加进来，则要求$c_{x,y}$作为瞬子也要是幺正的这一相容性条件。前面幺正性和幺半性的相容性说明$\dagger$是幺半函子，到了这里实际上说明$\dagger$是辫幺半函子：
+
+>辫幺半函子$F$是两个幺半范畴$\mathcal{C}\to\mathcal{D}$之间的幺半函子，额外要求下图可交换：
+>
+>![辫幺半函子](\img\posts\topological_order\45.png)
+>
+>有了前面幺半自然变换的定义，你或许会像有没有辫幺半自然变换，其实是有的，但是他和幺半自然变换等价，所以无需额外介绍。[^24]
+
+
+上面的两个六边形公理对应三个任意子编织时的世界线同伦：
+
+![三个任意子编织](\img\posts\topological_order\40.png)
+
+还有一个十分容易验证但是又格外重要的交换图表：[^23]
+
+![YBE](\img\posts\topological_order\44.png)
+
+这个图如果略去所有的结合约束，或者说考虑严格幺半范畴，可以简并为下面的等式：
+
+$$
+(c_{y,z}\otimes\mathrm{id}_x)\circ(\mathrm{id}_y\otimes c_{x,z})\circ(c_{x,y}\otimes\mathrm{id}_z)=(\mathrm{id}_z\otimes c_{x,y})\circ(c_{x,z}\otimes\mathrm{id}_y)\circ(\mathrm{id}_x\otimes c_{y,z})
+$$
+
+这个等式似乎和最早你见到的YBE长得不太像，我们现在考虑$\mathsf{Vec}$范畴，$V\otimes V$上面的线性自同构记为$R$，可以看作是$c_{V,V}$，那么上面的方程变到特殊情况：
+
+$$
+\left(R\otimes\mathrm{id}_V\right)\left(\mathrm{id}_V\otimes R\right)\left(R\otimes\mathrm{id}_V\right)=\left(\mathrm{id}_V\otimes R\right)\left(R\otimes\mathrm{id}_V\right)\left(\mathrm{id}_V\otimes R\right)
+$$
+
+然后考虑在基底$\{e_i\}$下展开$R(e_i\otimes e_j)=\sum_{k,l}R_{i,j}^{k,l}e_k\otimes e_l$，上面的方程就变成了人畜无害的形式：
+
+$$
+\forall i,j,k,l,m,n,\quad\sum_{p,q,y}R_{i,j}^{p,q}R_{q,k}^{y,n}R_{p,y}^{l,m}=\sum_{y,q,r}R_{j,k}^{q,r}R_{i,q}^{l,y}R_{y,r}^{m,n}
+$$
+
+
+Yang-Baxter方程其实等价于下面的世界线同伦：
+
+![YBE worldline](\img\posts\topological_order\46.png)
+
+<p>
+这种世界线同伦的看法并非物理学家的专利，在数学上也常常这么用，在数学上我们其实就是在考虑辫子的同痕类，构成辫范畴$\mathsf{Braid}$。$n$条线构成的辫子（的等价类）记作$\mathcal{B}_n$。这其实构成一个群，乘法是两个辫子首尾相接，幺元就是不打结的辫子，这成为<b>Artin辫群</b>。$\mathsf{Braid}$范畴是严格幺半辫范畴的一个具体实现，包含以下资料：
+</p>
+
+- 其中的对象是非零整数
+- 两个对象之间的态射集在$n=m$时是辫群，在$n\neq m$时是空集，态射的合成就是辫群群乘法
+- 幺半结构$\otimes$定义为两个辫子放在一起
+- 辫结构由辫子之间交织给出，也就是前文的世界线交织
+
+现在考虑$\mathsf{Rep(G)}$上的辫结构，定义如下：
+
+$$
+c_{V,W}:V\otimes W\to W\otimes V,\quad v\otimes w\mapsto w\otimes v
+$$
+
+显然这是个对称融合范畴（幺半已经囊括在融合里面了）。但是这是最常规最trivial的选取。考虑$z\in Z(G)$，这里$Z$表示群中心，而且考虑满足$z^2=e$。那么考虑表示$(V,\rho)$，$\rho(z)^2=1$，可以将表示空间看成$\mathbb{Z}_2$分次的：
+
+$$
+V=V_0\oplus V_1,\quad V_0:=\{v\in V\mid\rho(z)(v)=v\},\quad V_1:=\{v\in V\mid\rho(z)(v)=-v\}
+$$
+
+而且我们记$\|v\|=i \text{ for } v\in V_i$。所以这个时候$V$其实是个可约表示（假设$V_i$都不平凡）。然后我们就可以定义辫结构：
+
+$$
+\begin{aligned}c_{V,W}{:}V\otimes W&\to W\otimes V\\v\otimes w&\mapsto(-1)^{|v||w|}\cdot w\otimes v\end{aligned}
+$$
+
+从不那么亲民的角度来看，中心荷的存在使得表示空间升格成了超空间，超空间里面的向量就可以根据自身是玻色子$\in V_0$还是费米子$\in V_1$来决定交换时的符号。前面定义的naive的辫结构相当于是取$z=e$。而数学上证明**任何对称融合范畴都等价于某个群$G$以及某个满足$z^2=e$的群中心生成的辫结构**。
+
+任意子之间的编织结构（互统计）可以用下面定义的$S$矩阵来描述：
+
+$$
+S_{xy}:=\mathrm{tr}(c_{y,x^*}\circ c_{x^*,y})=\mathrm{tr}(c_{y^*,x}\circ c_{x,y^*}),\quad \forall x,y\in\mathrm{Irr}(\mathcal{C})
+$$
+
+这个的计算还是有点复杂的，即使对于toric model而言：
+
+$$
+S=\begin{pmatrix}1&1&1&1\\1&1&-1&-1\\1&-1&1&-1\\1&-1&-1&1\end{pmatrix}
+$$
+
+这里基底取的是$(\mathbb{1},e,m,f)$的顺序。
 
 ## 丝带结构
 
+前面考虑的是两条世界线的交织，现在我们要考虑的就是一条世界线的自相交，对应粒子的自统计。这其实是比较反直觉的一件事情，首先从前面辫结构的三角形公理可以看出对象和幺元的编织是平凡的，另外从世界线上看下面的世界线似乎同伦于平凡态射：
+
+![世界线自相交](\img\posts\topological_order\47.png)
+
+
+这说明自统计要区别于辨结构对待，不能看作是于幺元的编织，实际上我们可以想象世界线不是一根细线，而是一个二维的丝带，这并不会对讨论对象之间的相互编织产生影响，但是显然当丝带自己缠绕的时候，就和平凡情况不等价了：
+
+![丝带结构世界线](\img\posts\topological_order\48.png)
+
+
+
 ## UMTC
+
+MMA程序包
 
 ## 构造新的拓扑序
 
@@ -469,6 +791,15 @@ $$
 [^10]: 似乎物理论文一般默认这一点，我找到了[math stackexcange上的一个讨论](https://math.stackexchange.com/questions/805019/distributivity-of-tensor-products-over-direct-sums-for-group-representations)
 [^11]: 这里有个小练习，读者试着画一下表示自然性的交换图表，并从物理上解释这一点。
 [^12]: 我觉得这是一个非常好的追图联系（不会有人蛇年想追蛇引理吧），另外原谅我偷了李教主书上的图，我们的对象用的小写字母，他用的大写，其它约定都是一样的
-[^13]: 用到了比较新的范畴论结果
+[^13]: 用到了比较新的范畴论结果 https://arxiv.org/abs/1910.11353
 [^14]: 当然你也可以反过来看，这都无所谓，范畴等价
 [^15]: 这里的$1\in\mathbb{C}$是复数里面的$1$，不要理解为幺元了，虽然我喜欢偷懒，但是这种重要的懒不能偷
+[^16]: 为了书写方便，我们略去了结合约束，这很容易补回来。后面有些式子完整写下结合约束之后会非常长，也会不加说明的用这一约定，反正最后计算很容易补回来。
+[^17]: 相信你读到这里已经发现了，我经常混用元素的等价和同构，无所谓，范畴论最不喜欢用的就是严格相等。
+[^18]: 这里注意顺序，求dagger物理上看是时间反演，标记左右对偶的箭头不仅要变，开口也要变，所以产生和湮灭算符角色互换
+[^19]: 注意，刚性范畴上可以定义不同的spherical结构，最终会导致不同的quantum dimension of object，但是整个范畴的quantum dimension不随spherical结构改变。
+[^20]: 到了这里你应当明白，范畴论中见过的英文单词，代入到熟知的代数结构中，就是一样的意思
+[^21]: 我在https://q.uiver.app/ 上画交换图时似乎字体不支持$\mathbb{1}$，所以我改成了$\mathbf{1}$
+[^22]: 注意，后面对幺正范畴的定义并不需要瞬子幺正，只需要与幺半结构相容，而比如辫结构，后面会提到其余幺正范畴的相容性条件就是编织瞬子幺正。注意这些定义subtle的地方。
+[^23]: 请原谅我再次借用了李教主书里面的图，这交换图实在是画的太好看了，老规矩，我们的对象用的是小写字母，另外恒等态射和编织态射的下标没有写出来，肩头上空无一物表示结合约束，也没有画出来
+[^24]: [见ncatlab上的解释](https://ncatlab.org/nlab/show/braided+monoidal+natural+transformation)
