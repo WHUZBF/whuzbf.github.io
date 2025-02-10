@@ -308,7 +308,7 @@ $$
 
 然后是幺半等价，范畴间的等价就是存在一对互为拟逆的函子，所以我们需要说明什么是幺半函子：
 
-> 幺半函子包含两个资料：
+> （强）幺半函子包含两个资料：
 > - 一个函子$F:\mathcal{C}\to\mathcal{D}$
 > - 一个$F(\cdot)\otimes F(\cdot)\to F(\cdot\otimes\cdot)$自然同构$\{F^2_{x,y}\}$
 > - <p>一个同构$F^0: \mathbb{1}_\mathcal{D}\to F(\mathbb{1}_\mathcal{C})$</p>
@@ -459,48 +459,50 @@ $$
 >-两个态射$b_x:\mathbb{1}\to x\otimes x^L,d_x:x^L\otimes x\to\mathbb{1}$
 >-满足zig-zag关系[^16]
 >
-> $$
+>$$
 >(\mathrm{id}_{x}\otimes d_{x})\circ(b_{x}\otimes\mathrm{id}_{x})=\mathrm{id}_{x},\quad(d_{x}\otimes\mathrm{id}_{x^{L}})\circ(\mathrm{id}_{x^{L}}\otimes b_{x})=\mathrm{id}_{x^{L}}
-> $$
+>$$
 >
-> 前面通过toric model引入的对偶就是左对偶，同样也可以引入右对偶$x^R\in\mathcal{C}$：
-> -两个态射$b_{x}^{\prime}:1\to x^{R}\otimes x,d_{x}^{\prime}:x\otimes x^{R}\to1$
+>前面通过toric model引入的对偶就是左对偶，同样也可以引入右对偶$x^R\in\mathcal{C}$：
+>-两个态射$b_{x}^{\prime}:\mathbb{1}\to x^{R}\otimes x,d_{x}^{\prime}:x\otimes x^{R}\to \mathbb{1}$
+>
 >- 满足zig-zag关系
 >
-> $$
+>$$
 >(d_x^{\prime}\otimes\mathrm{id}_x)\circ(\mathrm{id}_x\otimes b_x^{\prime})=\mathrm{id}_x,\quad(\mathrm{id}_{x^R}\otimes d_x^{\prime})\circ(b_x^{\prime}\circ\mathrm{id}_{x^R})=\mathrm{id}_{x^R}
-> $$
+>$$
 >
-> 如果任意一个元素的左右对偶都存在，那么我们就称为**刚性范畴**。而且还和幺半结构有下面的相容性：
-> 
-> $$
-> (x\otimes y)^L\simeq y^L\otimes x^L,(x\otimes y)^R\simeq y^R\otimes x^R
-> $$
-> 
-> 在刚性范畴中也可以定义态射的对偶，比如$f:x\to y$的左对偶$f^L:y^L\to x^L$：
-> 
-> $$
-> f^L:=(d_y\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{y^L}\otimes f\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{x^L}\otimes b_x)
-> $$
-> 
-> 在联合zig-zag方程，左右对偶实际上定义了函子$\delta^L(\delta^R):\mathcal{C}^{\mathrm{op}}\to\mathcal{C}$。根据函子性可以立即发现对偶是保直和的（最多差个典范同构)，也就是说：
-> 
+>注意上面的关系中，我们忽略了幺约束，比如第一个式子应当在LHS左边插入$\rho_x$，右边插入$\lambda^{-1}_x$。
+>
+>如果任意一个元素的左右对偶都存在，那么我们就称为**刚性范畴**。而且还和幺半结构有下面的相容性：
+>
+>$$
+>(x\otimes y)^L\simeq y^L\otimes x^L,(x\otimes y)^R\simeq y^R\otimes x^R
+>$$
+>
+>在刚性范畴中也可以定义态射的对偶，比如$f:x\to y$的左对偶$f^L:y^L\to x^L$：[^27]
+>
+>$$
+>f^L:=(d_y\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{y^L}\otimes f\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{y^L}\otimes b_x)
+>$$
+>
+>在联合zig-zag方程，左右对偶实际上定义了函子$\delta^L(\delta^R):\mathcal{C}^{\mathrm{op}}\to\mathcal{C}$。根据函子性可以立即发现对偶是保直和的（最多差个典范同构)，也就是说：
+>
 >$$
 >(x_1\oplus\cdots\oplus x_n)^L\simeq x_1^L\oplus\cdots\oplus x_n^L
 >$$
 >
-> 注意，左右对偶类似零对象一样，都是定义到只差一个典范同构意义的。
-> 作为练习，请读者从数学以及物理上说明下面的等式：
-> 
-> $$
-> (f\otimes\mathrm{id}_{x^L})\circ b_x=(\mathrm{id}_y\otimes f^L)\circ b_y,\quad d_y\circ(\mathrm{id}_{y^L}\otimes f)=d_x\circ(f^L\otimes\mathrm{id}_x)
-> $$
-> 
-> 上面的定义还说明了**$x^L$是$x$的左对偶，则$x$是$x^L$的右对偶**，也就是说：
-> 
-> $$(x^L)^R\simeq x$$
+>注意，左右对偶类似零对象一样，都是定义到只差一个典范同构意义的。而且这里的函子性意味着$(f\circ g)^*=g^*\circ f^*$，这是因为$f\circ_{\mathrm{op}} g = g\circ f$。
+>作为练习，请读者从数学以及物理上说明下面的等式：
+>$$
+>(f\otimes\mathrm{id}_{x^L})\circ b_x=(\mathrm{id}_y\otimes f^L)\circ b_y,\quad d_y\circ(\mathrm{id}_{y^L}\otimes f)=d_x\circ(f^L\otimes\mathrm{id}_x)
+>$$
+>
+>上面的定义还说明了**$x^L$是$x$的左对偶，则$x$是$x^L$的右对偶**，也就是说：
+>
+>$$(x^L)^R\simeq x$$
 
-由上面的定义，显然$\mathbb{1}$对于左右对偶都是自对偶的，前面toric model对于左对偶是自对偶的，而讨论toric model时对于生成的粒子哪个是反粒子哪个是正粒子完全是人为约定，所以不难想象$x^L=x^R=x$。自对偶这一点我们并不奢求在任何模型上都有，但是如果左右对偶不一样，问题会很复杂。这将导致一个对象有互不相同的四个对偶子对象$x^L,x^R,(x^L)^L,(x^R)^R$。不难发现，只要我们建立了$x^L$与$(x^L)^L$之间的同构[^17]，这四个对偶都可以同构起来，那么一个对象的对偶可以再差一个典范同构的意义下唯一确定为$x^*$。
+由上面的定义，**显然$\mathbb{1}$对于左右对偶都是自对偶的**，产生湮灭算符可以用$\iota$[^29]。前面toric model对于左对偶是自对偶的，而讨论toric model时对于生成的粒子哪个是反粒子哪个是正粒子完全是人为约定，所以不难想象$x^L=x^R=x$。自对偶这一点我们并不奢求在任何模型上都有，但是如果左右对偶不一样，问题会很复杂。这将导致一个对象有互不相同的四个对偶子对象$x^L,x^R,(x^L)^L,(x^R)^R$。不难发现，只要我们建立了$x^L$与$(x^L)^L$之间的同构[^17]，这四个对偶都可以同构起来，那么一个对象的对偶可以再差一个典范同构的意义下唯一确定为$x^*$。
 
 我们自然期望体系是存在这种结构，类似结合约束，幺约束，我们要求存在下面的约束（自然同构）：
 
@@ -549,15 +551,19 @@ $$
 在这种正规化选取下，不光对象的左右对偶相等，态射的左右对偶也相等：
 
 $$
-f^*:=(d_y\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{y^*}\otimes f\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{x^*}\otimes b_x)=(\mathrm{id}_{x^*}\otimes b_y^\dagger)\circ(\mathrm{id}_{x^*}\otimes f\otimes\mathrm{id}_{y^*})\circ(d_x^\dagger\otimes\mathrm{id}_{x^*}).
+f^*:=(d_y\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{y^*}\otimes f\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{y^*}\otimes b_x)=(\mathrm{id}_{x^*}\otimes b_y^\dagger)\circ(\mathrm{id}_{x^*}\otimes f\otimes\mathrm{id}_{y^*})\circ(d_x^\dagger\otimes\mathrm{id}_{y^*}).
 $$
 
 <p>
 而且$(f^{*})^{\dagger}=(f^{\dagger})^{*}$，这其实意味着在这种情况下$\delta^L=\delta^R\equiv\delta^*$。<b>后面我们假设都做了这种正规化</b>。
 </p>
+> 我们来具体计算几个简单的瞬子的dual：[^28]
+>
+> 首先是证明$\mathrn{id}_x^* = \mathrm{id}_{x^*}$
+> 
+> to be continue
 
 对于整个范畴，定义其quantum dimension为所有simple obeject的quantum dimension的平方和：[^19]
-
 $$
 \dim(\mathcal{C}):=\sum_{x\in\mathrm{Irr}(\mathcal{C})}\dim(x)^2
 $$
@@ -764,17 +770,257 @@ $$
 
 ![丝带结构世界线](\img\posts\topological_order\48.png)
 
+这从世界线的构造也可以看出来，上面的两条世界线对应算符：[^26]
 
+$$
+\begin{aligned}
+x\xrightarrow{\mathrm{id}_{x}\otimes b_{x}}x\otimes x\otimes x^{*}\xrightarrow{c_{x,x}\otimes\mathrm{id}_{x^{*}}}x\otimes x\otimes x^{*}\xrightarrow{\mathrm{id}_{x}\otimes b_{x}^{\dagger}}x\\
+x\xrightarrow{d_{x}^{\dagger}\otimes\mathrm{id}_{x}}x^{*}\otimes x\otimes x\xrightarrow{\mathrm{id}_{x^{*}}\otimes\mathrm{c}_{x,x}}x^{*}\otimes x\otimes x\xrightarrow{d_{x}\otimes\mathrm{id}_{x}}x.
+\end{aligned}
+$$
+
+考虑simple object，不难发现上面两个算符有相同的trace，所以也就是相同的算符，这种$x\to x$的自转算符我们记作$\theta_x$。在数学上，每个对每个对象配上这样一个态射$\theta_x$，而且是同构，满足下面两个等式：
+
+$$
+\begin{aligned}&\theta_{x}^{*}=\theta_{x^{*}}.\\&\theta_{x\otimes y}=(\theta_x\otimes\theta_y)\circ c_{y,x}\circ c_{x,y}.\end{aligned}
+$$
+
+就称一个**丝带结构（Ribbon Structure）**。前面用世界线构造出来的$\theta_x$满足这两个等式：[^25]
+
+$$
+to be continue
+$$
+
+类似$S$矩阵，对于simple object，可以定义一个$T$矩阵：
+
+$$T:=(T_x\delta_{xy})_{x,y\in\mathrm{Irr}(\mathcal{C})}$$
+
+这里因为$\operatorname{Hom}_\mathcal{C}(x,x)\simeq\mathbb{C}$，$\theta_x=T_x\cdot\mathrm{id}_x$。这个矩阵就刻画了任意子的“自旋”。
+
+回忆我们在kitaev模型中碰见的丝带算符，是两类string operator合起来，一个non-trivial的粒子是$f$：
+
+![丝带算符](\img\posts\topological_order\49.png)
+
+根据闭弦算符和内部的$A,B$算符填充的等价性不难发现这将导致相位${-1}$，得到$T$矩阵：
+
+$$
+T=\begin{pmatrix}1\\&1\\&&1\\&&&-1\end{pmatrix}
+$$
+
+这在物理上也不难想象，首先$f$是由$e,m$组合而成的，所以其与$\mathbb{1},e,m$最大的区别在于其可以看作是一个一维的物体（虽然从拓扑激发的意义上还是$0$维的点缺陷）。所以作用在他上面的算符可以是一个二维的丝带，而不仅仅是一个一维的弦。我们把$f$可以用顶点和面心之间的箭头在图中表示。如图所示，随着丝带算符的作用，箭头相当于旋转了360度，所以这正意味着$f$完成了一次自转，获得了相位。
+
+现在总结一下，在Kitaev模型中，闭弦算符对应$c_{x,y}$，开弦算符对应$b_x,d_x$[^30]，两类闭弦算符套在一起得到的丝带算符对应$\theta_x$。结合约束幺约束这些我们计算时也经常忽略，并不是最重要的。虽然这里讨论的是一个具体模型，但是拓扑序里面的local operator就有这样范畴论上的共性。再次强调，虽然看似这取决于我们如何选取尺度，如何选取绝热变换，但是请相信最终得到的范畴都是彼此等价的。
+
+另外，前面我们手动用辫结构和刚性结构构造了丝带结构，似乎丝带结构是涌现的。在数学上可以证明，对于辫融合范畴，其上的丝带结构和spherical结构有一一对应，而unitary又会带来唯一的（或者用数学黑话：典范的）一个spherical结构，所以前面考虑的所有二维拓扑序范畴存在的性质确实唯一涌现了一个丝带结构。这正是前面那两个式子的构造。
 
 ## UMTC
+数学上把带有丝带结构的辫融合范畴（不要求幺正性）叫做**预模张量范畴(pre-Modular Tensor  Category)**。为了把“预”这个字去掉，我们需要引入非退化的概念。这里的非退化指的是$S$矩阵的非退化，不过我们采取一种更加便于物理解释的等价定义：
 
-MMA程序包
+> 范畴的Müger中心$\mathfrak{Z}_2(\mathcal{C})$是一个全子范畴，对象集为：
+>
+> $$\mathsf{Ob}(\mathfrak{Z}_2):=\{x\in\mathcal{C}\mid c_{y,x}\circ c_{x,y}=\mathrm{id}_{x\otimes y},\forall y\in\mathcal{C}\}$$
+>
+> 而且这还是一个对称融合范畴，非退化性可以体现在Müger中心只包含一个简单对象幺元$\mathbb{1}$，也就是说其同构于$\mathsf{Vec}$。
+
+物理上Müger中心有非常清晰的诠释，$x\in \mathsf{Ob}(\mathfrak{Z}_2)$，意味着我们拿任何其它拓扑激发绕着他转一整圈，都不会得到任何相位，这就像平凡缺陷一样。从宏观上来看，我们如果把某个拓扑激发绕着转一圈，得到一个相位，那么就说明路径中间的拓扑是非平凡的，也就是说存在缺陷，那么这种缺陷是可以探测的。而在Müger中心中的缺陷是没办法通过这样的方式探测到的。但是如果Müger中心中只有$\mathbb{1}$，这说明平凡缺陷是唯一不能通过这样的方式探测道德，这也意味着一种特殊性，其它的都得到非平凡相位，而平凡缺陷相位平凡，这也可以看作是探测到了$\mathbb{1}$。只是他的探测依赖于对其它所有缺陷的探测。
+
+物理上我们愿意承认下面这一点的存在：
+
+> 拓扑序anomaly-free当且仅当所有余维数大于等于2的拓扑缺陷都可以通过转一圈（double braiding）的方式探测到。
+
+注意上面的原则我们是对所有维数拓扑序写的，二维拓扑序只要考虑任意子激发的braiding就好了。而上面的这句话翻译成数学语言就是：
+
+> $$
+> \text{anomaly-free }\iff \text{non-degenerate} 
+> $$
+
+而数学上，pMTC加上非退化这一条件就称作**张量范畴(MTC)**，如果加上幺正条件，就是**UMTC**。至此，我们终于说明了**稳定且无反常的二维拓扑序的点缺陷是一个UMTC**！
+
+另外，虽然我们构造toric model时可以在任意亏格闭曲面上，而且物理学家经常对于平面和一点紧致化的球面不做区分，但是下图告诉你，球面由于去掉一点后基本群平凡，而平面去掉一点后不平凡，所以编织操作在球面上不是良定义的，否则所有球面上的braiding loop都同伦于trivial loop：
+
+![不要在球面上编辫子](\img\posts\topological_order\50.png)
+
+同理，其它亏格闭曲面也不行。
+
+UMTC里面有很多性质，这里列举一二
+
+$$
+\begin{aligned}
+S_{xy}=S_{yx}=S_{x^{*}y^{*}}=\overline{S_{xy^{*}}},\quad S_{\mathbb{1}x}=S_{x\mathbb{1}}=\dim(x)\\
+S_{xy}S_{xz}=\dim(x)\sum_{w\in\mathrm{Irr}(\mathcal{C})}N_{yz}^wS_{xw}
+\end{aligned}
+$$
+
+下面公式中<b>$C_{xy}:=\delta_{x^*y}$</b>称为荷共轭矩阵：
+
+$$
+S^2=\dim(\mathcal{C})\cdot\mathcal{C} \Rightarrow  (S^{-1})_{xy}=\dim(\mathcal{C})^{-1}\cdot S_{xy}
+$$
+
+还有重量级的Verlinde公式，如果读者熟悉环面共形场论，应当对此不陌生：
+
+$$
+\sum_{x\in\mathrm{Irr}(\mathcal{C})}\frac{S_{xy}S_{xz}S_{xw^*}}{S_{x\mathbb{1}}}=\dim(\mathcal{C})\cdot N_{yz}^w
+$$
+
+定义下面的Gauss求和：
+
+$$
+\tau^\pm(\mathcal{C}):=\sum_{x\in\mathrm{Irr}(\mathcal{C})}T_x^{\pm1}d_x^2
+$$
+
+则$\tau^+(\mathcal{C})\tau^-(\mathcal{C})=\dim(\mathcal{C})$，定义乘性中心荷：
+
+$$
+\xi(\mathcal{C}):=\frac{\tau^+(\mathcal{C})}{\sqrt{\dim(\mathcal{C})}}=\frac{\sqrt{\dim(\mathcal{C})}}{\tau^-(\mathcal{C})}
+$$
+
+可以证明：
+
+$$
+\xi(\mathcal{C})=\exp(2\pi\mathrm{i}c(\mathcal{C})/8),\quad c(\mathcal{C})\in\mathbb{Q}/8\mathbb{Z}
+$$
+
+这里$c(\mathcal{C})$被称作加性中心荷，后面的取值范围意味着$\xi(\mathcal{C})$是De Moivre数。
+
+考虑$\mathrm{SL}(2,\mathbb{Z})$，有下面两个生成元：
+
+$$
+\mathfrak{s}:=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\mathfrak{t}:=\begin{pmatrix}1&1\\0&1\end{pmatrix}
+$$
+
+如果我们做下面的替换：
+
+$$
+\mathfrak{s}\mapsto\frac{S}{\sqrt{\dim(\mathbb{C})}},\mathfrak{t}\mapsto T
+$$
+
+实际上得到了$\mathrm{SL}(2,\mathbb{Z})$的一个投影表示，中心荷是乘性中心荷。模范畴中的模一次也可以从其生成模群的表示来看出。而且可以证明，$\sqrt{\dim(\mathcal{C})^{-1}}\cdot S$是幺正的，$T_x$都是De Moivre数，所以$T$也是幺正的，所以任何一个MTC都对应了一个模群的幺正投影表示[^31]。但是反过来并不是每一个模群表示都有一个MTC，因为MTC并不是由$S,T$矩阵完全确定的。
+
+如果读者熟悉弦论应当知道$\mathrm{SL}(2,\mathbb{Z})$是环面的mapping class group，如果把拓扑序安放在环面上（当然上面不好定义编织操作），考虑环面上的mapping class group，其实这诱导了拓扑序基态的变换，也确定了mapping class group的投影表示。而且这个表示是同构于在平面二维拓扑序上发展而来的UMTC确定的模群表示的。在拓扑序发展早期也用过这种环面上的方式描述过二维拓扑序。这种方法也可以推广到高维，但是高维mapping class group学过弦论的都知道非常复杂。
+
+前面也提到过$S,T$矩阵算起来十分麻烦，这里推荐一个`Mathematica`程序包：https://github.com/gert-vercleyen/FusionRings，上面还自带上千种Fusion Ring结构。
 
 ## 构造新的拓扑序
 
+### 拓扑序的堆叠
+首先第一种方法就是把拓扑序叠起来，比如两层挨得很近的二维拓扑序看成是一个：
+
+![二位拓扑序叠叠乐](\img\posts\topological_order\51.png)
+
+可惜这一操作不是由范畴的直和操作完成的，而是由复杂不少的Deligne张量积完成：
+>Deligne tensor product是一个双线性函子，由下面的泛性质描述：
+>
+>![DT泛性质](\img\posts\topological_order\52.png)
+>
+>对于咱老百姓而言这一定义不是太平民化，可以写成下面的形式：
+>
+>- 任意两个$\mathcal{C},\mathcal{D}$中对象$x,y$确定一个$x\boxtimes y\in\mathcal{C}\boxtimes\mathcal{D}$，剩下的对象是这些对象的直和
+>
+>- 态射是原先态射的张量积，这个张量积是线性空间意义下的：
+>
+> $$
+>  \mathrm{Hom}_{\mathcal{C}\otimes\mathcal{D}}(x\otimes y,x^{\prime}\otimes y^{\prime})\simeq\mathrm{Hom}_\mathcal{C}(x,x^{\prime})\otimes_\mathcal{C}\mathrm{Hom}_\mathcal{D}(y,y^{\prime})
+> $$
+>  
+> - $\mathrm{Irr}(\mathcal{C}\boxtimes\mathcal{D})\simeq\mathrm{Irr}(\mathcal{C})\times\mathrm{Irr}(\mathcal{D})$，也就是说单对象由单对象的$\boxtimes$得到
+> 
+>其上的pMTC结构由下式定义：
+>
+> - 首先是幺半结构：
+> 
+> $$
+> (x\boxtimes y)\otimes(x^{\prime}\boxtimes y^{\prime}):=(x\otimes x^{\prime})\boxtimes(y\otimes y^{\prime}),\quad x,x^{\prime}\in\mathcal{C},y,y^{\prime}\in\mathcal{D}
+> $$
+> 
+> <p>结合约束，幺约束都由原先的诱导，幺元是$\mathbb{1}_\mathcal{C}\boxtimes\mathbb{1}_\mathcal{D}$ </p>
+> - 刚性结构由下式确定：
+> 
+> $$
+> x\boxtimes y \xrightarrow{\text{dual}} x^{L/R}\boxtimes y^{L/R}
+>$$
+> 
+> - Spherical 结构由下式确定
+> 
+> $$
+> a_{x\boxtimes y}^{\mathcal{C}\boxtimes\mathcal{D}}:=a_x^\mathcal{C}\boxtimes a_y^\mathcal{D}
+> $$
+> 
+> 在这样的刚性结构下，${\mathcal{C}\boxtimes\mathcal{D}}$中的所有维数（不管是对象还是范畴，不管是dim还是FPdim）都是两个因子范畴的乘积。
+> 
+> $$
+> c^{\mathcal{C} \boxtimes \mathcal{D}}_{x \boxtimes y, x' \boxtimes y'} =
+\left( (x \boxtimes y) \otimes (x' \boxtimes y') := (x \otimes x') \boxtimes (y \otimes y') 
+\overset{c^{\mathcal{C}}_{x,x'} \boxtimes c^{\mathcal{D}}_{y,y'}}{\longrightarrow}
+(x' \otimes x) \boxtimes (y' \otimes y) = (x' \boxtimes y') \otimes (x \boxtimes y) \right)
+> $$
+> 
+> $S$矩阵可由下式计算
+>
+>$$
+> S_{x\boxtimes y,x^{\prime}\boxtimes y^{\prime}}^{\mathcal{C}\boxtimes\mathcal{D}}=S_{x,x^{\prime}}^{\mathcal{C}}\cdot S_{y,y^{\prime}}^{\mathcal{D}}
+> $$
+> 
+>-丝带结构则由下式给出：
+>
+>$$
+> \theta_{x\boxtimes y}^{\mathcal{C}\boxtimes \mathcal{D}}:=\theta_x^{\mathcal{C}}\boxtimes\theta_y^{\mathcal{D}}
+> $$
+>
+>$T$矩阵的对角元可以用下式计算：
+>
+>$$
+>T_{x\boxtimes y}^{\mathcal{C}\boxtimes \mathcal{D}}:=T_x^{\mathcal{C}}\cdot T_y^{\mathcal{D}}
+>$$
+>
+>$\mathfrak{Z}_2(\mathcal{C}\boxtimes\mathcal{D})\simeq\mathfrak{Z}_2(\mathcal{C})\boxtimes\mathfrak{Z}_2(\mathcal{D})$，所以UMTC结构由$\mathcal{C},\mathcal{D}$都是UMTC得到。
+
+### 拓扑序的时间反演和空间反演
+
+时间反演对应世界线反过来走，对象态射，态射合成，幺半结构等等都不变，唯一变的是辫结构，braiding和anti-braiding角色互换：
+
+$$
+c_{x,y}^{\overline{\mathcal{C}}}:=(c_{y,x}^{\mathcal{C}})^{-1},\quad x,y\in\mathcal{C}
+$$
+
+这将导致：
+
+$$
+S_{xy}^{\overline{\mathcal{C}}}=S_{xy^*}^{\mathcal{C}},\quad \tau^\pm(\mathcal{\overline{C}})=\tau^\mp(\mathcal{C}),\quad \xi(\mathcal{\overline{C}})=\xi(\mathcal{C})^{-1},\quad c(\mathcal{\overline{C}})=-c(\mathcal{C})
+$$
+
+另外，上面涌现的丝带结构应当改为：
+
+$$
+\theta_x^{\overline{\mathcal{C}}}:=(\theta_x^{\mathcal{C}})^{-1}
+$$
+
+你也可以进行空间反演，这会导致左右定义反过来，导致幺正结构变化：
+
+$$
+x\otimes^\mathrm{rev}y:=y\otimes x,\quad x,y\in\mathcal{C}^\mathrm{rev}
+$$
+
+一维拓扑序只有左右，但是二维拓扑序还有上下，这就出来两种空间反演，如下图所示：
+
+![拓扑序的时间和空间反演](\img\posts\topological_order\53.png)
+
+一种改变braiding但是不改变幺半结构，另一种则相反，但是可以证明这两种方式如时间反演一样是等价的范畴：
+
+$$
+\mathcal{C}^\mathrm{op}\simeq \mathcal{C}^\mathrm{rev}\simeq \overline{\mathcal{C}}
+$$
+
+无论是时间反演还是空间反演，最终得到的拓扑序我们都记作$\mathsf{C}$，得到的范畴是等价的。如果$\mathsf{C}$对应的范畴还是对称的，那么$\mathcal{C}\simeq\overline{\mathcal{C}}$
+
 ## 一些例子
 
+toric model对应的拓扑序可能有些平凡，这里列举其它一些例子，他们都比toric model复杂不少。
+
+
 # 二维拓扑序的分类
+
+分类定理是非常美妙的存在，在数学上，对UTMC的分类已有不少研究，simple object等价类小于等于4的UMTC的分类可以查看这篇工作：https://arxiv.org/abs/0712.1377。这里我们介绍物理学家干的活，参考文老师的工作：https://arxiv.org/abs/1010.1517。
 
 
 # 参考
@@ -803,3 +1049,10 @@ MMA程序包
 [^22]: 注意，后面对幺正范畴的定义并不需要瞬子幺正，只需要与幺半结构相容，而比如辫结构，后面会提到其余幺正范畴的相容性条件就是编织瞬子幺正。注意这些定义subtle的地方。
 [^23]: 请原谅我再次借用了李教主书里面的图，这交换图实在是画的太好看了，老规矩，我们的对象用的是小写字母，另外恒等态射和编织态射的下标没有写出来，肩头上空无一物表示结合约束，也没有画出来
 [^24]: [见ncatlab上的解释](https://ncatlab.org/nlab/show/braided+monoidal+natural+transformation)
+[^25]: 从物理上世界线同伦也可以看出来，不过没那么方便
+[^26]: 严格来说还需要左右两边插入幺约束，中间插入结合约束，这里省略了
+[^27]: 孔老师讲义这里的定义有笔误，推了半天都没推过去，多亏了deepseek和chatgpt
+[^28]: 容我啰嗦一句，范畴论中不少东西的定义都是差一个同构的，特别是前面结合约束和幺约束都相当于是把结合律和幺元定义到差一个同构，除非我们考虑的是严格幺半范畴，才能直接划等号，但是我们忽略掉这些细节不会影响最终结果，而且还会为计算带来便利。
+[^29]: zig-zag关系可以用三角形公理验证，验证时略去所有的结合约束和幺约束会容易不少
+[^30]: 不难发现他们在物理上是相同的算符，只是作用于不同的对象有不同的数学诠释
+[^31]: 量子力学天然会导致投影表示的发生，一般情况下不用考虑是因为中心扩张trivial，不熟悉的同学建议读一读Weinberg第一卷第二章。
