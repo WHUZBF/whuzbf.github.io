@@ -25,6 +25,10 @@ I'm very sorry, but since I'm writing the notes for myself, they are generally w
 
 This blog was created using jekyll, thanks to [zhujiajuan's blog](https://zjiajun.github.io/) for the inspiration!
 
+# 👉Disclaimer👈
+
+I am just an ordinary young person passionate about theoretical physics, with rather mediocre academic and research abilities. My blog mainly serves as a record of my life and what I have learned—by no means should my notes be taken as absolute truth. Feel free to read them for fun🤡, and if you have any academic questions, we can discuss and improve together!🫵
+
 # Acknowledge
 
 A special thanks to expe for contributing the knowledge overload of math and physics notes :+1:, and the beautiful illustrations to the site :+1::+1::+1::+1:.

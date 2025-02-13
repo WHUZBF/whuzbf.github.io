@@ -10,7 +10,10 @@ tags: [cmt, math-ph]
 
 
 <!--more-->
-# 1+1D拓扑序
+
+
+
+记得上一篇的最后我们讨论了不少关于fermionic以及with symmetry的相关问题，现在让我们回到比较trivial的bosonic without symmetry继续进行一些讨论。
 
 
 # 参考

@@ -111,6 +111,22 @@ $$\{A\ket{\psi}|A\in\mathrm{Loc}(C_n)\}$$
 
 鉴于历史背景，后面考虑的$2+1$D拓扑序中的点缺陷也被称为**任意子(anyon)**。
 
+## With Symmetry
+
+如果我们考虑gapped liquid本身，把后面without symmetry去掉，拓扑序的概念还可以向前进一步，这个时候还会包括对称性自发破缺的物态，SPT/SET物态，而且我们还可以考虑格子模型的构造本身是bosonic的还是fermionic的，对应bosonic和fermionic的拓扑序。比如如果构造格子模型时，不同格点上面的算符满足的时对易关系，也就是说：
+
+$$
+[A_i,A_j]_{i\neq j}=0
+$$
+
+那么就称为bosonic拓扑序，后面要讲的toric model就是这种，后面举例也主要举这一类例子，这两类例子在范畴论的处理上差不多，但是分类时有些差别。另外如果满足的时反对易关系：
+
+$$
+\{A_i,A_j\}_{i\neq j}=0
+$$
+
+就称为fermionic拓扑序，显然这会让体系本身多一个$\mathbb{Z}_2$对称性。
+
 # Kitaev toric model
 
 这个模型可以看作是格点上的规范场论（2+1D），只是规范群是个有限群而不是一般的李群。
