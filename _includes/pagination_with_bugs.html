@@ -1,0 +1,61 @@
+<style>
+    /*#mybox{*/
+    /*    display: inline;*/
+    /*    justify-content: center;*/
+    /*    align-items: center;*/
+    /*    width: 100px;*/
+    /*    height: 50px;*/
+    /*    border-radius: 5px 5px 5px 5px;*/
+    /*    background-color: rgba(213,226,231,0.5);*/
+    /*    border: 2px solid #488de1;*/
+    /*    padding: 5px;*/
+    /*    margin: 5px;*/
+    /*    cursor: pointer;*/
+    /*    color: #77408e;*/
+    /*}*/
+
+    /*#mybox:hover {*/
+    /*    background-color: white;*/
+    /*    transition: background-color 0.5s;*/
+    /*}*/
+
+    .spacer {
+        margin: 5px;
+        padding: 2.5px;
+        font-size: large;
+    }
+</style>
+{% if paginator.previous_page %}
+<!--<div id="mybox" onclick="window.open('{{ paginator.previous_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">-->
+<!--    上一页-->
+<!--</div>-->
+
+<div class="btn" style="cursor: pointer" onclick="window.open('{{ paginator.previous_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">
+    上一页
+</div>
+{% endif %}
+
+{% for page in (1..paginator.total_pages) %}
+{% if page == paginator.page %}
+<span class="active spacer">{{ page }}</span>
+{% elsif page == 1 %}
+<a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" class="spacer">{{ page }}</a>
+{% else %}
+<!--死马当活马医了-->
+<a href="{{ site.paginate_path | replace: ':num', page | replace: 'home','../../home'}}" class="spacer">{{ page }}</a>
+{% endif %}
+{% endfor %}
+
+{% if paginator.next_page %}
+<!--<div id="mybox" onclick="window.open('{{ paginator.next_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">-->
+<!--    下一页-->
+<!--</div>-->
+
+<div class="btn" style="cursor: pointer" onclick="window.open('{{ paginator.next_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">
+    下一页
+</div>
+{% endif %}
+
+<!--直接使用了原本的btn样式作为点击按钮-->
+
+

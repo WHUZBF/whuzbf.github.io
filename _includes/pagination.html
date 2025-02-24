@@ -1,61 +1,166 @@
+<!-- CSS 样式：调整数字、间隔、按钮等样式 -->
 <style>
-    /*#mybox{*/
-    /*    display: inline;*/
-    /*    justify-content: center;*/
-    /*    align-items: center;*/
-    /*    width: 100px;*/
-    /*    height: 50px;*/
-    /*    border-radius: 5px 5px 5px 5px;*/
-    /*    background-color: rgba(213,226,231,0.5);*/
-    /*    border: 2px solid #488de1;*/
-    /*    padding: 5px;*/
-    /*    margin: 5px;*/
-    /*    cursor: pointer;*/
-    /*    color: #77408e;*/
-    /*}*/
-
-    /*#mybox:hover {*/
-    /*    background-color: white;*/
-    /*    transition: background-color 0.5s;*/
-    /*}*/
-
     .spacer {
-        margin: 5px;
-        padding: 2.5px;
-        font-size: large;
+        margin: 10px;        /* 数字之间间隔 */
+        padding: 5px;        /* 内边距 */
+        font-size: 1.5em;    /* 数字字号 */
+        text-decoration: none;
+        color: inherit;
     }
-</style>
-{% if paginator.previous_page %}
-<!--<div id="mybox" onclick="window.open('{{ paginator.previous_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">-->
-<!--    上一页-->
-<!--</div>-->
+    .ellipsis {
+        margin: 10px;
+        padding: 5px;
+        font-size: 2em;      /* 省略号字号更大 */
+    }
+    .active {
+        font-weight: bold;
+    }
+    .pagination {
+        display: inline-block;
+    }
 
-<div class="btn" style="cursor: pointer" onclick="window.open('{{ paginator.previous_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">
+    /*这里有点危险，更改了按钮样式*/
+    .btn {
+        margin: 10px;
+        padding: 5px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .mobile-btn {
+        display: none;
+    }
+
+    .pagination-container {
+        display: flex;            /* 启用Flex布局 */
+        align-items: center;      /* 垂直居中 */
+        justify-content: center;  /* 水平居中 */
+    }
+
+    /* 窄屏设备下仅显示SVG图标 */
+    @media (max-width: 768px) {
+        .btn {
+            display: none; /* 隐藏文字 */
+        }
+
+        .mobile-btn {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /*修改手机屏幕时的字号，即使是320px使用也够了*/
+        .spacer {
+            margin: 8px;        /* 数字之间间隔 */
+            padding: 5px;        /* 内边距 */
+            font-size: 1.4em;    /* 数字字号 */
+            text-decoration: none;
+            color: inherit;
+        }
+        .ellipsis {
+            margin: 8px;
+            padding: 5px;
+            font-size: 1.8em;      /* 省略号字号更大 */
+        }
+    }
+
+</style>
+
+{% assign total_pages = paginator.total_pages %}
+{% assign current_page = paginator.page %}
+{% assign window_size = 1 %}
+
+{% comment %}
+显示当前页左右各1页；
+首页和尾页单独显示，中间部分显示从第2页到倒数第1页的部分
+这里死马当活马医定义了一个新变量
+{% endcomment %}
+{% assign start_page = current_page | minus: window_size %}
+{% if start_page < 2 %}
+{% assign start_page = 2 %}
+{% endif %}
+{% assign end_page = current_page | plus: window_size %}
+{% if end_page > total_pages | minus: 1 %}
+{% assign end_page = total_pages | minus: 1 %}
+{% endif %}
+
+{% assign bug_page = total_pages | minus: 2 %}
+
+<div class="pagination-container">
+<!-- 上一页按钮 -->
+{% if paginator.previous_page %}
+<div class="btn" onclick="window.open('{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//' , '/' }}', '_self')">
     上一页
 </div>
+
+<svg onclick="window.open('{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//' , '/' }}', '_self')" t="1740401576465" class="mobile-btn" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5199" width="30" height="30">
+    <path d="M671.968176 911.99957c-12.287381 0-24.576482-4.67206-33.951566-14.047144L286.048434 545.984249c-18.751888-18.719204-18.751888-49.12028 0-67.872168L638.016611 126.111222c18.751888-18.751888 49.12028-18.751888 67.872168 0 18.751888 18.719204 18.751888 49.12028 0 67.872168l-318.016611 318.047574L705.888778 830.047574c18.751888 18.751888 18.751888 49.12028 0 67.872168C696.544658 907.32751 684.255557 911.99957 671.968176 911.99957z" fill="#575B66" p-id="5200">
+    </path>
+</svg>
 {% endif %}
 
-{% for page in (1..paginator.total_pages) %}
-{% if page == paginator.page %}
-<span class="active spacer">{{ page }}</span>
-{% elsif page == 1 %}
-<a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" class="spacer">{{ page }}</a>
-{% else %}
-<!--死马当活马医了-->
-<a href="{{ site.paginate_path | replace: ':num', page | replace: 'home','../../home'}}" class="spacer">{{ page }}</a>
-{% endif %}
-{% endfor %}
+<div class="pagination">
+    {% comment %}
+    首页始终显示。如果当前页为首页则显示激活状态，否则为链接。
+    {% endcomment %}
+    {% if current_page == 1 %}
+    <span class="active spacer">1</span>
+    {% else %}
+    <a href="../../{{ site.baseurl }}" class="spacer">1</a>
+    {% endif %}
 
+    {% comment %}
+    如果中间部分起始页大于2，则显示省略号
+    {% endcomment %}
+    {% if start_page > 2 %}
+    <span class="ellipsis">…</span>
+    {% endif %}
+
+    {% comment %}
+    显示中间部分页码，排除首页和尾页
+    {% endcomment %}
+    {% for page in (start_page..end_page) %}
+    {% if page != 1 and page != total_pages %}
+    {% if page == current_page %}
+    <span class="active spacer">{{ page }}</span>
+    {% else %}
+    <a href="{{ site.baseurl }}/home/page{{ page }}" class="spacer">{{ page }}</a>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    {% comment %}
+    如果中间部分结束页小于总页数减1，则显示省略号
+    这部分死马当活马医了，直接把bug用if逻辑消除
+    {% endcomment %}
+    {% if current_page != total_pages %}
+    {% if current_page != bug_page %}
+    {% if end_page < total_pages | minus: 1 %}
+    <span class="ellipsis">…</span>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+
+    {% comment %}
+    尾页链接（当总页数大于1时）
+    {% endcomment %}
+    {% if total_pages > 1 %}
+    {% if current_page == total_pages %}
+    <span class="active spacer">{{ total_pages }}</span>
+    {% else %}
+    <a href="{{ site.baseurl }}/home/page{{ total_pages }}" class="spacer">{{ total_pages }}</a>
+    {% endif %}
+    {% endif %}
+</div>
+
+<!-- 下一页按钮 -->
 {% if paginator.next_page %}
-<!--<div id="mybox" onclick="window.open('{{ paginator.next_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">-->
-<!--    下一页-->
-<!--</div>-->
-
-<div class="btn" style="cursor: pointer" onclick="window.open('{{ paginator.next_page_path | prepend: site.baseurl | replace: \'//\', \'/\' }}','_self')">
+<div class="btn" onclick="window.open('{{ paginator.next_page_path | prepend: site.baseurl | replace: '//' , '/' }}', '_self')">
     下一页
 </div>
+
+<svg onclick="window.open('{{ paginator.next_page_path | prepend: site.baseurl | replace: '//' , '/' }}', '_self')" t="1740398630702" class="mobile-btn" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1457" width="32" height="32">
+    <path d="M761.055557 532.128047c0.512619-0.992555 1.343475-1.823411 1.792447-2.848649 8.800538-18.304636 5.919204-40.703346-9.664077-55.424808L399.935923 139.743798c-19.264507-18.208305-49.631179-17.344765-67.872168 1.888778-18.208305 19.264507-17.375729 49.631179 1.888778 67.872168l316.960409 299.839269L335.199677 813.631716c-19.071845 18.399247-19.648112 48.767639-1.247144 67.872168 9.407768 9.791372 21.984142 14.688778 34.560516 14.688778 12.000108 0 24.000215-4.479398 33.311652-13.439914l350.048434-337.375729c0.672598-0.672598 0.927187-1.599785 1.599785-2.303346 0.512619-0.479935 1.056202-0.832576 1.567101-1.343475C757.759656 538.879828 759.199462 535.391265 761.055557 532.128047z" fill="#575B66" p-id="1458">
+    </path>
+</svg>
 {% endif %}
-
-<!--直接使用了原本的btn样式作为点击按钮-->
-
-
+</div>
