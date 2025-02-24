@@ -1,6 +1,7 @@
 # updates data
 - date: 2025-2
   description:
+    - desc: Delete some LaTeX files
     - desc: Paginator UI adaptation for mobile narrow screens
     - desc: Delete some posts and change my avatar
     - desc: Fix bugs in paginator
