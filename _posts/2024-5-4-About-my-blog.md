@@ -31,7 +31,7 @@ I am just an ordinary young person passionate about theoretical physics, with ra
 
 # Acknowledge
 
-A special thanks to expe for contributing the knowledge overload of math and physics notes :+1:, and the beautiful illustrations to the site :+1::+1::+1::+1:.
+The position is open.
 
 # Some Bugs
 
