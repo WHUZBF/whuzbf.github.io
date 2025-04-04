@@ -33,6 +33,11 @@ I am just an ordinary young person passionate about theoretical physics, with ra
 
 The position is open.
 
+# How To Find Me?
+You can contact me by email: **1271570053@qq.com**
+
+Or add my WeChat: **String_Is_Fun**
+
 # Some Bugs
 
 ## Translator
