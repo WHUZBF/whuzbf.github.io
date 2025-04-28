@@ -107,10 +107,10 @@ tags: [cmt, math-ph]
 
 $$
 \begin{aligned}
-&(\mathfrak{a})\mathrm{~Hom}_\mathcal{C}(\mathbb{0},b) = \{0\} \text{ for all } b \in \mathcal{C} \\
-&(\mathfrak{b})\mathrm{~Hom}_\mathcal{C}(b,\mathbb{0}) = \{0\} \text{ for all } b \in \mathcal{C} \\
-&(\mathfrak{c})\mathrm{~Hom}_\mathcal{C}(\mathbb{0},\mathbb{0}) = \{0\} \\
-&(\mathrm{d})\mathrm{~id}_{\mathbb{0}} = \{0\}
+&(a)\mathrm{~Hom}_\mathcal{C}(\mathbb{0},b) = \{0\} \text{ for all } b \in \mathcal{C} \\
+&(b)\mathrm{~Hom}_\mathcal{C}(b,\mathbb{0}) = \{0\} \text{ for all } b \in \mathcal{C} \\
+&(c)\mathrm{~Hom}_\mathcal{C}(\mathbb{0},\mathbb{0}) = \{0\} \\
+&(d)\mathrm{~id}_{\mathbb{0}} = \{0\}
 \end{aligned}
 $$
 
@@ -284,9 +284,9 @@ $\lambda$看作是$\mathbb{1}\otimes\bullet\to\bullet$的自然同构，$\rho$�
 
 > 一个幺半范畴包含下面几个资料：
 > - 一个范畴$\mathcal{C}$
-> - 一个函子$\otimes:\mathbb{C}\times\mathbb{C}\to\mathbb{C}$
+> - 一个函子$\otimes:\mathcal{C}\times\mathcal{C}\to\mathcal{C}$
 > - 一个独一无二的幺元$\mathbb{1}\in\mathcal{C}$
-> - <p>一个$\otimes\circ(\otimes\times\mathrm{id}_{\mathbb{C}})\Rightarrow\otimes\circ(\mathrm{id}_{\mathbb{C}}\times\otimes)$的自然同构$\{\alpha_{x,y,z}\}$，称为结合约束</p>
+> - <p>一个$\otimes\circ(\otimes\times\mathrm{id}_{\mathcal{C}})\Rightarrow\otimes\circ(\mathrm{id}_{\mathcal{C}}\times\otimes)$的自然同构$\{\alpha_{x,y,z}\}$，称为结合约束</p>
 > - 一个$1\otimes \bullet\to \bullet$的自然同构$\{\lambda_x\}$，称为左幺约束
 > - 一个$ \bullet\otimes 1\to \bullet$的自然同构$\{\rho_x\}$，称为右幺约束
 >
@@ -367,7 +367,7 @@ $$
 
 再用路径积分的想法，恒等态射就是世界面trivial，对应柱体$W=X\times[0,1]$。张量范畴结构由$\sqcup$给出，幺元是空集。
 
-我一直在试图回避什么是local？只是简单的告诉你我们考虑的model在不同的尺度定义下会得到一样的数学结构，我们现在第一次直面这个问题。还是讨论幺半范畴，两个点缺陷隔得很近的时候被tensor product为一个点缺陷，这是幺半范畴的基石，而关键在于什么样才叫隔得很近？现在假设$x$在$\xi$附近，$y$在$\eta$附近，那么我们把这个看作是一种local，对应的幺半范畴由$\otimes_{(\xi,\eta)}$给出，前面我们相当于在说$\otimes$和$\xi,\eta$没关系，但是真实世界往往是有关系。也就是说local在不同点位上，会给出不同的幺半范畴结构。假设现在我们有绝热路径$\gamma$，可以把$x,y$这两种缺陷local的点位移动到$x',y'$。这个绝热操作就定义了一个$T^\gamma_{x,y}:x\otimes_{(\xi,\eta)}y\to x\otimes_{(\xi',\eta')}y$的可逆（因为绝热）映射。这其实是函子$\otimes_{(\xi,\eta)}\to\otimes_{(\xi',\eta')}$的自然同构（遍历所有的$x,y$）。每一个绝热路径都可以定义一个自然同构，从物理上看，如果两个绝热路径同伦，那么自然同构是相等的。虽然我们还是要对不同点位考虑不同的幺半结构，但是这一点还是大大减少了需要考虑的点位的幺半范畴的结构个数。需要高阶范畴的理论才能完整描述。不过现在先让我们局限为简单的情况。
+我一直在试图回避什么是local？只是简单的告诉你我们考虑的model在不同的尺度定义下会得到一样的数学结构，我们现在第一次直面这个问题。还是讨论幺半范畴，两个点缺陷隔得很近的时候被tensor product为一个点缺陷，这是幺半范畴的基石，而关键在于什么样才叫隔得很近？现在假设$x$在$\xi$附近，$y$在$\eta$附近，那么我们把这个看作是一种local，对应的幺半范畴由$\otimes_{(\xi,\eta)}$给出，前面我们相当于在说$\otimes$和$\xi,\eta$没关系，但是真实世界往往是有关系。也就是说local在不同点位上，会给出不同的幺半范畴结构。假设现在我们有绝热路径$\gamma$，可以把$x,y$这两种缺陷local的点位移动到$\xi',\eta'$。这个绝热操作就定义了一个$T^\gamma_{x,y}:x\otimes_{(\xi,\eta)}y\to x\otimes_{(\xi',\eta')}y$的可逆（因为绝热）映射。这其实是函子$\otimes_{(\xi,\eta)}\to\otimes_{(\xi',\eta')}$的自然同构（遍历所有的$x,y$）。每一个绝热路径都可以定义一个自然同构，从物理上看，如果两个绝热路径同伦，那么自然同构是相等的。虽然我们还是要对不同点位考虑不同的幺半结构，但是这一点还是大大减少了需要考虑的点位的幺半范畴的结构个数。需要高阶范畴的理论才能完整描述。不过现在先让我们局限为简单的情况。
 
 总结一下，尽管微观来看，对幺半范畴结构的定义是依赖于很多人为的选择的，但是他们都是完全等价的定义，也就是说一个拓扑序上可以赋予不同的幺半范畴，但是他们彼此等价。拓扑序上称幺半结构不是gauge fixing的，也就是说还存在冗余。
 
@@ -434,7 +434,7 @@ $$
 > - $\mathrm{id}_x^\dagger = \mathrm{id}_x,\forall x\in\mathcal{C}$
 > 
 > 幺正结构还多要求一个正定性：
-> -$f^\dagger \circ f =\mathcal{0}\iff f=\mathbb{0}$
+> -$f^\dagger \circ f =\mathcal{0}\iff f=0$
 > 
 > 满足这些特点的我们称之为幺正范畴，等价于$C^*$范畴，而且幺正结构自然诱导半单
 
@@ -517,13 +517,13 @@ $$
 >f^L:=(d_y\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{y^L}\otimes f\otimes\mathrm{id}_{x^L})\circ(\mathrm{id}_{y^L}\otimes b_x)
 >$$
 >
->在联合zig-zag方程，左右对偶实际上定义了函子$\delta^L(\delta^R):\mathcal{C}^{\mathrm{op}}\to\mathcal{C}$。根据函子性可以立即发现对偶是保直和的（最多差个典范同构)，也就是说：
+>再联合zig-zag方程，左右对偶实际上定义了函子$\delta^L(\delta^R):\mathcal{C}^{\mathrm{op}}\to\mathcal{C}$。根据函子性可以立即发现对偶是保直和的（最多差个典范同构)，也就是说：
 >
 >$$
 >(x_1\oplus\cdots\oplus x_n)^L\simeq x_1^L\oplus\cdots\oplus x_n^L
 >$$
 >
->注意，左右对偶类似零对象一样，都是定义到只差一个典范同构意义的。而且这里的函子性意味着$(f\circ g)^*=g^*\circ f^*$，这是因为$f\circ_{\mathrm{op}} g = g\circ f$。
+><p>注意，左右对偶类似零对象一样，都是定义到只差一个典范同构意义的。而且这里的函子性意味着$(f\circ g)^*=g^*\circ f^*$，这是因为$f\circ_{\mathrm{op}} g = g\circ f$。</p>
 >作为练习，请读者从数学以及物理上说明下面的等式：
 >
 >$$
@@ -534,7 +534,7 @@ $$
 >
 >$$(x^L)^R\simeq x$$
 
-由上面的定义，**显然$\mathbb{1}$对于左右对偶都是自对偶的**，产生湮灭算符可以用$\iota$[^29]。前面toric model对于左对偶是自对偶的，而讨论toric model时对于生成的粒子哪个是反粒子哪个是正粒子完全是人为约定，所以不难想象$x^L=x^R=x$。自对偶这一点我们并不奢求在任何模型上都有，但是如果左右对偶不一样，问题会很复杂。这将导致一个对象有互不相同的四个对偶子对象$x^L,x^R,(x^L)^L,(x^R)^R$。不难发现，只要我们建立了$x^L$与$(x^L)^L$之间的同构[^17]，这四个对偶都可以同构起来，那么一个对象的对偶可以再差一个典范同构的意义下唯一确定为$x^*$。
+由上面的定义，**显然$\mathbb{1}$对于左右对偶都是自对偶的**，产生湮灭算符可以用$\iota$[^29]。前面toric model对于左对偶是自对偶的，而讨论toric model时对于生成的粒子哪个是反粒子哪个是正粒子完全是人为约定，所以不难想象$x^L=x^R=x$。自对偶这一点我们并不奢求在任何模型上都有，但是如果左右对偶不一样，问题会很复杂。这将导致一个对象有互不相同的多个对偶子对象$x^L,x^R,(x^L)^L,(x^R)^R,\ldots$。下面我们会首先利用幺半结构建立$x$与$(x^L)^L$之间的同构[^17]，然后利用幺正结构说明左右对偶同构，那么这些对偶都可以同构起来，那么一个对象的对偶可以再差一个典范同构的意义下唯一确定为$x^*$。
 
 我们自然期望体系是存在这种结构，类似结合约束，幺约束，我们要求存在下面的约束（自然同构）：
 
@@ -616,7 +616,7 @@ $$
 如果读者比较熟悉共形场论，一定对fusion一次不陌生，共形场论中，OPE代数定义了conformal family之间的融合规则，再融合范畴中，类似的，在simple object等价类的意义下有下面的融合规则：
 
 $$
-x\otimes y\simeq\bigoplus_{z\in\mathrm{Irr}(\mathbb{C})}N_{xy}^z\cdot z,\quad N_{xy}^z\in\mathbb{N}
+x\otimes y\simeq\bigoplus_{z\in\mathrm{Irr}(\mathcal{C})}N_{xy}^z\cdot z,\quad N_{xy}^z\in\mathbb{N}
 $$
 
 也就是说在直和作为加法，张量积作为乘法的意义下，$\mathrm{Irr}(\mathcal{C})$构成了一个环，称为fusion ring或者说Grothendieck ring。
@@ -624,9 +624,7 @@ $$
 在融合规则的加持下，计算quantum dimension计算有下面的关系：
 
 $$
-\dim(x\oplus y)=\dim(x)+\dim(y),\quad\dim(x\otimes y)=\dim(x)\cdot\dim(y)\\
-
-\dim(x)\cdot\dim(y)=\sum_{z\in\mathrm{Irr}(\mathcal{C})}N_{xy}^z\cdot\dim(z)
+\dim(x\oplus y)=\dim(x)+\dim(y),\quad\dim(x\otimes y)=\dim(x)\cdot\dim(y)=\sum_{z\in\mathrm{Irr}(\mathcal{C})}N_{xy}^z\cdot\dim(z)
 $$
 
 融合范畴下还可以定义一个维数，称为**Frobenius-Perron dimension**：
@@ -635,7 +633,7 @@ $$
 \mathrm{FPdim(x)}:= \rho(N_x)
 $$
 
-这里$\rho$代表矩阵的谱半径，也就是矩阵本征值的最大值，$N_x$由<b>$(N_x)_{yz}:=N_{x,y}^z$</b>定义，Frobenius-Perron定理说明了$\mathrm{FPdim(x)}$非负，对于范畴本身也可以定义：
+<p>这里$\rho$代表矩阵的谱半径，也就是矩阵本征值的最大值，$N_x$由$(N_x)_{yz}:=N_{x,y}^z$定义，Frobenius-Perron定理说明了$\mathrm{FPdim(x)}$非负，对于范畴本身也可以定义：<p>
 
 $$
 \mathrm{FPdim}(\mathcal{C}):=\sum_{x\in\mathrm{Irr}(\mathcal{C})}\mathrm{FPdim}(x)^2
@@ -652,7 +650,7 @@ $$
 前面我们介绍过对于实际的拓扑序，应该容许不同的点位上可以给出不同的tensor product。对于一维情况，可以证明确实就只有一种$\otimes$[^13]。对于二维情况，有两种$\otimes_{1},\otimes_{2}$，而且他们还满足下面的相容性条件：
 
 $$
-(x\otimes_2 x')\otimes_1 (y\otimes_2) \simeq (x\otimes_1 y) \otimes_2 (x'\otimes_2 y')
+(x\otimes_2 x')\otimes_1 (y\otimes_2 y') \simeq (x\otimes_1 y) \otimes_2 (x'\otimes_2 y')
 $$
 
 上面我们取$y=x'=\mathbb{1}$得到：$x\otimes_1 y'\simeq x\otimes_2 y'$，然后取$y'=x=\mathbb{1}$，有$x'\otimes_1 y\simeq y\otimes_2 x'$，做一些变量替换后不难发现这说明“
@@ -682,7 +680,7 @@ $$
 c_{x^\prime,y^\prime}\circ(f\otimes g)=(g\otimes f)\circ c_{x,y}
 $$
 
-所以$c$是$\otimes\Rightarrow \otimes\circ\tau$函子间的同构，这里$\tau:\mathbb{C}\times\mathbb{C}\to\mathbb{C}\times\mathbb{C}, (x,y)\mapsto (y,x)$。在toric model中我们碰见过这种编织，不过那时候我们算的是double braiding，因为这里的braiding是转半圈（可以走上下半圆，对应编织和反编织），很多时候我们喜欢的是转一整圈：
+所以$c$是$\otimes\Rightarrow \otimes\circ\tau$函子间的同构，这里$\tau:\mathcal{C}\times\mathcal{C}\to\mathcal{C}\times\mathcal{C}, (x,y)\mapsto (y,x)$。在toric model中我们碰见过这种编织，不过那时候我们算的是double braiding，因为这里的braiding是转半圈（可以走上下半圆，对应编织和反编织），很多时候我们喜欢的是转一整圈：
 
 ![double braiding](\img\posts\topological_order\39.png)
 
@@ -780,7 +778,7 @@ $$
 
 上面最后这句话还值得继续说道说道，对称融合范畴记作SFC，SFC在物理上其实描述的是所谓bosonic/fermionic product state with/without symmetry，说白了就是trivial的拓扑序的基态，里面的拓扑激发都可以用local operator联系到基态，但是基态可能有或者没有对称性。如果$z=e$是trivial的，那么就对应$\mathsf{Rep}$，也就是bosonic，反之对应$\mathsf{sRep}$，也就是fermionic，如果对称群是trivial的就称作without symmetry，反之就是with symmetry。
 
-bosonic without symmetry其实就对应玻色平凡拓扑序[^32]，对应的SFC记作$\mathcal{B}_0\simeq \mathsf{Hilb}$。bosonic with symmetry对应$\mathsf{Rep}(G)$。fermionic without symmetry对应费米平凡拓扑序，对应的SFC记作$\mathcal{F}_0\simeq \mathsf{sRep}(\mathbb{Z}^f_2)$[^35]，fermionic with symmetry就叫做$ \mathsf{sRep}(\mathbb{G}^f)$。而数学上SFC就这几种，所以平凡gapped liquid就被SFC分类了。SFC文献上一般用$\mathcal{E}$表示上面这四类情况，暗示了体系的基态的对称性。
+bosonic without symmetry其实就对应玻色平凡拓扑序[^32]，对应的SFC记作$\mathcal{B}_0\simeq \mathsf{Hilb}$。bosonic with symmetry对应$\mathsf{Rep}(G)$。fermionic without symmetry对应费米平凡拓扑序，对应的SFC记作$\mathcal{F}_0\simeq \mathsf{sRep}(\mathbb{Z}^f_2)$[^35]，fermionic with symmetry就叫做$ \mathsf{sRep}({G}^f)$。而数学上SFC就这几种，所以平凡gapped liquid就被SFC分类了。SFC文献上一般用$\mathcal{E}$表示上面这四类情况，暗示了体系的基态的对称性。[^51]
 
 注意，虽然前面讨论基态，with symmetry时的那些product state，也就是基态激发，也都是能用local operator联系的，那看起来就是平凡激发，那看起来似乎就是平凡拓扑序本身。注意，我们用了不同的范畴来描述with symmetry和without symmetry情况，这说明with symmetry会出来崭新的物态，这就是前面在讲SPT时我们专门强调过，如果你忽视对称性，那确实就是个平凡物态，但是一旦你考虑对称性，这就是个崭新的非平凡拓扑物态。而上面提到的四种情况，without symmetry就是我们一直在考虑的拓扑序。后面在讲分类时，我们还会提到这一点。
 
@@ -1594,3 +1592,4 @@ $$
 [^48]: 说过这里的描述是相当sketch的，local模如何构成UBFC以及condensable algebra的构造都没细说
 [^49]: 单群是个非常有意思的东西，任何有限群都可以用合成列进行分解，每一步的商群都是单群。而单群是可以完全分类的，分类工作直到2008年才完全结束。
 [^50]: 我觉得这部分如果对凝聚态拓扑物相工作有更多了解读起来会更有感触，对于我来说，我属于半路出家，所以对Kitaev 16-fold way以及SPT的分类等重要工作都没多少了解。而且对凝聚态的一些经典拓扑物态具体实现也了解甚少。仅仅只是知道一些范畴论的相关内容，所以这部分虽然从数学上我比较好理解，但是对于真正和物理的联系我理解的还比较浅，所以建议在先阅读一些几本拓扑物态分类的review之后再来阅读，或许以后有时间我会加在这一篇里面说。
+[^51]: 后面备课的时候才发现这里写的稍微有些不对劲，首先我犹豫混用了孔老师讲义和文献中的记号，这里$f$指的是前文中的$z$，也就是费米宇称算符。其次这里想说的是平凡拓扑序按理说应该由对称群$G$的表示生成，如果是费米体系就算是平凡拓扑序也应当自然拥有$\mathbb{Z}/2\mathbb{Z}$对称性。然后费米体系由超表示描述，因为要多个交换反对称，而这四类表示范畴正好就是所有的SFC，所以SFC描述平凡拓扑序。后面讲一般拓扑序的分类就是要在平凡拓扑序基础上加入非平凡拓扑缺陷的结构。
