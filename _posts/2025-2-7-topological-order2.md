@@ -32,7 +32,7 @@ tags: [cmt, math-ph]
     - [Quantum Double Category](#quantum-double-category)
     - [Ising type category](#ising-type-category)
     - [Pointed范畴](#pointed范畴)
-  - [$U(2)$ Chern-Simons理论的拓扑序](#u2-chern-simons理论的拓扑序)
+  - [$SU(2)$ Chern-Simons理论的拓扑序](#su2-chern-simons理论的拓扑序)
 - [二维拓扑序的分类](#二维拓扑序的分类)
     - [模扩张](#模扩张)
     - [手征中心荷](#手征中心荷)
@@ -65,7 +65,7 @@ tags: [cmt, math-ph]
 
 另外这些算符并不是任意的，他和拓扑激发一样，作为可观测量应当被local operator屏蔽，也就是说宏观上我们真正看到的瞬子是被local operator屏蔽之后的，从物理上看，其可以在世界线上随便移动而不影响最终结果，也就是要求：
 
-> $\forall f\in \operatorname{Hom}(x,y), A\in\text{local operator}, [f,A]=0$
+> $$\forall f\in \operatorname{Hom}(x,y), A\in\text{local operator}, [f,A]=0$$
 
 这也是不难想到的，因为拓扑激发是local operator作用下的不变子空间，那么我们自然希望$f$作用于$\ket{\psi},A\ket{\psi}$得到的是同一个拓扑激发，这要求$[f,A]=0$即可做到。
 
@@ -418,7 +418,7 @@ $$
 ![张量积泛性质](\img\posts\topological_order\31.png)
 
 <p>
-一般来说这个双线性映射不是同构，这也体现了这两个空间的差别，这时我们称体系存在**spatial fusion anomaly**，物理本质是$\mathrm{Hom}_{\mathbb{C}}(x\otimes y,x^{\prime}\otimes y^{\prime})$中存在非局域的瞬子，也就是$x,y$之间的距离拉的比较开导致的。这也加大了复杂度，不能将多个缺陷之间的瞬子由原先两个空间瞬子的张量积简单描述。否则我们可以建立$f\otimes g$和$f\otimes_{\mathbb{C}} g$之间的一一对应。
+一般来说这个双线性映射不是同构，这也体现了这两个空间的差别，这时我们称体系存在<b>spatial fusion anomaly</b>，物理本质是$\mathrm{Hom}_{\mathbb{C}}(x\otimes y,x^{\prime}\otimes y^{\prime})$中存在非局域的瞬子，也就是$x,y$之间的距离拉的比较开导致的。这也加大了复杂度，不能将多个缺陷之间的瞬子由原先两个空间瞬子的张量积简单描述。否则我们可以建立$f\otimes g$和$f\otimes_{\mathbb{C}} g$之间的一一对应。
 </p>
 
 ## 幺正性 
@@ -580,7 +580,7 @@ $$
 b_x^\dagger\circ b_x=d_x\circ d_x^\dagger=\dim(x)
 $$
 
-在这种正规化选取下，不光对象的左右对偶相等，态射的左右对偶也相等：
+在这种正规化选取下，不光对象的左右对偶相等，态射的左右对偶也相等：[^28]
 
 $$
 f^*:=(d_y\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{y^*}\otimes f\otimes\mathrm{id}_{x^*})\circ(\mathrm{id}_{y^*}\otimes b_x)=(\mathrm{id}_{x^*}\otimes b_y^\dagger)\circ(\mathrm{id}_{x^*}\otimes f\otimes\mathrm{id}_{y^*})\circ(d_x^\dagger\otimes\mathrm{id}_{y^*}).
@@ -589,11 +589,6 @@ $$
 <p>
 而且$(f^{*})^{\dagger}=(f^{\dagger})^{*}$，这其实意味着在这种情况下$\delta^L=\delta^R\equiv\delta^*$。<b>后面我们假设都做了这种正规化</b>。
 </p>
-> 我们来具体计算几个简单的瞬子的dual：[^28]
->
-> 首先是证明$\mathrm{id}_x^* = \mathrm{id}_{x^*}$
-> 
-> to be continue
 
 对于整个范畴，定义其quantum dimension为所有simple obeject的quantum dimension的平方和：[^19]
 
@@ -633,13 +628,13 @@ $$
 \mathrm{FPdim(x)}:= \rho(N_x)
 $$
 
-<p>这里$\rho$代表矩阵的谱半径，也就是矩阵本征值的最大值，$N_x$由$(N_x)_{yz}:=N_{x,y}^z$定义，Frobenius-Perron定理说明了$\mathrm{FPdim(x)}$非负，对于范畴本身也可以定义：<p>
+<p>这里$\rho$代表矩阵的谱半径，也就是矩阵本征值的最大值，$N_x$由$(N_x)_{yz}:=N_{x,y}^z$定义，Frobenius-Perron定理说明了$\mathrm{FPdim(x)}$非负，对于范畴本身也可以定义：</p>
 
 $$
 \mathrm{FPdim}(\mathcal{C}):=\sum_{x\in\mathrm{Irr}(\mathcal{C})}\mathrm{FPdim}(x)^2
 $$
 
-如果范畴满足：$\dim(\mathcal{C})=\mathrm{FPdim}(\mathcal{C})$，就称为是**pseudo-unitary**，幺正范畴一定满足这一点。在物理上，考虑盘面上的拓扑序，在上面加$n$个$x$缺陷，体系基态简并数目可以由下式刻画：
+如果范畴满足：$\dim(\mathcal{C})=\mathrm{FPdim}(\mathcal{C})$，就称为是<b>pseudo-unitary</b>，幺正范畴一定满足这一点。在物理上，考虑盘面上的拓扑序，在上面加$n$个$x$缺陷，体系基态简并数目可以由下式刻画：
 
 $$
 \mathrm{GSD}\sim\mathrm{constant}\cdot \mathrm{FPdim}(x)^n
@@ -1196,7 +1191,7 @@ S_{g,h}=b(g,h^{-1}),\quad T_g = q(g)
 $$
 
 <p>
-而非退化性直接从上式可以看出要求$(G,q)$进一步是metric。这对应阿贝尔拓扑序，这个命名是源于其统计性质，任意元素之间的编织$c_{x,y}$都会退化为一个$U(1)$的相位而不是一个一般的线性空间变换的矩阵。
+而非退化性直接从上式可以看出要求$(G,q)$进一步是metric。这对应阿贝尔拓扑序，这个命名是源于其统计性质，任意元素之间的编织$c_{x,y}$都会退化为一个$U(1)$的相位而不是一个一般的线性空间变换的矩阵，比如前面对toric code model，那些同态$c_{x,y}\circ c_{y,x}\propto id$，显然作为同态不一定就是一个单位阵，你可以是一个一般的变换矩阵。
 </p>
 
 $\mathcal{TC}$就是一个典型的abel拓扑序，对应metric group ：
@@ -1223,7 +1218,9 @@ $$
 - 对称矩阵
 - 非奇异
 
-数学上，可以看作是一个格的Gram矩阵，也就是生成格的基底$e_i$点乘得到的矩阵<b>$K_{ij}=e_i\cdot e_j$</b>。Gram矩阵可以看作是$\mathbb{Z}^n\to\mathbb{Z]^n$格上的同构，定义：
+<p>
+数学上，可以看作是一个格的Gram矩阵，也就是生成格的基底$e_i$点乘得到的矩阵$K_{ij}=e_i\cdot e_j$。Gram矩阵可以看作是$\mathbb{Z}^n\to\mathbb{Z}^n$格上的同构，定义：
+</p>
 
 $$
 G:=\mathrm{coker}(K)=\mathbb{Z}^n/\mathrm{im}(K)
@@ -1360,7 +1357,13 @@ $$
 
 ![模扩张等价](\img\posts\topological_order\54.png)
 
-而且我们不单单用范畴论描述了fermionic拓扑序[^44]，更是把这种方法推广到了with symmetry的一般二维GQL（gapped quantum liquid）情况进行了一个描述。SPT序是with symmetry但是平凡拓扑激发，也就是$\mathcal{E}$中with symmetry的情况。拓扑序是without symmetry但是有非平凡拓扑激发的情况，也就是$\mathrm{UMTC}_{\mathcal{B_0}}/\mathrm{UMTC}_{\mathcal{F_0}}$。而一般的GQL是这两种的结合，在bulk内又有非平凡拓扑激发，又因为对称性还带来了更新奇的symmetry-twisted defect这种激发，所以这种一般的GQL也被称作**SET(Symmetry Enriched Topological)序**。
+而且我们不单单用范畴论描述了fermionic拓扑序[^44]，更是把这种方法推广到了with symmetry的一般二维GQL（gapped quantum liquid）情况进行了一个描述。SPT序是with symmetry但是平凡拓扑激发，也就是$\mathcal{E}$中with symmetry的情况。拓扑序是without symmetry但是有非平凡拓扑激发的情况，也就是：
+
+$$\mathrm{UMTC}_{\mathcal{B_0}}/\mathrm{UMTC}_{\mathcal{F_0}}$$
+
+而一般的GQL是这两种的结合，在bulk内又有非平凡拓扑激发，又因为对称性还带来了更新奇的symmetry-twisted defect这种激发，所以这种一般的GQL也被称作**SET(Symmetry Enriched Topological)序**。这种模扩张物理上可以用下面的图来描述：
+
+![模扩张的物理](\img\posts\topological_order\55.png)
 
 ### 手征中心荷 
 
@@ -1393,10 +1396,10 @@ $$
 同理，可以推广到$\mathsf{TO}_F$情况：
 
 $$
-\mathrm{UMTC}_{\mathcal{B}_0} \times\mathsf{iTO}_F
+\mathrm{UMTC}_{\mathcal{F}_0} \times\mathsf{iTO}_F
 $$
 
-而且$\mathsf{iTO}_F$也只有一个元素生成，对应$p+\mathrm{i} p$超导体，其中心荷是$\frac12$。
+而且$\mathsf{iTO}_F$也只有一个元素生成，对应$p+\mathrm{i} p$超导体，其中心荷是$\frac12$。而$E_8$的中心荷是$8$，实际上$16$个$p+ip$的堆叠等价于一个$E_8$和一个$\mathcal{F}_0$的堆叠。
 
 ### $\boxtimes_{\mathcal{E}}$  vs  $\boxtimes$
 
@@ -1405,11 +1408,11 @@ $$
 这个时候就需要定义$\boxtimes_\mathcal{E}$，满足：
 
 $$
-\mathcal{E}=(\mathcal{E}\boxtimes\mathcal{E})
+\mathcal{E}=(\mathcal{E}\boxtimes_{\mathcal{E}}\mathcal{E})
 $$
 
 <p>
-那么原先我们定义的$\boxtimes$其实是$\boxtimes_\mathcal{B_0}$的特殊情况，$\mathcal{B}_0\boxtimes \mathcal{B}_0=\mathcal{B}_0$。新的$\boxtimes\mathcal{E}$就生成了$\mathcal{E}$为背景（对称性）的GQL的幺半群，幺元为$\mathcal{E}$。
+那么原先我们定义的$\boxtimes$其实是$\boxtimes_\mathcal{B_0}$的特殊情况，$\mathcal{B}_0\boxtimes \mathcal{B}_0=\mathcal{B}_0$。新的$\boxtimes_{\mathcal{E}}$就生成了$\mathcal{E}$为背景（对称性）的GQL的幺半群，幺元为$\mathcal{E}$。
 </p>
 
 这个具体定义还是蛮复杂的，从物理上看这其实是在要求一个对称性自发破缺机制，让两个$\mathcal{E}$在堆叠时从$\mathcal{E}\boxtimes\mathcal{E}$破缺成$\mathcal{E}$，这种机制就是在两层之间加微扰，来破坏对称性[^46]。而$\boxtimes_\mathcal{E}$的引入就是这种对称性破缺的数学严格化，允许在UBFC中进行任意子凝聚。现在我们来大致描绘一下这个定义是如何给出的[^47]。
@@ -1473,12 +1476,12 @@ $$
 $$
 
 ### 二维GQL的分类
-有了前面的准备工作，我们可以完整叙述二维GQL的分类了：
+有了前面的准备工作，我们可以完整叙述二维GQL的分类了：[^52]
 
-> 二维anomaly-free对称性 GQL with symmetry $\mathcal{E}$ 由 $(\mathcal{C},\mathcal{M},c)$完全描述
+> 二维anomaly-free对称性 GQL with symmetry $\mathcal{E}$ 由 $(\mathcal{C},\mathcal{M},c)$完全描述，其中模扩张完全描述bulk激发，而edge激发则由中心荷给出，告诉我们体系差几个$E_8$的堆叠。
 
 <p>
-问题在于如何计算UBFC$\mathcal{C}$以及上面的所有模扩张$\mathcal{M}\in\mathcal{M}_{\mathrm{ext]}}(\mathcal{C})$。首先$\mathcal{E}$决定辫幺半结构$\tilde{N}_c^{ab},\tilde{S}_a$，其嵌入（或者说是其子集）$\mathcal{C}$的资料$N_k^{ij},S_i$，其又可以嵌入到$\mathcal{N}_{K}^{IJ},\mathcal{S}_{I}$。中心荷是相对而言单独的东西，而且模扩张本身可以确定到$\mod 8$。
+问题在于如何计算UBFC$\mathcal{C}$以及上面的所有模扩张$\mathcal{M}\in\mathcal{M}_{\mathrm{ext}}(\mathcal{C})$。首先$\mathcal{E}$决定辫幺半结构$\tilde{N}_c^{ab},\tilde{S}_a$，其嵌入（或者说是其子集）$\mathcal{C}$的资料$N_k^{ij},S_i$，其又可以嵌入到$\mathcal{N}_{K}^{IJ},\mathcal{S}_{I}$。中心荷是相对而言单独的东西，而且模扩张本身可以确定到$\mod 8$。
 </p>
 
 由UMTC的性质我们可以写出$N,s$满足的一系列方程，比如Verlinde公式之类的，然后解这一堆非线性方程就可以得到一系列不同的$N,s$，如果$\mathcal{C}$的data存在但是模扩张$\mathcal{M}$的data不存在就说明模扩张本身不存在，说明体系是有对称性反常的，或者说no-on-site symmetry。一组$N,s$的data就说明一类GQL，而范畴的等价也就是GQL等价相当于要求$N,s$这组data只相差上下标的permutation。这样我们便可以得到GQL的分类表。
@@ -1510,7 +1513,7 @@ $$
 \frac{c-\mod(c,8)}{8}
 $$
 
-不过其实有下面关于GQL堆叠的等式：
+不过之前就说过其实有下面关于GQL堆叠的等式：
 
 $$
 (p+\mathrm{i} p)^{\boxtimes_{\mathcal{F}_0}16} \simeq (\nu=8\mathrm{~IQH})\simeq E_8\boxtimes_{\mathcal{B}_0}\mathcal{F}_0
@@ -1528,15 +1531,18 @@ $$
 \begin{aligned}&\{\text{invertible fermionic symmetric GQLs}\}\\&=\{\text{fermionic SPT states}\}\times\{\text{layers of }p+\mathrm{i}p\mathrm{~states}\}\end{aligned}
 $$
 
+不过一般的费米情况下的中心荷为$0$的模扩张还缺乏类似玻色情形那样优雅的数学理论，不过我们可以关注一个特殊的例子，就是$G^f=\mathbb{Z}_2^f$的情况，这个时候我们对可逆的GQL分类实际上就是在对$\mathsf{iTO}_F$分类。
+
 <p>
-同$\mathsf{iTO}_B$的分类，$\mathsf{iTO}_F$的分类也可以由$\mathcal{E}=\mathcal{F}_0=\mathsf{sRep(\mathbb{Z}_2^f)}\simeq\mathsf{sVec}$给出，其有16个模扩张，中心荷从$0\sim 15/2$。而其中$c=0$也就是without symmetry fermionic SPT的分类，对应的就唯一一个，其实际上就是$\mathcal{F}_0$本身，所以fermionic SPT只有在with symmetry的时候才是non-trivial的，而这恰恰是SPT序的本质，只有当对称性完全考虑了，才是non-trivial的，同理，bosonic SPT也是在without symmetry时分类trivial。
+也就是说同$\mathsf{iTO}_B$的分类，$\mathsf{iTO}_F$的分类也可以由$\mathcal{E}=\mathcal{F}_0=\mathsf{sRep(\mathbb{Z}_2^f)}\simeq\mathsf{sVec}$给出，其有16个模扩张，中心荷从$0\sim 15/2$。而其中$c=0$也就是without symmetry fermionic SPT的分类，对应的就唯一一个，其实际上就是$\mathcal{F}_0$本身，所以fermionic SPT只有在with symmetry的时候才是non-trivial的，而这恰恰是SPT序的本质，只有当对称性完全考虑了，才是non-trivial的，同理，bosonic SPT也是在without symmetry时分类trivial。
 </p>
 
 <p>
-但是上面又出来一个矛盾，看似根据范畴论的结果$\mathsf{iTO}_B=\mathbb{Z}_{16}$，而不是仅仅由$p+\mathrm{i}p$超导体生成$\mathbb{Z}$。愿意就在于$\mathcal{M}_{\mathrm{ext}}(\mathsf{sRep(\mathbb{Z}_2^f)})$其实分类的严格来说不是$\mathsf{iTO}_F$，而是$\mathsf{iTO}_F/E_8$。也就是说在模扩张范畴的意义下，两个相差$E_8$堆叠的$\mathsf{iTO}_F$被看作是同一个了。而这16种不同的扩张可以通过不同层数的$p+\mathrm{i}p$堆叠来构成，当叠到$16$层时，得到$\mathcal{F}_0\boxtimes_{\mathcal{F}_0}E_8$，但是根据前面的说法，这被模扩张看成了$\mathcal{F}_0$平凡iTO，就回到没有$p+\mathrm{i}p$堆叠的情况了。
+但是上面又出来一个矛盾，看似根据范畴论的结果$\mathsf{iTO}_B=\mathbb{Z}_{16}$，而不是仅仅由$p+\mathrm{i}p$超导体生成$\mathbb{Z}$。原因就在于根据前面说的GQL分类，$\mathcal{M}_{\mathrm{ext}}(\mathsf{sRep(\mathbb{Z}_2^f)})$其实分类的严格来说不是$\mathsf{iTO}_F$，而是$\mathsf{iTO}_F/E_8$。也就是说在模扩张范畴的意义下，两个相差$E_8$堆叠的$\mathsf{iTO}_F$被看作是同一个了。而这16种不同的扩张可以通过不同层数的$p+\mathrm{i}p$堆叠来构成，当叠到$16$层时，得到$\mathcal{F}_0\boxtimes_{\mathcal{F}_0}E_8$，但是根据前面的说法，这被模扩张看成了$\mathcal{F}_0$平凡iTO，就回到没有$p+\mathrm{i}p$堆叠的情况了。
 </p>
 
-这也就是为什么我们得到$\mathbb{Z}_{16}$的原因。这正好对应Kitaev 16-fold way。[^50]
+
+这也就是为什么我们得到$\mathbb{Z}_{16}$的原因。这正好对应Kitaev 16-fold way。[^50] 
 
 另外，原始文献中有更多关于分类的细节，而且文老师的文章写的非常易懂，表格也非常多，特别是最后举了非常多分类对应的GQL具体实现的例子，感兴趣的可以去看原始文献。
 
@@ -1593,3 +1599,4 @@ $$
 [^49]: 单群是个非常有意思的东西，任何有限群都可以用合成列进行分解，每一步的商群都是单群。而单群是可以完全分类的，分类工作直到2008年才完全结束。
 [^50]: 我觉得这部分如果对凝聚态拓扑物相工作有更多了解读起来会更有感触，对于我来说，我属于半路出家，所以对Kitaev 16-fold way以及SPT的分类等重要工作都没多少了解。而且对凝聚态的一些经典拓扑物态具体实现也了解甚少。仅仅只是知道一些范畴论的相关内容，所以这部分虽然从数学上我比较好理解，但是对于真正和物理的联系我理解的还比较浅，所以建议在先阅读一些几本拓扑物态分类的review之后再来阅读，或许以后有时间我会加在这一篇里面说。
 [^51]: 后面备课的时候才发现这里写的稍微有些不对劲，首先我犹豫混用了孔老师讲义和文献中的记号，这里$f$指的是前文中的$z$，也就是费米宇称算符。其次这里想说的是平凡拓扑序按理说应该由对称群$G$的表示生成，如果是费米体系就算是平凡拓扑序也应当自然拥有$\mathbb{Z}/2\mathbb{Z}$对称性。然后费米体系由超表示描述，因为要多个交换反对称，而这四类表示范畴正好就是所有的SFC，所以SFC描述平凡拓扑序。后面讲一般拓扑序的分类就是要在平凡拓扑序基础上加入非平凡拓扑缺陷的结构。
+[^52]: 这里的分类细节有个地方我一直比较疑惑，孔老师它们写的文章我看说是模扩张本身可以确定到一些$E_8$的堆叠，显然这是玻色可逆拓扑序的堆叠，但是我看它们写的一些文章又说对于费米拓扑序，模扩张可以确定到一些$p+ip$的堆叠，这显然又是费米可逆拓扑序的堆叠。不难看到我的笔记里面这两种我都有写，或许这是中心荷的符号滥用。我倾向于$E_8$堆叠，因为模扩张本身就能确定中心荷到模8，所以本身模扩张就包含一些edge state的信息。
