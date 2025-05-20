@@ -1,0 +1,19 @@
+- name: "Masahito Yamazaki"
+  link: "https://member.ipmu.jp/masahito.yamazaki"
+  photo: "/img/friends/yamazaki.jpg"
+  description: "我导师的个人网站"
+
+- name: "类时测地线"
+  link: "https://space.bilibili.com/295717259"
+  photo: "/img/friends/chen_huang.jpg"
+  description: "晨哥的b站账号"
+
+- name: "zhujiajun's blog"
+  link: "https://zjiajun.github.io/"
+  photo: "/img/friends/zhujiajun.jpg"
+  description: "本网站建站起源与参考"
+
+- name: "Emberffの小破站"
+  link: "https://blog.emb42.com/"
+  photo: "/img/friends/Emberff.png"
+  description: "非常漂亮的网站，可惜本站审美很差"

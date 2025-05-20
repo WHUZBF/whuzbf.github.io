@@ -1,0 +1,205 @@
+---
+layout: default
+title: Friendship Links
+permalink: /friends/
+---
+<head>
+    <!-- 字体预加载 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Noto+Serif+JP&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<h1>友情链接</h1>
+<!-- 标语部分 -->
+<div class="motto-container">
+    <div class="motto-box">
+        <h1 class="motto-chinese animate-gradient">
+            <span class="motto-line">海内存知己</span>
+            <span class="motto-line">天涯若比邻</span>
+        </h1>
+        <div class="motto-languages">
+            <p class="motto-jp">海内に知己あれば遠からず、天涯も隣の如く</p>
+            <p class="motto-en">Friends understand each other across the seas;<br>Though miles apart, we are close at heart.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 友情链接部分 -->
+<div class="links-container">
+    {% for friend in site.data.friends %}
+    <a href="{{ friend.link }}" class="link-card" target="_blank" rel="noopener">
+        {% if friend.photo %}
+        <img src="{{ friend.photo | relative_url }}"
+             alt="{{ friend.name }} logo"
+             class="link-logo">
+        {% endif %}
+        <div class="link-info">
+            <h3 class="link-name">{{ friend.name }}</h3>
+            <p class="link-desc">{{ friend.description }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<style>
+    /* 标语样式 */
+    .motto-container {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+    }
+
+    .motto-box {
+        background: rgba(255,255,255,0.95);
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .motto-chinese {
+        font-family: 'Noto Serif SC', sans-serif;
+        font-weight: 700;
+        font-size: 2.8rem;
+        text-align: center;
+        margin: 0 0 1.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(102,126,234,0.2);
+    }
+
+    .motto-line {
+        display: block;
+        line-height: 1.3;
+        letter-spacing: 0.05em;
+        margin: 0.4em 0;
+    }
+
+    .motto-languages {
+        text-align: center;
+        border-top: 1px solid rgba(102,126,234,0.1);
+        padding-top: 1.5rem;
+    }
+
+    .motto-jp {
+        font-family: 'Noto Serif JP', serif;
+        font-size: 1.2rem;
+        color: #4a5568;
+        margin: 0 0 1rem;
+        line-height: 1.6;
+    }
+
+    .motto-en {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        color: #718096;
+        font-style: italic;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradientFlow 8s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* 友情链接样式 */
+    .links-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .link-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s, cursor 0.2s;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .link-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .link-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        margin-right: 1.5rem;
+        object-fit: contain;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .link-info {
+        flex: 1;
+    }
+
+    .link-name {
+        font-size: 1.2rem;
+        margin: 0 0 0.5rem;
+    }
+
+    .link-desc {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        .motto-box {
+            padding: 1.5rem;
+        }
+
+        .motto-chinese {
+            font-size: 2rem;
+        }
+
+        .motto-line {
+            margin: 0.3em 0;
+        }
+
+        .motto-jp {
+            font-size: 1rem;
+        }
+
+        .motto-en {
+            font-size: 0.95rem;
+        }
+
+        .links-container {
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        .link-card {
+            padding: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .motto-line {
+            letter-spacing: normal;
+        }
+    }
+</style>
+
