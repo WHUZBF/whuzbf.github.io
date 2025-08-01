@@ -22,3 +22,13 @@
   link: "https://stonepi.github.io/"
   photo: "/img/friends/shipi.jpg"
   description: "相信我，你会爱上皮石老师的日记"
+
+- name: "晨哥的弦论笔记"
+  link: "https://whuzbf.github.io/downloads/pdf/chen_huang_string.pdf"
+  photo: "/img/friends/chen_huang.jpg"
+  description: "优质的反向链接，这里暂存的是v0.19"
+
+- name: "李思老师的个人主页"
+  link: "https://sili-math.github.io/"
+  photo: "/img/friends/si_li.webp"
+  description: "有一些对我很有帮助的数学物理讲义"
