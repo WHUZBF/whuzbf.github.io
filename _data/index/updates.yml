@@ -1,4 +1,8 @@
 # updates data
+- date: 2025-8
+  description:
+    - desc: Added a scroll-to-top button.
+    - desc: Added functionality to append article source and author information to the clipboard when copying page content.
 - date: 2025-7
   description:
     - desc: My diary is available now!

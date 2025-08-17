@@ -12,6 +12,12 @@ layout: default
   {% endif %}
 </head>
 
+<!-- 添加隐藏的元数据容器用于后续添加到剪切板复制内容 -->
+<div id="post-meta" style="display:none;"
+     data-author="{{ page.author | default: site.owner.name }}"
+     data-url="{{ page.url | absolute_url }}">
+</div>
+
 <a class="btn" href= "{{ site.url }}/" >
   Home
 </a>
@@ -88,4 +94,3 @@ layout: default
 {% endif %}
 
 {% include post_next_previous.html%}
-

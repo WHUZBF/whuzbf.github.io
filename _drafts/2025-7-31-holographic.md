@@ -117,7 +117,7 @@ $$
 根据密度矩阵的定义，原先的纯态会导出一个非平庸的密度矩阵：
 
 $$
-\rho_1 = \mathrm{Tr}\left(\ket{\Psi}\bra{\Psi}\right)=\frac 1Z\sum_{n}e^{-\beta E_n}\ket{n}_1{}_1\bra{n}
+\rho_1 = \mathrm{Tr}\left(\ket{\Psi}\bra{\Psi}\right)=\frac 1Z\sum_{n}e^{-\beta E_n}\ket{n}_{1\, 1}\bra{n}
 $$
 
 这样我们就**用纯态刻画了一个混合态**。比如考虑谐振子系统的双复制，其中的squeeze state：
@@ -152,7 +152,7 @@ $$
 \ket{\phi^\prime(\vec x),t\to-\infty}\to\braket{0|\phi^\prime(\vec x)}\ket{0}\Rightarrow \ket{0} = \int d\phi(\vec x)\ket{\phi(\vec x),-\infty}
 $$
 
-上面这无非就是在告诉我们量子场论LSZ框架下的性质，往时间无穷远处推，得到的一定是真空态。^[4]由此可以得到基态波函数：
+上面这无非就是在告诉我们量子场论LSZ框架下的性质，往时间无穷远处推，得到的一定是真空态。[^4]由此可以得到基态波函数：
 
 $$
 \begin{aligned}
@@ -162,7 +162,7 @@ $$
 \end{aligned}
 $$
 
-注意这里的作用量是积完所有的$t<0$。闵氏和欧式在一些地方还是很不同的，比如Rindler时空我们知道他是有事件视界的，只相当于Minkowski时空的$\frac14$，但是一旦我们把其Wick转动到欧式理论，就相当于对他进行了一个Kaluza延拓，到了$\mathbb{R}^4$。把Rindler时空看作是Minkowski时空的一个子系统Rindler只占了右半部分，想象左半部分式Rindler时空的复制，不过需要时间反演一下。我们没有理由认为Minkowski时空和Rindler时空的基态是一样的，事实上：
+注意这里的作用量是积完所有的$t<0$。闵氏和欧式在一些地方还是很不同的，比如Rindler时空我们知道他是有事件视界的，只相当于Minkowski时空的$\frac14$，但是一旦我们把其Wick转动到欧式理论，就相当于对他进行了一个Kaluza延拓，到了$\mathbb{R}^4$。把Rindler时空看作是Minkowski时空的一个子系统Rindler只占了右半部分，想象左半部分是对Rindler时空的复制，不过需要时间反演一下。我们没有理由认为Minkowski时空和Rindler时空的基态是一样的，事实上：
 
 $$
 \begin{aligned}
