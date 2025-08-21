@@ -1,4 +1,8 @@
 # updates data
+- date: 2025-9
+  description:
+    - desc: Added a book guide page.
+    - desc: Upgraded Font Awesome from version 4.7.0 to 7.0.0.
 - date: 2025-8
   description:
     - desc: Added a scroll-to-top button.

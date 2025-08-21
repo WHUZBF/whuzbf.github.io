@@ -1,0 +1,449 @@
+---
+layout: default
+title: Books
+permalink: /books/
+---
+
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<!--    这个样式表需要好好修改-->
+<!--    下面的js基本上没问题了-->
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --card-height: 200px;   /*卡片高度*/
+            --transition-speed: 0.4s;
+            --typewriter-speed: 0.05s;
+        }
+
+
+        /* 标签页样式 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            gap: 8px;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background-color: var(--light-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab:hover {
+            background-color: #d6dbdf;
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+
+        /* 书籍卡片网格 */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+            gap: 25px;
+        }
+
+        /* 卡片样式 */
+        .book-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-speed) ease;
+            height: var(--card-height);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform var(--transition-speed);
+            transform-style: preserve-3d;
+        }
+
+        .book-card.expanded .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
+
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+
+        /* 卡片内容布局 */
+        .card-content {
+            display: flex;
+            height: 100%;
+        }
+
+        .book-cover {
+            flex: 0 0 auto;
+            aspect-ratio: 3 / 4;
+            height: 100%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            pointer-events: auto;  /* 允许点击图片 */
+        }
+
+
+        .book-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-family: 'Georgia', serif; /* 书名用衬线体，更显正式 */
+            font-size: 1.2rem;             /* 调小一点，更紧凑 */
+            font-weight: bold;
+            margin-bottom: 2px;            /* 缩小与下方信息的间距 */
+            color: var(--secondary-color);
+        }
+
+        .book-isbn {
+            font-family: 'Arial', sans-serif; /* ISBN 用无衬线体，干净 */
+            font-size: 0.85rem;                /* 略微缩小字体 */
+            color: #666;
+            margin-bottom: 2px;                /* 缩小间距 */
+        }
+
+        .book-author {
+            font-family: 'Times New Roman', monospace; /* 作者名用等宽字体，突出不同信息类型 */
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        .progress-bar {
+            height: 15px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* 左右对齐 */
+            /*padding: 0 10px;*/
+            box-sizing: border-box;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .label-left {
+            white-space: nowrap;         /* 始终一行显示 */
+            margin-left: 2px;
+            min-width: 60px;             /* 设置左侧文字最小宽度，保证间距 */
+        }
+
+        .progress-percentage {
+            white-space: nowrap;          /* 百分比不换行 */
+        }
+
+
+
+        .show-more {
+            margin-top: auto;       /* 推到底部 */
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;         /* 始终一行显示 */
+        }
+
+        .show-more i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+
+
+        /* 卡片背面样式 */
+        .review-content {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .typewriter {
+            /*overflow: hidden;*/
+            white-space: pre-wrap;
+        }
+
+        .show-less {
+            color: var(--primary-color);
+            text-align: center;
+            margin-top: auto;
+            padding-top: 15px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .show-less i {
+            margin-right: 5px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab {
+                width: 100%;
+                text-align: center;
+                border-radius: 5px;
+                margin-bottom: 5px;
+            }
+        }
+
+        .category-count {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            margin-left: 8px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <h1><i class="fas fa-book"></i> 我的藏书阁</h1>
+    <p>这里记录了我学习和研究过程中使用过的各种教科书，点击卡片可以查看我的详细评价</p>
+
+    <div class="tabs">
+        <div class="tab active" data-category="all">
+            <i class="fas fa-th"></i> 全部
+            <span class="category-count"></span>
+        </div>
+        <div class="tab" data-category="math">
+            <i class="fas fa-calculator"></i> 数学
+            <span class="category-count"></span>
+        </div>
+        <div class="tab" data-category="physics">
+            <i class="fas fa-atom"></i> 物理
+            <span class="category-count"></span>
+        </div>
+        <div class="tab" data-category="computer">
+            <i class="fas fa-laptop-code"></i> 计算机
+            <span class="category-count"></span>
+        </div>
+        <div class="tab" data-category="language">
+            <i class="fa-solid fa-language"></i> 语言
+            <span class="category-count"></span>
+        </div>
+    </div>
+
+    <div class="books-grid">
+        <!-- 使用Liquid语法循环生成书籍卡片 -->
+        {% for book in site.data.books %}
+        <div class="book-card" data-category="{{ book.category }}">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="book-cover">
+                            <img src="{{ book.cover }}" alt="{{ book.title }}封面">
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">{{ book.title }}</div>
+                            <div class="book-isbn">ISBN: {{ book.isbn }}</div>
+                            <div class="book-author">作者: {{ book.author }}</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: {{ book.reading_progress }}">
+                                    <span class="label-left">阅读进度</span>
+                                    <span class="progress-percentage">{{ book.reading_progress }}</span>
+                                </div>
+                            </div>
+
+                            <div class="show-more">点击显示更多 <i class="fas fa-chevron-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="review-content">
+                        <div class="typewriter">{{ book.review }}</div>
+                    </div>
+                    <p class="show-less"><i class="fas fa-chevron-left"></i> 点击收起</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+<!--    这些js是deepseek帮忙写的，我删掉了一些不work的代码，然后修改了其它地方的一些代码使得不会出现bug（用bug抵消bug属于是）-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 标签切换功能
+        const tabs = document.querySelectorAll('.tab');
+        const bookCards = document.querySelectorAll('.book-card');
+
+        // 更新计数显示
+        function updateCategoryCounts() {
+            const counts = {
+                'all': bookCards.length,
+                'math': 0,
+                'physics': 0,
+                'computer': 0,
+                'language': 0,
+            };
+
+            bookCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (counts.hasOwnProperty(category)) {
+                    counts[category]++;
+                }
+            });
+
+            // 更新计数显示
+            tabs.forEach(tab => {
+                const category = tab.getAttribute('data-category');
+                const countElement = tab.querySelector('.category-count');
+                if (countElement && counts.hasOwnProperty(category)) {
+                    countElement.textContent = counts[category];
+                }
+            });
+        }
+
+        updateCategoryCounts();
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 更新活跃标签
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // 过滤显示书籍
+                const category = tab.getAttribute('data-category');
+                bookCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 卡片点击效果
+        bookCards.forEach(card => {
+            const typewriterElement = card.querySelector('.typewriter');
+            const showLessElement = card.querySelector('.show-less');
+            let isExpanded = false;
+            let typingInterval;
+            // 保存完整的 review 文本（只取一次）
+            const review = typewriterElement.textContent;
+
+            card.addEventListener('click', function(e) {
+                // ⛔ 如果点击在封面区域，直接返回
+                if (e.target.closest('.book-cover')) return;
+
+                if (!isExpanded) {
+                    // 展开卡片
+                    this.classList.add('expanded');
+
+                    // 清空并重置
+                    typewriterElement.textContent = "";
+                    let i = 0;
+
+                    // 清除旧的 interval
+                    clearInterval(typingInterval);
+
+                    // 开始打字机效果
+                    typingInterval = setInterval(() => {
+                        if (i < review.length) {
+                            typewriterElement.textContent += review.charAt(i);
+                            i++;
+                        } else {
+                            clearInterval(typingInterval);
+                            showLessElement.style.visibility = 'visible';
+                        }
+                    }, 50);
+
+                    isExpanded = true;
+                } else {
+                    // 收起卡片
+                    this.classList.remove('expanded');
+                    clearInterval(typingInterval);
+
+                    // 恢复初始状态
+                    typewriterElement.textContent = review;
+                    card.style.height = 'var(--card-height)';
+                    showLessElement.style.visibility = 'hidden';
+
+                    isExpanded = false;
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
