@@ -96,6 +96,7 @@ permalink: /books/
             display: flex;
             flex-direction: column;
             overflow: auto;
+            transform-style: preserve-3d; /*火狐浏览器似乎无法很好地处理这个从父容器的继承，所以我手动加上了*/
         }
 
         .card-back {
@@ -108,6 +109,7 @@ permalink: /books/
             flex-direction: column;
             transform: rotateY(180deg);
             overflow-y: auto;
+            transform-style: preserve-3d; /*火狐浏览器似乎无法很好地处理这个从父容器的继承，所以我手动加上了*/
         }
 
         /* 卡片内容布局 */
