@@ -1,8 +1,22 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: Masahito Yamazaki's Group
+  link: https://inspirehep.net/authors/1039163
+  date: Oct 2025 - <i class="fa-regular fa-clock" aria-hidden="true" title="Until Now"></i>
+  job: Master Programme
+  location: UTokyo Phys.
+  location_link: https://www.phys.s.u-tokyo.ac.jp/
+
+- name: QFT Amplitudes Group, Song He
+  link: https://inspirehep.net/authors/1041264
+  date: Aug 2024 - Sep 2024
+  job: Visitor
+  location: Beijing, Inst. Theor. Phys.
+  location_link: https://itp.cas.cn/
+
 - name: Scattering Amplitudes Group, Yi-jian Du
   link: https://inspirehep.net/authors/1065266?ui-citation-summary=true
-  date: Jun 2023 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  date: Jun 2023 - Jun 2025
   job: Undergraduate Research
   location: WHU Phys.
   location_link: https://physics.whu.edu.cn/

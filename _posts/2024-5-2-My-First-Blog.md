@@ -184,12 +184,13 @@ $$
 - [x] 复制的时候注入作者名和文章来源链接信息
 - [ ] css里面有很多用到`@media`的地方，但是移动设备上下分栏和laptop左右分栏设置的`max-width`在不同class的css里面设置的不一样，目前的版本在我手机、平板以及笔记本的测试中都看的还算顺眼，还没打算优化目前。
 - [ ] 网站上面目前很多图标都是使用的font-awsome 4库，这是font-awsome最后的纯开源免费的版本，已经是十年前了，我打算把本地的font-awsome删掉，改成cdn引入7.0.0版本的图标库，这将是一个大工程。。。
-- [x] 上面提到的问题已经解决了一部分，但是还不知道会不会有bug
+- [x] 上面提到的font-awsome的问题已经解决了一部分，但是还不知道会不会有bug
 - [ ] page_download页面里面的数据都是我直接在html里面填写的，这样不便于维护代码，希望之后改成可以直接用liquid语法遍历data里面的相关yml文件，不过这个页面更新并不频繁而且上传的东西不多，所以目前还不打算重构，不过books页面肯定是要这么做的。
 - [ ] 代码块部分希望可以增添一个一键复制按钮
 - [x] 对于标号的公式长公式自动overflow滚动显示会失效
 - [ ] 由于当时建站用的老旧且已经停止更新的模板（不难看到很多页面的代码都是我自己一点一点堆成屎山的），计划在换新电脑后的假期彻底更新本网站使用的Jekyll版本，并且更新Gemfile文件。
 - [ ] md在渲染的时候斜体标记`_`可能会和公式里面的下划线冲突，行间公式不会出现这个问题，行内公式问题很严重，可能没有一般性的自动化解决方案，这是md本身对数学公式支持的不够好导致的。目前的解决方案是要么把出问题的行直接用`<p></p>`包裹起来，要么是使用转义之后的`\_`。
+- [ ] 你应该会发现即使本网站一些文章很长，但是最终显示的阅读时间似乎很短，这是因为jekyll在计算词数的时候是以英文为逻辑的，这个bug需要后面我单独写个计数脚本来解决。
 
 ## 解决方案
 
@@ -288,3 +289,33 @@ image:                     # 这里是配置文章的封面图
 jekyll s
 ```
 
+另外多作者这个功能虽然目前来说对我几乎没有用，但是还是在这里说一下使用方法，避免之后要用。首先注意到`post_listing`布局里面我有下面的代码：
+
+```html
+{% if post.author %}
+{% assign author = site.data.authors[post.author] %}
+{% if author.link %}
+<p><font color="#ffc0cb"><b>By</b></font> <a href="{{ author.link }}">{{ author.name }}</a></p>
+{% else %}
+<p><font color="#ffc0cb"><b>By</b></font> {{ author.name }}</p>
+{% endif %}
+{% else %}
+{% assign author = site.owner %}
+<p><font color="#ffc0cb"><b>By</b></font> <a href="{{ site.url }}">{{ author.name }}</a></p>
+{% endif %}
+```
+
+这意味着文章布局天然支持多作者，而且本模板本身的左侧作者信息栏也是支持多作者的，你只需要在`author.yml`文件中加上对应的作者信息：
+
+```yaml
+Bufan Zheng:   # 这是作者id，填入post的author的内容
+  name: bufan  # 这是显示在左侧的姓名
+  link: https://www.xxx.com                    # 这是作者的个人网站
+  job:  "xxx"                                  # 这会显示在职业那里
+  avatar: bufan.jpg                            # 这是头像，直接把图片放在img根目录就行
+  bio:  "xxx"                                  # 这是个性签名
+  email: xxx@qq.com                            # 这是邮箱
+  steamlink: https://steamcommunity.com/profiles/xxxxx/ # 这是steam页面
+  zhihu: xxx  # 这是知乎账号id填https://www.zhihu.com/people后面的那串
+  # 还可以在下面添加更多的社交账号链接，设置方法和本网站拥有者一样，详见config配置文件里面的设置
+```

@@ -1,6 +1,12 @@
 # updates data
+- date: 2025-10
+  description:
+    - desc: I enrolled in University of Tokyo!
+    - desc: Enabled comments on my diaries.
+    - desc: Fixed icon display issue on resume page caused by Awesome version update.
 - date: 2025-9
   description:
+    - desc: Updated the avatar and favicon.
     - desc: Firefox is now supported as well.
     - desc: Added a book guide page.
     - desc: Upgraded Font Awesome from version 4.7.0 to 7.0.0.

@@ -1,10 +1,11 @@
 # 存储作者数据，允许多个作者情况，见post_listing中的作者设置
-Lingyun Wang:
-  name: expe
-  link: https://www.zhihu.com/people/expe-94
-  job:  "霊とか相談所"
-  avatar: expe.jpg
-  bio:  "一生僕らは生きて征け"
-  email: ee_mikusuki@163.com
-  steamlink: https://steamcommunity.com/profiles/76561199032940584/
-  zhihu: expe-94
+Bufan Zheng:   # 这是作者id，填入post的author的内容
+  name: bufan  # 这是显示在左侧的姓名
+  link: https://www.xxx.com                    # 这是作者的个人网站
+  job:  "xxx"                                  # 这会显示在职业那里
+  avatar: bufan.jpg                            # 这是头像，直接把图片放在img根目录就行
+  bio:  "xxx"                                  # 这是个性签名
+  email: xxx@qq.com                            # 这是邮箱
+  steamlink: https://steamcommunity.com/profiles/xxxxx/ # 这是steam页面
+  zhihu: xxx  # 这是知乎账号id填https://www.zhihu.com/people后面的那串
+  # 还可以在下面添加更多的社交账号链接，设置方法和本网站拥有者一样，详见config配置文件里面的设置
