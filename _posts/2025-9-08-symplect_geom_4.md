@@ -5,7 +5,7 @@ categories: [辛几何翻訳]
 tags: [math,physics]
 comments: true
 ---
-本文章是「数物系のためのシンプレクティック幾何学入門」一书翻译系列的第二篇，其余章节文章链接如下：
+本文章是「数物系のためのシンプレクティック幾何学入門」一书翻译系列的第四篇，其余章节文章链接如下：
 
 [辛几何入门——第五章 动量映射与辛商]({{ site.website }}/articles/2025-10/symplect_geom_5)
 
@@ -177,7 +177,7 @@ $$
 \mathbb{P}^n = \mathcal{O}_\lambda \tag{4.3.5}
 $$
 
-它强调了射影空间作为辛流形的侧面。这里，$G = U(n+1)$ 是酉群，$\mathfrak{g} = \{\xi \in \text{Mat}\_{\mathbb{C}}(n+1) \| \xi^\* = -\xi\}$ 是其李代数，且 $\lambda = \text{diag}(\lambda, 0, \ldots, 0) \in \mathfrak{g}^\*$。这里我们通过内积
+它强调了射影空间作为辛流形的侧面。这里，$G = U(n+1)$ 是酉群，$\mathfrak{g} = \\{\xi \in \text{Mat}\_{\mathbb{C}}(n+1) \| \xi^\* = -\xi\\}$ 是其李代数，且 $\lambda = \text{diag}(\lambda, 0, \ldots, 0) \in \mathfrak{g}^\*$。这里我们通过内积
 
 $$
 \mathfrak{g} \times \mathfrak{g} \to \mathbb{R}, \quad (X, Y) \mapsto \operatorname{tr}(XY) \tag{4.3.6}
@@ -284,13 +284,13 @@ $$
 T_\xi \mathfrak{g}^* \cong (T_\xi \mathfrak{g}^*)^{**} \cong (\mathfrak{g}^*)^* \cong \mathfrak{g} \tag{4.4.8}
 $$
 
-且 $\mathfrak{g}$ 上存在自然的李括号，因此可用它取 $(df)\_\xi, (dg)\_\xi \in \mathfrak{g}$ 的李括号，将得到的 $\mathfrak{g}$ 中的元用 $\xi \in \mathfrak{g}^\*$ 来求值，并将此值定义为 $\{f, g\}$ 在 $\xi$ 处的值：
+且 $\mathfrak{g}$ 上存在自然的李括号，因此可用它取 $(df)\_\xi, (dg)\_\xi \in \mathfrak{g}$ 的李括号，将得到的 $\mathfrak{g}$ 中的元用 $\xi \in \mathfrak{g}^\*$ 来求值，并将此值定义为 $\\{f, g\\}$ 在 $\xi$ 处的值：
 
 $$
 \{f, g\}(\xi) := \langle \xi, [(df)_\xi, (dg)_\xi] \rangle\tag{4.4.9}
 $$
 
-$[-,-]$ 的 Jacobi 恒等式导出 $\{-,-\}$ 的 Jacobi 恒等式，$\mathfrak{g}^\*$ 成为一个 Poisson 流形。称 $\{-,-\}$ 称为 $\mathfrak{g}^\*$ 的 **Lie-Poisson 括号** (Lie-Poisson bracket)，称 $\{-,-\}$ 所确定的 $\mathfrak{g}^\*$ 的 Poisson 结构为 $\mathfrak{g}^\*$ 的 **Lie-Poisson 结构** (Lie-Poisson structure)。
+$[-,-]$ 的 Jacobi 恒等式导出 $\\{-,-\\}$ 的 Jacobi 恒等式，$\mathfrak{g}^\*$ 成为一个 Poisson 流形。称 $\\{-,-\\}$ 称为 $\mathfrak{g}^\*$ 的 **Lie-Poisson 括号** (Lie-Poisson bracket)，称 $\\{-,-\\}$ 所确定的 $\mathfrak{g}^\*$ 的 Poisson 结构为 $\mathfrak{g}^\*$ 的 **Lie-Poisson 结构** (Lie-Poisson structure)。
 
 **注 4.4.1.** 当李群具有 Poisson 结构且李群的乘法成为 Poisson 流形的态射时，称其为 Poisson-Lie 群，这是一个与 Lie-Poisson 结构完全不同的概念。
 
@@ -373,9 +373,9 @@ $$
 [^14]: 这里讲的都是复射影空间，如果是实射影空间，不难猜到，你只需要把下面式子的所有的幺正群$U$全部换成正交群$O$就行了。
 [^15]: 这下面的$GL\_1(\mathbb{C})$也就是一维的可逆复矩阵其实就是$\mathbb{C}^\times$。
 [^16]: 我看了之后百思不得其解，因为按照这个符号的想法，我似乎应当把$G\_\mathbb{C}$如下文的$G=U(n)$一样看作是$G$的复化。但是据我所知$\mathfrak{sl}(n,\mathbb{C})\otimes\_\mathbb{R}\mathbb{C}\cong\mathfrak{sl}(n,\mathbb{C})\oplus\mathfrak{sl}(n,\mathbb{C})$，这意味着$SL(n,\mathbb{C})$复化之后是$SL(n,\mathbb{C})\times SL(n,\mathbb{C})$不是这里写的$GL(n,\mathbb{C})$。所以我怀疑这里是个符号滥用，作者想说明的应该是$\mathbb{P}^n$可以表示成某个群$G$模掉其某个parabolic subgroup的形式，而$G$一般取$GL$，但是也可以取$SL$，不过书中没有写取$SL$的时候那个子群$P$的形式。根据资料显示，似乎$P$的形式和下面$GL$的一样都是上三角分块矩阵，块的来源也一样，只是要多加个限制条件$A\cdot \det D=1$。我这里翻译的时候保留了原文的记号$G$，不过我觉得读者应当忽略这个记号，或者心中换成比如$F$等别的记号表示这个群。当然这里也有可能是少标了一个下标$\mathbb{C}$，想说$G=U(n)$的复化不严格也可以看作$SL(n,\mathbb{C})$，毕竟关注投影的话$GL$和$SL$没太大区别。
-[^17]: 看到这里你可能一头雾水，不要慌，我来给你解释一下大致的逻辑。首先前面花了一段去讲我们可以用不变内积把$\mathfrak{g}$以及其对偶的$\mathfrak{g}^\*$对应起来，所以就把余伴随和伴随作用联系起来。前者不熟没关系，后面一节才介绍。但是后者我们大致是知道怎么回事的。$\mathrm{Ad}\_g(h)=ghg^{-1}$，然后联系群作用的轨道，那么我们就知道伴随轨道定义就是$\mathcal{O}\_\lambda=\{g\lambda g^{-1}\|g\in G\}$。然后前面又说了余伴随轨道在这里和伴随轨道等价。不难发现这个表示可以和下面用稳定子群的表示等价，也就是$\mathcal{O}\_\lambda = G/G\_\lambda$，这里$G\_{\lambda}=\{g\in G\|g\lambda g^{-1}=\lambda\}$，也就是上文里面的$T$，轻松计算可以得到$T\cong U(1)\times U(n)$。那后面大费周章的再写这么一大段是为了干啥？其实就是为了跟你说可以直接从前面$G\_\mathbb{C}/P$的表示直接等价看出确实有$G/T$这个另外的用余伴随轨道的表示。
+[^17]: 看到这里你可能一头雾水，不要慌，我来给你解释一下大致的逻辑。首先前面花了一段去讲我们可以用不变内积把$\mathfrak{g}$以及其对偶的$\mathfrak{g}^\*$对应起来，所以就把余伴随和伴随作用联系起来。前者不熟没关系，后面一节才介绍。但是后者我们大致是知道怎么回事的。$\mathrm{Ad}\_g(h)=ghg^{-1}$，然后联系群作用的轨道，那么我们就知道伴随轨道定义就是$\mathcal{O}\_\lambda=\\{g\lambda g^{-1}\|g\in G\\}$。然后前面又说了余伴随轨道在这里和伴随轨道等价。不难发现这个表示可以和下面用稳定子群的表示等价，也就是$\mathcal{O}\_\lambda = G/G\_\lambda$，这里$G\_{\lambda}=\\{g\in G\|g\lambda g^{-1}=\lambda\\}$，也就是上文里面的$T$，轻松计算可以得到$T\cong U(1)\times U(n)$。那后面大费周章的再写这么一大段是为了干啥？其实就是为了跟你说可以直接从前面$G\_\mathbb{C}/P$的表示直接等价看出确实有$G/T$这个另外的用余伴随轨道的表示。
 [^18]: 注意到$G\_\mathbb{C}/P$里面的元素是陪集$gP$的形式，这里传递性需要观察到对任意$g\_1,g\_2\in G\_\mathbb{C}$，总是存在$g\in G$，使得$g\circ g\_1P=g\_2P$。而如果$G$在$X$上作用有传递性，那么$X$可以写成群流形$G/G\_{x\_0}$的形式，这里$\forall x\_0\in X$，$G\_{x\_0}$是相应的保$x\_0$不变的稳定子群。不难发现我们可以选取最trivial的一个$G\_{\mathbb{C}}/P$里面的元素$eP$，那么$g\circ(eP)=eP$就是要求$gP=eP$，根据陪集不相交原则，这直接意味着$g\in P$，也就得到了下文写的$G\cap P$。
-[^19]:是的，你被骗了，我们都被骗了，直到这里作者都没有完整写下过余伴随轨道的定义，不过作者可能默认你学过点集拓扑，既然群作用都告诉你了自然知道轨道定义，我还是在这里帮作者写一下定义：$\mathcal{O}\_{\xi}:=\{Ad\_g^\*\xi\in\mathfrak{g}^\*\mid g\in G\}$。不过我觉得用词还是不太准确，直接说$G$的轨道感觉不好，应该说在$G$的作用下$\mathfrak{g}^\*$的轨道。
+[^19]:是的，你被骗了，我们都被骗了，直到这里作者都没有完整写下过余伴随轨道的定义，不过作者可能默认你学过点集拓扑，既然群作用都告诉你了自然知道轨道定义，我还是在这里帮作者写一下定义：$\mathcal{O}\_{\xi}:=\\{Ad\_g^\*\xi\in\mathfrak{g}^\*\mid g\in G\\}$。不过我觉得用词还是不太准确，直接说$G$的轨道感觉不好，应该说在$G$的作用下$\mathfrak{g}^\*$的轨道。
 [^20]:我在下面写了一个note阐述为什么$Z\propto\nabla S$。
 [^21]: 这里“微分”的意思是：$Ad\_g\mathrm{:}\mathfrak{g}\to\mathfrak{g},X\mapsto\left.\frac{d}{dt}\right\|\_{t=0}(g\exp(tX)g^{-1})$。
 [^22]: 切触几何据我所知可以和热力学联系起来，具体可以看比如卓里奇写的《自然科学问题的数学分析》，里面有一节有很基础的介绍，这里也有个比较新的[review](https://doi.org/10.1142/S0219887819400036)。

@@ -191,6 +191,12 @@ $$
 - [ ] 由于当时建站用的老旧且已经停止更新的模板（不难看到很多页面的代码都是我自己一点一点堆成屎山的），计划在换新电脑后的假期彻底更新本网站使用的Jekyll版本，并且更新Gemfile文件。
 - [ ] md在渲染的时候斜体标记`_`可能会和公式里面的下划线冲突，行间公式不会出现这个问题，行内公式问题很严重，可能没有一般性的自动化解决方案，这是md本身对数学公式支持的不够好导致的。目前的解决方案是要么把出问题的行直接用`<p></p>`包裹起来，要么是使用转义之后的`\_`。
 - [ ] 你应该会发现即使本网站一些文章很长，但是最终显示的阅读时间似乎很短，这是因为jekyll在计算词数的时候是以英文为逻辑的，这个bug需要后面我单独写个计数脚本来解决。
+- [x] 修改个人介绍
+- [ ] 修改个人介绍的字体，感觉之前的字体过于追求独特了
+- [ ] 照着官方的说明修改gem文档，使用git-page的gem，而不是gem jekyll，这部分跟着文档来
+- [ ] 之前的feed.xml文件是手动用liquid语法生成的，建议改成feed插件自动生成。留四个插件，其它的插件都可以从gemfile以及config里面删掉。
+- [ ] 网站翻译的js的cdn改了，不过我还在用之前的，目前还没什么问题
+- [x] 网站运行一年之后发现一个惊天大bug！行内公式由于liquid和md语法冲突，是没办法自动转义大括号`\{\}`的！网上搜了一下解决方案就是避免使用大括号。。。。唯一可行的办法是使用`\\{\\}`。直接两层转义。然而我发现我网站上的blog针对大括号转义问题是普遍现象！真的裂开了，所以为了网站运行的稳定性我决定对于旧的网站内容同一不进行修改，先将就着，后面的blog再加注意。
 
 ## 解决方案
 
@@ -289,6 +295,14 @@ image:                     # 这里是配置文章的封面图
 jekyll s
 ```
 
+用下面的代码可以让Jekyll使用gem中的配置进行编译，而不是全局配置：
+
+```cmd
+bundle exec jekyll serve
+```
+
+但是github无视你这一点，他会用他自己的版本编译，但是为了安全性你不能使用插件。你如果想用自定义插件可以用git action去部署，但是这样的话又不能使用自定义主题。
+
 另外多作者这个功能虽然目前来说对我几乎没有用，但是还是在这里说一下使用方法，避免之后要用。首先注意到`post_listing`布局里面我有下面的代码：
 
 ```html
@@ -319,3 +333,31 @@ Bufan Zheng:   # 这是作者id，填入post的author的内容
   zhihu: xxx  # 这是知乎账号id填https://www.zhihu.com/people后面的那串
   # 还可以在下面添加更多的社交账号链接，设置方法和本网站拥有者一样，详见config配置文件里面的设置
 ```
+
+## github支持的插件列表
+
+```json
+{
+    jekyll-coffeescript,
+    jekyll-commonmark-ghpages,
+    jekyll-feed,    //这个比较有用
+    jekyll-gist,
+    jekyll-github-metadata,
+    jekyll-paginate,  //这个比较有用
+    jekyll-redirect-from,
+    jekyll-seo-tag,
+    jekyll-sitemap,    //这个比较有用
+    jekyll-avatar,
+    jemoji,        //这个比较有用
+    jekyll-mentions,
+    jekyll-relative-links,
+    jekyll-optional-front-matter,
+    jekyll-readme-index,
+    jekyll-default-layout,
+    jekyll-titles-from-headings,
+    jekyll-include-cache,
+    jekyll-octicons,
+    jekyll-remote-theme,
+}
+```
+

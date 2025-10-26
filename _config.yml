@@ -14,7 +14,7 @@ keywords: ["jekyll", "physics", "math","blog"]
 # Jekyll configuration
 ####################################
 #
-timezone:          Asia/Shanghai
+timezone:          Asia/Tokyo
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
@@ -33,9 +33,7 @@ paginate: 5
 paginate_path: 'home/page:num'
 
 plugins:
-  - jekyll-gist
   - jemoji
-  - jekyll-last-modified-at
   - jekyll-sitemap
   - jekyll-paginate
 

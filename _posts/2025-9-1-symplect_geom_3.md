@@ -67,17 +67,17 @@ J_{2r} \\
 \tag{3.1.2}
 $$
 
-**证明.** 使用 Gram-Schmidt 正交化法。首先将 $\omega$ 视为映射 $V \rightarrow V^\*$，并取其核 $\ker \omega$ 的一个基底 $\{g\_i\}\_{i=1}^k$ 固定下来。接着，取 $\ker \omega$ 的一个补空间记为 $V\_1$，则 $\omega$ 在 $V\_1$ 上定义了一个反对称的非退化双线性形式。在 $V\_1$ 中取一个非零元 $e\_1$，由于 $\omega$ 在 $V\_1$ 上非退化，故存在 $f\_1 \in V\_1$ 使得 $\omega(e\_1, f\_1) = 1$。记由 $\{e\_1, f\_1\}$ 生成的 $V\_1$ 的子空间关于 $\omega$ 的正交补空间为 $V\_2$。从 $V\_1$ 到 $V\_2$ 的正交投影由下式给出：
+**证明.** 使用 Gram-Schmidt 正交化法。首先将 $\omega$ 视为映射 $V \rightarrow V^\*$，并取其核 $\ker \omega$ 的一个基底 $\\{g\_i\\}\_{i=1}^k$ 固定下来。接着，取 $\ker \omega$ 的一个补空间记为 $V\_1$，则 $\omega$ 在 $V\_1$ 上定义了一个反对称的非退化双线性形式。在 $V\_1$ 中取一个非零元 $e\_1$，由于 $\omega$ 在 $V\_1$ 上非退化，故存在 $f\_1 \in V\_1$ 使得 $\omega(e\_1, f\_1) = 1$。记由 $\\{e\_1, f\_1\\}$ 生成的 $V\_1$ 的子空间关于 $\omega$ 的正交补空间为 $V\_2$。从 $V\_1$ 到 $V\_2$ 的正交投影由下式给出：
 
 $$
 v \mapsto v - \omega(v, f_1)e_1 + \omega(v, e_1)f_1 \tag{3.1.3} 
 $$
 
-$\omega$ 在 $V\_2$ 上的限制再次是非退化的，因此如果 $V\_2 \neq 0$，则存在 $V\_2$ 中的一组向量 $\{e\_2, f\_2\}$ 使得 $\omega(e\_2, f\_2) = 1$。重复此过程，最终得到 $V$ 的一个基底 $\{e\_1, \ldots, e\_l, f\_1, \ldots, f\_l, g\_1, \ldots, g\_k\}$。由构造过程可知，$\omega$ 在此基底下的表示由 (3.1.2) 式给出。□
+$\omega$ 在 $V\_2$ 上的限制再次是非退化的，因此如果 $V\_2 \neq 0$，则存在 $V\_2$ 中的一组向量 $\\{e\_2, f\_2\\}$ 使得 $\omega(e\_2, f\_2) = 1$。重复此过程，最终得到 $V$ 的一个基底 $\\{e\_1, \ldots, e\_l, f\_1, \ldots, f\_l, g\_1, \ldots, g\_k\\}$。由构造过程可知，$\omega$ 在此基底下的表示由 (3.1.2) 式给出。□
 
 **系 3.1.2.** 向量空间上的反对称二次型的秩必为偶数。
 
-实向量空间 $V$ 及其上的一个非退化反对称双线性形式 $\omega$ 所构成的组合 $(V, \omega)$ 称为**辛向量空间** (symplectic vector space)。$V$ 的维数必为偶数，且 $\omega$ 可由 $V$ 的某个适当基底 $\{e\_1, \ldots, e\_n, f\_1, \ldots, f\_n\}$ 通过矩阵 $J\_{2n}$ 表示：
+实向量空间 $V$ 及其上的一个非退化反对称双线性形式 $\omega$ 所构成的组合 $(V, \omega)$ 称为**辛向量空间** (symplectic vector space)。$V$ 的维数必为偶数，且 $\omega$ 可由 $V$ 的某个适当基底 $\\{e\_1, \ldots, e\_n, f\_1, \ldots, f\_n\\}$ 通过矩阵 $J\_{2n}$ 表示：
 
 $$
 \omega(e_i, e_j) = \omega(f_i, f_j) = 0, \quad \omega(e_i, f_j) = \delta_{ij}, \quad i, j = 1, \ldots, n. \tag{3.1.4}
@@ -108,7 +108,7 @@ $$
 \dim W \leq \frac{1}{2} \dim V \tag{3.1.7}
 $$
 
-**证明.** 使用命题 3.1.1 的证明中所用的 Gram-Schmidt 正交化法[^5]，对于 $W$ 的任意基底 $\{e\_1, \ldots, e\_k\}$，可以取得包含它的 $V$ 的一个辛基底 $\{e\_1, \ldots, e\_n, f\_1, \ldots, f\_n\}$，因此有：
+**证明.** 使用命题 3.1.1 的证明中所用的 Gram-Schmidt 正交化法[^5]，对于 $W$ 的任意基底 $\\{e\_1, \ldots, e\_k\\}$，可以取得包含它的 $V$ 的一个辛基底 $\\{e\_1, \ldots, e\_n, f\_1, \ldots, f\_n\\}$，因此有：
 
 $$
 2 \dim W = 2k \leq 2n = \dim V \tag{3.1.8}
@@ -467,19 +467,20 @@ $$
 
 特别地，当 $\varphi$ 是嵌入时，$(M, \omega\_M)$ 称为 $(N, \omega\_N)$ 的**辛子流形** (symplectic submanifold)。
 
-**定义 3.6.2.** 泊松流形 $(M, \{-, -\}\_M)$ 和 $(N, \{-, -\}\_N)$ 之间的映射 $\varphi: M \to N$，如果对任意 $f, g \in C^\infty(N)$ 满足：
+**定义 3.6.2.** 泊松流形 $(M, \\{-, -\\}\_M)$ 和 $(N, \\{-, -\\}\_N)$ 之间的映射 $\varphi: M \to N$，如果对任意 $f, g \in C^\infty(N)$ 满足：
 
 $$
 \{\varphi^* f, \varphi^* g\}_M = \varphi^* \{f, g\}_N \tag{3.6.2}
 $$
 
-则称为**泊松映射** (Poisson map)。特别地，当 $\varphi$ 是嵌入时，$(M, \{-, -\}\_M)$ 称为 $(N, \{-, -\}\_N)$ 的**泊松子流形** (Poisson submanifold)。
+则称为**泊松映射** (Poisson map)。特别地，当 $\varphi$ 是嵌入时，$(M, \\{-, -\\}\_M)$ 称为 $(N, \\{-, -\\}\_N)$ 的**泊松子流形** (Poisson submanifold)。
 
 这些定义虽然自然，但条件非常强。虽然还不至于强到毫无用处的程度，但如下面两个引理所表明，满足这些条件的情况相当受限，这提供了一个典型的例子，说明“自然的定义”未必是好的定义。
 
 **引理 3.6.3.** 存在辛流形之间的辛映射 $\varphi : (M, \omega\_M) \rightarrow (N, \omega\_N)$ 的必要条件是 $\dim M \leq \dim N$。
 
 **证明.** 对于任意映射 $\varphi : M \rightarrow N$、任意点 $p \in M$ 以及 $N$ 上的任意微分形式 $\omega$，下式成立：[^21]
+
 $$
 \text{rank}(\varphi^*\omega)_p \leq \text{rank}\omega_{\varphi(p)} \tag{3.6.3}
 $$
@@ -492,17 +493,17 @@ $$
 
 引理 3.6.3 由这两个事实显然可得。
 
-**引理 3.6.4.** 设 $(M, \{-, -\}\_M)$ 为泊松流形，$N$ 为 $M$ 的子流形。则存在 $N$ 上的泊松结构 $\{-, -\}\_N$ 使得 $(N, \{-, -\}\_N)$ 成为 $(M, \{-, -\}\_M)$ 的泊松子流形的充分必要条件是：对于 $M$ 上的任意函数 $H$ 和 $N$ 上的任意点 $p$，由 $H$ 生成的哈密顿流[^20]
+**引理 3.6.4.** 设 $(M, \\{-, -\\}\_M)$ 为泊松流形，$N$ 为 $M$ 的子流形。则存在 $N$ 上的泊松结构 $\\{-, -\\}\_N$ 使得 $(N, \\{-, -\\}\_N)$ 成为 $(M, \\{-, -\\}\_M)$ 的泊松子流形的充分必要条件是：对于 $M$ 上的任意函数 $H$ 和 $N$ 上的任意点 $p$，由 $H$ 生成的哈密顿流[^20]
 
 $$
 \varphi : \mathbb{R} \to M, \quad \varphi_* \left( \frac{\partial}{\partial t} \right) = (X_H)_{\varphi(t)}, \quad \varphi(0) = p \tag{3.6.5}
 $$
 
-对任意 $t \in \mathbb{R}$ 均满足 $\varphi(t) \in N$。此外，这时使 $(N, \{-, -\}\_N)$ 成为 $(M, \{-, -\}\_M)$ 的泊松子流形的 $N$ 上的泊松结构 $\{-, -\}\_N$ 是唯一的。
+对任意 $t \in \mathbb{R}$ 均满足 $\varphi(t) \in N$。此外，这时使 $(N, \\{-, -\\}\_N)$ 成为 $(M, \\{-, -\\}\_M)$ 的泊松子流形的 $N$ 上的泊松结构 $\\{-, -\\}\_N$ 是唯一的。
 
-**证明.** 当 $(N, \{-, -\}\_N)$ 是 $(M, \{-, -\}\_M)$ 的泊松子流形时，对任意 $f, g \in C^\infty(M)$，$\{f, g\}\_M$ 的值仅依赖于 $f\|\_N$ 和 $g\|\_N$[^22]。因此，$M$ 上的向量场 $X\_f = \{f, -\}$ 与 $N$ 相切[^23]。由此得出必要性。
+**证明.** 当 $(N, \\{-, -\\}\_N)$ 是 $(M, \\{-, -\\}\_M)$ 的泊松子流形时，对任意 $f, g \in C^\infty(M)$，$\\{f, g\\}\_M$ 的值仅依赖于 $f\|\_N$ 和 $g\|\_N$[^22]。因此，$M$ 上的向量场 $X\_f = \\{f, -\\}$ 与 $N$ 相切[^23]。由此得出必要性。
 
-另一方面，若 $X\_f$ 与 $N$ 相切，则 $\{f, g\}\_M$ 的值仅依赖于 $g\|\_N$。互换 $f$ 和 $g$ 的角色，可知 $\{f, g\}\_M$ 的值也仅依赖于 $f\|\_N$。由此得出充分性。
+另一方面，若 $X\_f$ 与 $N$ 相切，则 $\\{f, g\\}\_M$ 的值仅依赖于 $g\|\_N$。互换 $f$ 和 $g$ 的角色，可知 $\\{f, g\\}\_M$ 的值也仅依赖于 $f\|\_N$。由此得出充分性。
 
 唯一性由以下事实显然可得：对任意 $f, g$ 和任意 $p \in N$，取$M$ 中点 $p$ 的邻域 $U$ 上定义的函数 $\tilde{f}, \tilde{g}$，使其限制在 $U \cap N$ 上与 $f, g$ 一致，则必须有：
 
@@ -560,7 +561,7 @@ $$
 [^18]: Tralle A, Oprea J. Symplectic manifolds with no Kähler structure[M]. Springer, 2006.
 [^19]: 关键在于只需要确定$J$和$g$，反对称且非退化的$\omega$自动得到，而子复流形的$J$和$g$自动通过限制得到。
 [^20]: 用人话说就是$\varphi\_\*\left(\left.\frac{\partial}{\partial t}\right\|\_t\right)(f)=\left.\frac{\partial}{\partial t}\right\|\_t(f\circ\varphi)=\frac{d}{dt}f(\varphi(t))$，也就是屋里人常常看到的流形上参数曲线曲线的切向量定义。
-[^21]: 注意到$(\varphi^\*\omega)\_p(v,w)$，$\omega\_q\left(d\varphi\_p(v),d\varphi\_p(w)\right)$和$d\varphi\_p^\*\circ{\omega\_q}\circ d\varphi\_p(v,w)$三者相等。然后注意到对于线性映射$\mathrm{rank}(AB)\leq \min\{\mathrm{rank}(A),\mathrm{rank}(B)\}$，也就是秩越乘越小。
+[^21]: 注意到$(\varphi^\*\omega)\_p(v,w)$，$\omega\_q\left(d\varphi\_p(v),d\varphi\_p(w)\right)$和$d\varphi\_p^\*\circ{\omega\_q}\circ d\varphi\_p(v,w)$三者相等。然后注意到对于线性映射$\mathrm{rank}(AB)\leq \min\\{\mathrm{rank}(A),\mathrm{rank}(B)\\}$，也就是秩越乘越小。
 [^22]: 这是因为根据泊松子流形的定义，嵌入映射保泊松结构，而嵌入映射体现在函数$f,g$上就是把他们限制在子流形$N$上。
 [^23]: 这里相切是说$X\_p\in T\_p N$，也就是说对于无穷小的时间，$X\_p$诱导的“流动”不会跑出$N$，所以就得到下文所说的必要性。为什么相切是因为前面说的$X$由泊松括号定义，而在$N$上泊松括号的限制只依赖于$f\|\_N和g\|\_N$，所以本质上来说$X\_{p\in N}$其实可以看作是在$N$这个泊松子流形上定义的。和$M$无关，自然也就是$T\_pN$中的元。
 [^24]: Weinstein A. Symplectic geometry[J]. Bulletin of the American mathematical society, 1981, 5(1): 1-13.

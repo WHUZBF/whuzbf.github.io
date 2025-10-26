@@ -1,12 +1,16 @@
-source 'https://gems.ruby-china.com'
-gem 'github-pages', group: :jekyll_plugins
-gem 'jemoji'
-gem 'tzinfo'
-gem 'tzinfo-data'
-gem "jekyll-last-modified-at", group: :jekyll_plugins
-gem "nokogiri", group: :jekyll_plugins
-gem "jekyll-artisync", group: :jekyll_plugins
-gem 'jekyll-sitemap'
-gem 'jekyll-paginate'
+source "https://rubygems.org"
 
-gem "webrick", "~> 1.8"
+gem "github-pages", group: :jekyll_plugins
+
+# Windows 特定依赖
+gem "tzinfo"
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw]
+gem "webrick"
+gem "wdm", "~> 0.1.0"
+
+# 可选插件
+group :jekyll_plugins do
+    gem "jekyll-paginate"
+    gem "jemoji"
+    gem "jekyll-sitemap"
+end
