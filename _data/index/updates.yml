@@ -1,6 +1,8 @@
 # updates data
 - date: 2025-11
   description:
+    - desc: Optimized CSS for Categories and Tags pages.
+    - desc: Sidebar, Tags and Categories pages are now excluded from translation.
     - desc: Switched the website translator from CDN to local JS deployment.
     - desc: Switched website development from Windows to Mac.
 - date: 2025-10

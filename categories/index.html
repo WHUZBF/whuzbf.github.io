@@ -3,14 +3,15 @@ layout: page
 title:  Categories
 permalink: /categories/
 ---
-<div class="tag-list">
+<!--防止翻译此页面-->
+<div class="cat-list no-translate">
 {% for cat in site.categories %}
-  <div class="tag-group">
+  <div class="cat-group">
     {% capture cat_name %}{{ cat | first }}{% endcapture %}
-    <h5 class="tag-group-title" id="{{ cat_name | slugize }}">{{ cat_name }}</h5>
+    <h5 class="cat-group-title" id="{{ cat_name | slugize }}">{{ cat_name }}</h5>
     {% for post in site.categories[cat_name] %}
-    <article class="tag-item">
-      <a class="tag-item-title" href="{{ site.url }}{{ post.url }}">{{post.title}}</a>
+    <article class="cat-item">
+      <a class="cat-item-title" href="{{ site.url }}{{ post.url }}">{{post.title}}</a>
     </article>
     {% endfor %}
   </div>

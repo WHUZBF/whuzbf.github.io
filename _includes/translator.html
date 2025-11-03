@@ -4,6 +4,22 @@
     translate.setAutoDiscriminateLocalLanguage();    //设置用户第一次用时，自动识别其所在国家的语种进行切换
     translate.ignore.tag.push("mjx-container"); //不翻译数学公式
     translate.ignore.class.push("no-translate"); //不翻译的可以用no-translate
+    // 自定义翻译词典
+    translate.nomenclature.append('chinese_simplified','english',`
+        郑卜凡=Bufan Zheng
+    `);
+    translate.nomenclature.append('chinese_simplified','japanese',`
+        郑卜凡=テイ　ボクハン
+        Bufan Zheng=テイ　ボクハン
+    `);
+    translate.nomenclature.append('english','chinese_simplified',`
+        Bufan Zheng=郑卜凡
+        郑卜凡=郑卜凡
+    `);
+    translate.nomenclature.append('english','japanese',`
+        Bufan Zheng=テイ　ボクハン
+        郑卜凡=テイ　ボクハン
+    `);
     translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
     // translate.service.use('client');//这个有次数限制
     translate.listener.start();//监听动态变化

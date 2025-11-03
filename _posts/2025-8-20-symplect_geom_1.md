@@ -1,25 +1,16 @@
 ---
 layout: post
 title:  辛几何入门——第一章 序章
-categories: [辛几何翻訳]
+category: 辛几何翻訳
 tags: [math,physics]
 comments: true
 ---
 本系列文章是一个新系列文章，用于放自己翻译的植田一石教授写的「数物系のためのシンプレクティック幾何学入門」一书，注意，此翻译使用人工智能辅助翻译，本人已尽全力校对，阅读时请留意。全部系列文章可以在`categories`的`辛几何翻訳`下找到。下面也列了其余章节的链接供读者参考：
 
-[辛几何入门——第五章 动量映射与辛商]({{ site.website }}/articles/2025-10/symplect_geom_5)
-
-
-[辛几何入门——第四章 各种各样的辛流形]({{ site.website }}/articles/2025-09/symplect_geom_4)
-
-
-[辛几何入门——第三章 G结构的几何学]({{ site.website }}/articles/2025-09/symplect_geom_3)
-
-
-[辛几何入门——第二章分析力学]({{ site.website }}/articles/2025-08/symplect_geom_2)
-
-
-[辛几何入门——第一章 序章]({{ site.website }}/articles/2025-08/symplect_geom_1)
+{% assign symp_articles = site.posts | where: "category", "辛几何翻訳" | sort: "date" %}
+{% for post in symp_articles %}
+[{{ post.title }}]({{ post.url | relative_url }})
+{% endfor %}
 
 <!--more-->
 

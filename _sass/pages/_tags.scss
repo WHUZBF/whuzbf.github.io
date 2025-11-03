@@ -16,6 +16,7 @@ ul.tag-cloud {
 .tag-list {
   .tag-group {
     margin-bottom: 2em;
+
     .tag-group-title {
       color: $warning;
       text-transform: capitalize;
@@ -24,20 +25,36 @@ ul.tag-cloud {
     .tag-item {
       padding-left: 1em;
       margin-bottom: .5em;
+
       a {
         color: $text-color;
+
         &:hover,
         &:focus {
           color: lighten($text-color, 24%);
+        }
+
+        &.tag-item-title {
+          font-weight: bold;
+          font-size: 1.05em;
+          color: #0056b3;
+          text-decoration: none;
+
+          &:hover {
+            color: #007aff;
+            text-decoration: underline;
+          }
         }
       }
     }
   }
 }
 
+
 .cat-list {
   .cat-group {
     margin-bottom: 2em;
+
     .cat-group-title {
       color: $warning;
       text-transform: capitalize;
@@ -46,11 +63,25 @@ ul.tag-cloud {
     .cat-item {
       padding-left: 1em;
       margin-bottom: .5em;
+
       a {
         color: $danger;
+
         &:hover,
         &:focus {
           color: lighten($danger, 24%);
+        }
+      }
+
+      .cat-item-title {
+        font-weight: bold;
+        font-size: 1.05em;
+        color: #b30000; // 主色，可与 $danger 呼应
+        text-decoration: none;
+
+        &:hover {
+          color: #ff1a1a; // hover时亮红
+          text-decoration: underline;
         }
       }
     }
