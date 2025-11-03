@@ -38,7 +38,7 @@ $$
 a: G \times M \rightarrow M, \quad (g, x) \mapsto g \cdot x\tag{5.1.1}
 $$
 
-通过对 $a$微分 可以得到映射 $\mathfrak{g} \rightarrow \Gamma(TM)$， $Y \in \mathfrak{g}$ 的像记为 $\underline{Y} \in \Gamma(TM)$，并称为 $Y$ 的**基本向量场** (fundamental vector field)[^1]。假设对任意 $Y \in \mathfrak{g}$，存在某个函数 $\mu\_Y : M \rightarrow \mathbb{R}$，使得 $Y$ 的基本向量场 $\underline{Y}$ 成为与 $\mu\_Y$ 相关联的 Hamilton 向量场：
+通过对 $a$微分可以得到映射 $\mathfrak{g} \rightarrow \Gamma(TM)$， $Y \in \mathfrak{g}$ 的像记为 $\underline{Y} \in \Gamma(TM)$，并称为 $Y$ 的**基本向量场** (fundamental vector field)[^1]。假设对任意 $Y \in \mathfrak{g}$，存在某个函数 $\mu\_Y : M \rightarrow \mathbb{R}$，使得 $Y$ 的基本向量场 $\underline{Y}$ 成为与 $\mu\_Y$ 相关联的 Hamilton 向量场：
 
 $$
 X_{\mu_Y} = \underline{Y} \tag{5.1.2}

@@ -1,6 +1,7 @@
 # updates data
 - date: 2025-11
   description:
+    - desc: Fixed vertical cropping of display formulas. Line spacing for block formulas may be slightly increased.
     - desc: Optimized CSS for Categories and Tags pages.
     - desc: Sidebar, Tags and Categories pages are now excluded from translation.
     - desc: Switched the website translator from CDN to local JS deployment.
