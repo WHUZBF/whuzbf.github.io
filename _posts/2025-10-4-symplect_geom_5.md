@@ -403,19 +403,19 @@ $$
 \end{array} \tag{5.2.1}
 $$
 
-那么，在 $M/\!/G := \mu^{-1}(0)/G$ 上存在唯一的辛形式 $\omega\_{\text{red}}$，满足
+那么，在 $M/\\!/G := \mu^{-1}(0)/G$ 上存在唯一的辛形式 $\omega\_{\text{red}}$，满足
 
 $$
 \pi^*\omega_{\text{red}} = \iota^*\omega_M \tag{5.2.2}
 $$
 
-**证明.** 由于 $0 \in \mathfrak{g}^\*$ 是 $\mu$ 的正则值，$\mu^{-1}(0)$ 是 $M$ 的子流形[^23]。由于 $G$ 在 $\mu^{-1}(0)$ 上的作用是自由的，$M/\!/G := \mu^{-1}(0)/G$ 构成一个流形。 (5.2.2)换句话说就是对任意 $p \in \mu^{-1}(0)$ 和任意 $X, Y \in T\_p\mu^{-1}(0)$ 有[^24]
+**证明.** 由于 $0 \in \mathfrak{g}^\*$ 是 $\mu$ 的正则值，$\mu^{-1}(0)$ 是 $M$ 的子流形[^23]。由于 $G$ 在 $\mu^{-1}(0)$ 上的作用是自由的，$M/\\!/G := \mu^{-1}(0)/G$ 构成一个流形。 (5.2.2)换句话说就是对任意 $p \in \mu^{-1}(0)$ 和任意 $X, Y \in T\_p\mu^{-1}(0)$ 有[^24]
 
 $$
 (\omega_{\text{red}})_{\pi(p)}(\pi_*X, \pi_*Y) = (\omega_M)_{\iota(p)}(\iota_*X, \iota_*Y) \tag{5.2.3}
 $$
 
-由于 $\pi$ 是满射，满足此条件的 $M/\!/G$ 上的 2-形式若存在则唯一。为证明存在性，需说明对任意 $q \in M/\!/G$ 和 $\overline{X}, \overline{Y} \in T\_q(M/\!/G)$，选取满足 $\pi(p) = q$ 的 $p \in \mu^{-1}(0)$ 以及满足 $\pi\_\*X = \overline{X}, \pi\_\*Y = \overline{Y}$ 的 $X, Y$，并按下式定义
+由于 $\pi$ 是满射，满足此条件的 $M/\\!/G$ 上的 2-形式若存在则唯一。为证明存在性，需说明对任意 $q \in M/\\!/G$ 和 $\overline{X}, \overline{Y} \in T\_q(M/\\!/G)$，选取满足 $\pi(p) = q$ 的 $p \in \mu^{-1}(0)$ 以及满足 $\pi\_\*X = \overline{X}, \pi\_\*Y = \overline{Y}$ 的 $X, Y$，并按下式定义
 
 $$
 (\omega_{\text{red}})_q(\overline{X}, \overline{Y}) = (\omega_M)_p(\iota_*X, \iota_*Y) \tag{5.2.4}
