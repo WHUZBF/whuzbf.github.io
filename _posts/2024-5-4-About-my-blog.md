@@ -39,6 +39,18 @@ As for “why not just post on a platform like Zhihu?”—I’m not a fan, hone
 
 So I don’t want to debate research online. The internet, for me, is for relaxing and looking things up; academic discussions are better face-to-face 📚. This site mainly exists to please myself—if someone happens to get inspired along the way, even better 🌱.
 
+# 📚✨ About Posts
+
+Since I am still a student, errors or omissions in my blog posts are, unfortunately, inevitable. At present, the posts on this website fall into two main categories.
+
+The first type consists of **personal study notes**. These are usually based on peer-reviewed papers, or on explanations passed down by others that I have good reason to believe are reliable. Much of this content is relatively old and therefore fairly stable. That said, I sincerely hope that readers will always approach textbooks and academic literature with a **critical mindset**—even when reading work by well-established scholars. This applies even more so to reading this blog.
+
+The second type, started in **June 2025**, is my **personal academic diary**. Some entries also include reflections on daily life. I am not particularly fond of posting on social media, so I chose to keep these small records here instead. They are not meant to be especially valuable or polished. As for the academic parts, since they are written in a diary style, they tend to be quite casual—sometimes I simply want to jot down a thought for future reference. As a result, there may be places that are *“even not wrong”* 😉. As I read more and go deeper into research, my past thoughts may change significantly. If I still remember, I will do my best to update them in time.
+
+Therefore, please do not take the content here as something to be blindly trusted. Think of it instead as an ongoing discussion with another person. My diary posts are open for comments, so if my views fail to convince you, feel free to try convincing me—either in the comment section or directly via email.
+
+Thank you very much for engaging in discussion with me! 🙏💬
+
 # Acknowledge
 
 The position is open.
