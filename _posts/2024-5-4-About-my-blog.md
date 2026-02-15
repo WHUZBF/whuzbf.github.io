@@ -58,6 +58,8 @@ The position is open.
 # How To Find Me?
 You can contact me by email: **1271570053@qq.com**
 
+My work email: **bufan.zheng@hep-th.phys.s.u-tokyo.ac.jp**
+
 Or add my WeChat: **String_Is_Fun**
 
 PS: Please include your **name and purpose for contacting me**, otherwise I might get **quite confused** 😅.
@@ -70,7 +72,7 @@ The translator will keep the selected target language for translation even if yo
 ## Formula Rendering:
 With optimization, the website automatically adds a scrollbar for horizontal overflow when rendering formulas. However, I’m not sure why all formulas are being considered as vertically overflowing (although this doesn’t happen in most cases), so I used the code `overflow-y: hidden`. This works in most cases, but in rare instances, vertical overflow does occur, causing formulas to be wrongly cropped, especially when encountering large summation or product symbols. Based on my tests, this bug is not critical. It will automatically disappear when the webpage is zoomed in, and I recommend that you (if you are using a regular laptop to view this blog) set your browser zoom to 110%-125% for the best reading experience. Sometimes, MathJax might not work due to your network connection.
 
-2025-11: I have fixed this bug.
+**2025-11: I have fixed this bug.**
 
 ## Notice to Visitors from Mainland China
 If mathematical formulas or icons fail to load properly on this site, it may be due to network restrictions in your region. For optimal access to external resources (e.g., MathJax, SVG icons), we recommend **using a stable VPN connection**. This helps resolve content delivery issues caused by cross-border network limitations. We appreciate your understanding!
