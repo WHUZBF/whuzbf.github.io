@@ -1,0 +1,7 @@
+Report generated: 2026-02-19T00:18:13.464550
+attachment_folder: diary/attachment
+
+orig                                     | out                            | orig_size | out_size  | ok | method
+------------------------------------------------------------------------------------------------------------------------
+cabled Jones Polynomials.png             | cabled Jones Polynomials.webp  | 300.5KB   | 66.1KB    | True | converted(scale=1.0,q=95)
+S3的杨表.jpeg                               | S3的杨表.webp                     | 73.2KB    | 18.1KB    | True | converted(scale=1.0,q=95)
