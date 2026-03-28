@@ -1,0 +1,49 @@
+.spoiler {
+  display: inline;
+  padding: 0.02em 0.18em;
+  border-radius: 0.18em;
+  background: #111;
+  color: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.spoiler.is-revealed {
+  background: transparent;
+  color: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .spoiler:hover {
+    background: transparent;
+    color: inherit;
+  }
+}
+
+.spoiler:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 2px;
+}
+
+.spoiler a {
+  color: inherit;
+  pointer-events: none;
+}
+
+.spoiler.is-revealed a {
+  pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .spoiler:hover a {
+    pointer-events: auto;
+  }
+}
+
+/* 整段剧透可选 */
+.spoiler-block {
+  display: block;
+  padding: 0.5em 0.7em;
+  line-height: inherit;
+}

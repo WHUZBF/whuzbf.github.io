@@ -37,3 +37,18 @@
   link: "https://physics.run/"
   photo: "/img/friends/zheng_shen.webp"
   description: "我的评价是有钱买域名的富哥"
+
+- name: "CD3的官网"
+  link: "https://cd3.ipmu.jp"
+  photo: "/img/friends/cd3_logo.webp"
+  description: "IPMU的一个center，加入之后可以白嫖ChatGPT"
+
+- name: "素粒子論研究室"
+  link: "https://www-hep.phys.s.u-tokyo.ac.jp/ja/index.html"
+  photo: "/img/friends/soken.webp"
+  description: "这是我研究室的官方网站"
+
+- name: "桂研究室"
+  link: "https://park.itc.u-tokyo.ac.jp/hkatsura-lab/"
+  photo: "/img/friends/katsura.jpeg"
+  description: "这是我二导师的课题组网站"

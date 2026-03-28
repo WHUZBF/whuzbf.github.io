@@ -37,11 +37,35 @@
     }
   }
 
-
   ul {
     list-style: none;
     li {
       margin: 1em auto;
     }
+  }
+
+  .archive-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 40px;
+  }
+
+  .archive-item {
+    display: grid;
+    grid-template-columns: 6em minmax(0, 1fr);
+    column-gap: 0.4em;
+    align-items: start;
+    margin: 1em auto;
+  }
+
+  .archive-date {
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .archive-link {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }

@@ -290,7 +290,7 @@ link: xxxx                 # 如果是转载的文章可以在这里配置文章
 top: true                  # 这里可以配置文章置顶
 comments: true             # 这里可以配置文章是否允许Disqus评论
 lang: en                   # 这里可以设置页面的语言帮助浏览器识别，但大多数情况下不用写
-image:                     # 这里是配置文章的封面图
+image:                     # 这里是配置文章的封面图（网络链接也行）
   feature: xxx.png         # 这里配置封面图在img文件夹下的相对路径，不过我的文章一般没有封面图
   credit: xxx              # 封面图可能是“偷”的别人的，所以这里写明credit
   creditlink: xxx          # 同上，用来注明封面图的出处

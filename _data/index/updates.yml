@@ -1,4 +1,11 @@
 # updates data
+- date: 2026-3
+  description:
+    - desc: Updated the homepage image.
+    - desc: Fixed layout issues on the Archive page caused by long titles and translated dates. Translation-related compatibility issues have been improved, but are not yet fully resolved.
+    - desc: Added the official website of my laboratory and my secondary supervisor's group to the list of friendship links.
+    - desc: Added a spoiler-blocking feature that hides text until hovered.
+    - desc: Added the CD3 official website to the list of friendship links.
 - date: 2025-11
   description:
     - desc: Fixed vertical cropping of display formulas. Line spacing for block formulas may be slightly increased.
