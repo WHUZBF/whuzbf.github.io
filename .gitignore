@@ -23,4 +23,3 @@ _site
 .sass-cache
 sea-modules
 .cache
-Gemfile.lock

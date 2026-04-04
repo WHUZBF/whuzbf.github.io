@@ -1,6 +1,8 @@
 # updates data
 - date: 2026-4
   description:
+    - desc: Added CSS to prevent overflow in complex tables.
+    - desc: Migrated the development environment to a new platform and added the stable Gemfile.lock to Git.
     - desc: Fixed an issue where spoiler content did not work properly on mobile devices.
 - date: 2026-3
   description:

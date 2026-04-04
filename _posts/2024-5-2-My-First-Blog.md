@@ -205,7 +205,7 @@ $$
 - [ ] Downloads以及outreach页面最下方的社交媒体分享的ico没有正常显示。
 - [ ] 需要修改翻译域使得最下方的计数器等不会被翻译。
 - [ ] 计数器在safari以及edge上没有正常工作显示page view。
-- [ ] 在翻译AGT对偶的时候发现一个可以优化的地方，图片的说明文字只在点击放大的时候才会出现，感觉整成直接显示在图片下方比较好，但是这需要改图片显示的css逻辑，还要喝一些不希望有标题的图片兼容，比较麻烦，相当长的一段时间内不打算动。
+- [ ] 在翻译AGT对偶的时候发现一个可以优化的地方，图片的说明文字只在点击放大的时候才会出现，感觉整成直接显示在图片下方比较好，但是这需要改图片显示的css逻辑，还要和一些不希望有标题的图片兼容，比较麻烦，相当长的一段时间内不打算动。
 
 ## 解决方案
 
@@ -370,3 +370,46 @@ Bufan Zheng:   # 这是作者id，填入post的author的内容
 }
 ```
 
+## 一些方便我写博客的trick
+### 视频嵌入
+以youtube为例：
+```html
+<center>
+  <div style="max-width: 560px; width: 100%; aspect-ratio: 16 / 9;">
+    <iframe 
+      src="视频分享那里的嵌入代码给的网址"
+      title="YouTube video player"
+      style="width: 100%; height: 100%; border: 0;"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</center>
+```
+### 本站支持防剧透功能
+如果是一整段：
+
+```html
+<p class="spoiler spoiler-block">
+  这一整段都是剧透内容，桌面端悬停显示，移动端点按显示。
+</p>
+```
+
+如果只是一句话里面的一部分：
+
+```html
+<span class="spoiler">想说的话</span>
+```
+
+## 长列表
+
+本站的列表大致都默认是伸缩匹配宽度，但是有些列表比较复杂可能还是会溢出，这个时候可以使用下面的容器包裹
+
+```html
+<div class="table-wrapper">
+  
+</div>
+```
+
+可惜的是由于这样变成了html块，jekyll不再可以自动渲染markdown语法的table，所以要转而用html写。至于table如何从markdown转换为html，这个就问chatgpt吧。
