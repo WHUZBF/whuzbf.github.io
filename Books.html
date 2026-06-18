@@ -280,7 +280,9 @@ permalink: /books/
 </head>
 <body>
     <h1><i class="fas fa-book"></i> 我的藏书阁</h1>
-    <p>这里记录了我学习和研究过程中使用过的各种教科书，点击卡片可以查看我的详细评价</p>
+    <p>
+        这里记录了我学习和研究过程中使用过的各种教科书，点击卡片可以查看我的详细评价。本着负责任的角度，我只打算列一些我真正花时间看过的书，而不是仅仅听说过或者买来翻过的书，所以即便你在网上听到被吹的天花乱坠的书或许在我这里也看不到任何评价。另外这个页面是在我读研究生的时候才一时兴起建立的，所以本科阶段很多读过的书籍在记忆中早已模糊，所以评价或许有所失真。最后，在学习和研究中通常也会接触到大量讲义，而一些讲义的体量其实和教材也差不多，不过在本页面我选择只列举已出版的教科书。
+    </p>
 
     <div class="tabs">
         <div class="tab active" data-category="all">
@@ -342,110 +344,125 @@ permalink: /books/
     </div>
 
 <!--    这些js是deepseek帮忙写的，我删掉了一些不work的代码，然后修改了其它地方的一些代码使得不会出现bug（用bug抵消bug属于是）-->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // 标签切换功能
-        const tabs = document.querySelectorAll('.tab');
-        const bookCards = document.querySelectorAll('.book-card');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 标签切换功能
+            const tabs = document.querySelectorAll('.tab')
+            const bookCards = document.querySelectorAll('.book-card')
 
-        // 更新计数显示
-        function updateCategoryCounts() {
-            const counts = {
-                'all': bookCards.length,
-                'math': 0,
-                'physics': 0,
-                'computer': 0,
-                'language': 0,
-            };
-
-            bookCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (counts.hasOwnProperty(category)) {
-                    counts[category]++;
-                }
-            });
+            // 新增，支持一个 book 同时属于多个分类
+            // 例如 data-category="physics, math" 会被解析成 ['physics', 'math']
+            function getCardCategories(card) {
+                return (card.getAttribute('data-category') || '')
+                    .split(',')
+                    .map(item => item.trim().toLowerCase())
+                    .filter(Boolean)
+            }
 
             // 更新计数显示
-            tabs.forEach(tab => {
-                const category = tab.getAttribute('data-category');
-                const countElement = tab.querySelector('.category-count');
-                if (countElement && counts.hasOwnProperty(category)) {
-                    countElement.textContent = counts[category];
+            function updateCategoryCounts() {
+                const counts = {
+                    'all': bookCards.length,
+                    'math': 0,
+                    'physics': 0,
+                    'computer': 0,
+                    'language': 0,
                 }
-            });
-        }
 
-        updateCategoryCounts();
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // 更新活跃标签
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                // 过滤显示书籍
-                const category = tab.getAttribute('data-category');
                 bookCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
+                    const categories = getCardCategories(card)
 
-        // 卡片点击效果
-        bookCards.forEach(card => {
-            const typewriterElement = card.querySelector('.typewriter');
-            const showLessElement = card.querySelector('.show-less');
-            let isExpanded = false;
-            let typingInterval;
-            // 保存完整的 review 文本（只取一次）
-            const review = typewriterElement.textContent;
-
-            card.addEventListener('click', function(e) {
-                // ⛔ 如果点击在封面区域，直接返回
-                if (e.target.closest('.book-cover')) return;
-
-                if (!isExpanded) {
-                    // 展开卡片
-                    this.classList.add('expanded');
-
-                    // 清空并重置
-                    typewriterElement.textContent = "";
-                    let i = 0;
-
-                    // 清除旧的 interval
-                    clearInterval(typingInterval);
-
-                    // 开始打字机效果
-                    typingInterval = setInterval(() => {
-                        if (i < review.length) {
-                            typewriterElement.textContent += review.charAt(i);
-                            i++;
-                        } else {
-                            clearInterval(typingInterval);
-                            showLessElement.style.visibility = 'visible';
+                    categories.forEach(category => {
+                        if (counts.hasOwnProperty(category)) {
+                            counts[category]++
                         }
-                    }, 50);
+                    })
+                })
 
-                    isExpanded = true;
-                } else {
-                    // 收起卡片
-                    this.classList.remove('expanded');
-                    clearInterval(typingInterval);
+                // 更新计数显示
+                tabs.forEach(tab => {
+                    const category = tab.getAttribute('data-category')
+                    const countElement = tab.querySelector('.category-count')
+                    if (countElement && counts.hasOwnProperty(category)) {
+                        countElement.textContent = counts[category]
+                    }
+                })
+            }
 
-                    // 恢复初始状态
-                    typewriterElement.textContent = review;
-                    card.style.height = 'var(--card-height)';
-                    showLessElement.style.visibility = 'hidden';
+            updateCategoryCounts()
 
-                    isExpanded = false;
-                }
-            });
-        });
-    });
-</script>
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 更新活跃标签
+                    tabs.forEach(t => t.classList.remove('active'))
+                    tab.classList.add('active')
+
+                    // 过滤显示书籍
+                    const category = tab.getAttribute('data-category')
+                    bookCards.forEach(card => {
+                        const categories = getCardCategories(card)
+
+                        if (category === 'all' || categories.includes(category)) {
+                            card.style.display = 'block'
+                        } else {
+                            card.style.display = 'none'
+                        }
+                    })
+                })
+            })
+
+            // 卡片点击效果
+            bookCards.forEach(card => {
+                const typewriterElement = card.querySelector('.typewriter')
+                const showLessElement = card.querySelector('.show-less')
+                let isExpanded = false
+                let typingInterval
+
+                // 保存完整的 review 文本，只取一次
+                const review = typewriterElement.textContent
+
+                card.addEventListener('click', function(e) {
+                    // ⛔ 如果点击在封面区域，直接返回
+                    if (e.target.closest('.book-cover')) return
+
+                    if (!isExpanded) {
+                        // 展开卡片
+                        this.classList.add('expanded')
+
+                        // 清空并重置
+                        typewriterElement.textContent = ""
+                        let i = 0
+
+                        // 清除旧的 interval
+                        clearInterval(typingInterval)
+
+                        // 开始打字机效果
+                        typingInterval = setInterval(() => {
+                            if (i < review.length) {
+                                typewriterElement.textContent += review.charAt(i)
+                                i++
+                            } else {
+                                clearInterval(typingInterval)
+                                showLessElement.style.visibility = 'visible'
+                            }
+                        }, 50)
+
+                        isExpanded = true
+                    } else {
+                        // 收起卡片
+                        this.classList.remove('expanded')
+                        clearInterval(typingInterval)
+
+                        // 恢复初始状态
+                        typewriterElement.textContent = review
+                        card.style.height = 'var(--card-height)'
+                        showLessElement.style.visibility = 'hidden'
+
+                        isExpanded = false
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 </html>

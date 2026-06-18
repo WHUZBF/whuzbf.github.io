@@ -1,6 +1,10 @@
 # updates data
+- date: 2026-5
+  description:
+    - desc: Happy second anniversary!
 - date: 2026-4
   description:
+    - desc: Enabled multiple tags for the same book on the Books page.
     - desc: Added CSS to prevent overflow in complex tables.
     - desc: Migrated the development environment to a new platform and added the stable Gemfile.lock to Git.
     - desc: Fixed an issue where spoiler content did not work properly on mobile devices.
@@ -46,7 +50,7 @@
   description:
     - desc: All materials for the third seminar have been fully uploaded
     - desc: Added a new page to organize my handwritten notes and uploaded my bachelor thesis
-    - desc: first anniversary!
+    - desc: Happy first anniversary!
 - date: 2025-2
   description:
     - desc: Delete some LaTeX files

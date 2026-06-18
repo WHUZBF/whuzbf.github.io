@@ -13,11 +13,6 @@
   photo: "/img/friends/zhujiajun.jpg"
   description: "本网站建站起源与参考"
 
-- name: "Emberffの小破站"
-  link: "https://blog.emb42.com/"
-  photo: "/img/friends/Emberff.png"
-  description: "非常漂亮的网站，可惜本站审美很差"
-
 - name: "Shi Pi’s Homepage"
   link: "https://stonepi.github.io/"
   photo: "/img/friends/shipi.jpg"
@@ -52,3 +47,8 @@
   link: "https://park.itc.u-tokyo.ac.jp/hkatsura-lab/"
   photo: "/img/friends/katsura.jpeg"
   description: "这是我二导师的课题组网站"
+
+- name: "IPMU Our people"
+  link: "https://db.ipmu.jp/member/personal/8084en.html"
+  photo: "/img/friends/ipmu.webp"
+  description: "这是我在IPMU的占位符"
