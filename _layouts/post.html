@@ -10,6 +10,10 @@ layout: default
   {% if page.tikz %}
   {% include tikz.html %}
   {% endif %}
+<!--是否索引-->
+  {% if page.noindex %}
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  {% endif %}
 </head>
 
 <!-- 添加隐藏的元数据容器用于后续添加到剪切板复制内容 -->

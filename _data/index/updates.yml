@@ -1,4 +1,7 @@
 # updates data
+- date: 2026-7
+  description:
+    - desc: Added an option to prevent certain pages from being indexed by search engines.
 - date: 2026-5
   description:
     - desc: Happy second anniversary!
